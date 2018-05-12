@@ -156,3 +156,10 @@ questions:
             - {value: "$event->isStopped()", correct: false}
             - {value: "$event->isPropagationStop()", correct: false}
             - {value: "$event->isStop()", correct: false}
+    -
+        question: 'Lalala?'
+        answers:
+            - {value: "$event->isPropagationStopped()", correct: true}
+            - {value: "$event->isStopped()", correct: false}
+            - {value: "$event->isPropagationStop()", correct: false}
+            - {value: "$event->isStop()", correct: false}
