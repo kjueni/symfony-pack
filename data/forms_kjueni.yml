@@ -2,13 +2,429 @@ category: Forms (kjueni)
 questions:
   #Forms creation - https://symfony.com/doc/current/forms.html#content_wrapper
     -
-        question: 'Test 1'
+        question: 'What would be the correct way to create and receive a form in the controller using the form builder?'
         answers:
-            - {value: 1,   correct: false}
-            - {value: 2,   correct: false}
-            - {value: 3,   correct: false}
-            - {value: 4,   correct: false}
-            - {value: 5,   correct: false}
-            - {value: 6,   correct: false}
-            - {value: 7,   correct: false}
-            - {value: 8,   correct: true}
+            - {value: $form = $this->createFormBuilder($yourEntity)->getForm();,   correct: true}
+            - {value: $form = $this->createForm($yourEntity)->getForm();,          correct: false}
+            - {value: $form = $this->createFormBuilder($yourEntity);,              correct: false}
+            - {value: $form = $this->createForm($yourEntity),                      correct: false}
+    -
+        question: 'Assuming, you already have a form instance called "$form", how would you add a new field of type "date" called "dueDate"?'
+        answers:
+            - {value: $form->add('dueDate', DateType::class);,        correct: true}
+            - {value: $form->addField('dueDate', DateType::class);,   correct: false}
+            - {value: $form->add('due_date', DateType::class);,       correct: false}
+            - {value: $form->addField('dueDate', DateType::class);,   correct: false}
+            - {value: $form->add('dueDate', 'date');,                 correct: false}
+            - {value: $form->addField('dueDate', 'date');,            correct: false}
+    #Forms handling - http://symfony.com/doc/current/forms.html#handling-form-submissions
+    -
+        question: 'What would be the correct way to pass a request back to the form, assuming to have a valid request object?'
+        answers:
+            - {value: $form->handleRequest($request);,          correct: true}
+            - {value: $form->addRequest($request);,             correct: false}
+            - {value: $form->addRequest($request)->handle();,   correct: false}
+            - {value: $form->getRequest()->handle();,           correct: false}
+    -
+        question: 'How could you check if the form was submitted and the submitted values are valid?'
+        answers:
+            - {value: $form->isSubmitted() && $form->isValid(),                 correct: true}
+            - {value: $form->submitted() && $form->valid(),                     correct: false}
+            - {value: $form->isSubmittedAndValid(),                             correct: false}
+            - {value: $form->getRequest()->isSubmitted() && $form->isValid(),   correct: false}
+            - {value: $form->isValid() && $request->isSubmitted(),              correct: false}
+    -
+        question: 'The "$form->createView()" method should be called BEFORE the "$form->handleRequest($request)" is called, correct?'
+        answers:
+            - {value: False,    correct: true}
+            - {value: True,     correct: false}
+    -
+        question: 'After a valid form submission, what would be the right way to perform a post/redirect/get handling if you are inside a controller?'
+        answers:
+            - {value: return $this->redirectToRoute('your_success_route');,   correct: true}
+            - {value: return $this->redirectToAction('YourSuccessAction'),    correct: false}
+            - {value: return $this->redirect('your_success_route'),           correct: false}
+            - {value: return $this->routeTo('your_success_route'),            correct: false}
+            - {value: return $this->redirectTo('your_success_route'),         correct: false}
+    -
+        question: 'If you would like to submit a form manually and only update some fields after a PATCH request, which of the following would be the correct way?'
+        answers:
+            - {value: $form->submit($request->request->get($form->getName()), false);,    correct: true}
+            - {value: $form->submit($request->request->get($form->getName()));,           correct: false}
+            - {value: $form->submit($request->request->get($form->getForm()), false);,    correct: false}
+            - {value: $form->submit($request->request->get($form->getForm()));,           correct: false}
+            - {value: $form->submit($request->request->getData(), false);,                correct: false}
+            - {value: $form->submit($request->request->getData());,                       correct: false}
+            - {value: $form->submit($request->request->get($form->getName()), true);,     correct: false}
+            - {value: $form->submit($request->request->get($form->getForm()), false);,    correct: false}
+    #Form types - http://symfony.com/doc/current/forms.html#creating-form-classes
+    -
+        question: 'When creating form classes that extend the Symfony\Component\Form\AbstractType, which method with which parameters needs to be implemented to tell the builder which fields should be added?'
+        answers:
+            - {value: buildForm(FormBuilderInterface $builder, array $options),     correct: true}
+            - {value: buildForm(FormBuilderInterface $builder),                     correct: false}
+            - {value: createForm(FormBuilderInterface $builder, array $options),    correct: false}
+            - {value: createForm(FormBuilderInterface $builder),                    correct: false}
+            - {value: buildForm(),                                                  correct: false}
+            - {value: createForm(),                                                 correct: false}
+    -
+        question: 'What will happen, if you map a form to an object and a field does not exist on the mapped object?'
+        answers:
+            - {value: An exception is thrown,             correct: true}
+            - {value: The field will simply be ignored,   correct: false}
+            - {value: A warning gets displayed,           correct: false}
+            - {value: A fatal error will be triggered,    correct: false}
+    -
+        question: 'If you have a checkbox called "agreeTerms" you do not want to be mapped to the object, what would be the correcty syntax?'
+        answers:
+            - {value: $builder->add('agreeTerms', CheckboxType::class, array('mapped' => false));,    correct: true}
+            - {value: $builder->add('agreeTerms', CheckboxType::class, false);,                       correct: false}
+            - {value: $builder->add('agreeTerms', array('mapped' => false), CheckboxType::class);,    correct: false}
+            - {value: $builder->add('agreeTerms', false, CheckboxType::class);,                       correct: false}
+    -
+        question: 'If a field, e.g. "agreeTerms" is not mapped to the given object, how could you get its submitted value?'
+        answers:
+            - {value: $form->get('agreeTerms')->getData();,                     correct: true}
+            - {value: $form->getData('agreeTerms');,                            correct: false}
+            - {value: $form->getField('agreeTerms')->getData();,                correct: false}
+            - {value: $form->getFields()->getData('agreeTerms');,               correct: false}
+            - {value: $form->getFields()->getData('agreeTerms')->getValue();,   correct: false}
+            - {value: $form->getField('agreeTerms')->getValue();,               correct: false}
+    #Forms rendering with Twig - http://symfony.com/doc/current/forms.html#rendering-the-form
+    -
+        question: 'Which method needs to be executed to render the form, before passing the created object to a twig template?'
+        answers:
+            - {value: $form->createView();,       correct: true}
+            - {value: $form->create();,           correct: false}
+            - {value: $form->render();,           correct: false}
+            - {value: $form->renderView();,       correct: false}
+            - {value: $form->getTemplate();,      correct: false}
+            - {value: $form->renderTemplate();,   correct: false}
+    -
+        question: 'What would be the correct syntax to render the start tag of a form?'
+        answers:
+            - {value: {{ form_start(form) }},   correct: true}
+            - {value: {{ start_form(form) }},   correct: false}
+            - {value: {{ form(form) }},   correct: false}
+            - {value: {{ startForm(form) }},   correct: false}
+            - {value: {{ formStart(form) }},   correct: false}
+            - {value: {{ start(form) }},   correct: false}
+    -
+        question: 'What would be the correct syntax to render the end tag of a form?'
+        answers:
+            - {value: {{ form_end(form) }},   correct: true}
+            - {value: {{ end_form(form) }},   correct: false}
+            - {value: {{ form(form) }},       correct: false}
+            - {value: {{ endForm(form) }},    correct: false}
+            - {value: {{ formEnd(form) }},    correct: false}
+            - {value: {{ end(form) }},        correct: false}
+    -
+        question: 'What would be the correct syntax to render all fields of a form inside the start and end tag?'
+        answers:
+            - {value: {{ form_widget(form) }},            correct: true}
+            - {value: {{ form_fields(form) }},            correct: false}
+            - {value: {% form_fields(form) %},            correct: false}
+            - {value: {% form_render(form) %},            correct: false}
+            - {value: {{ form_render_fields(form) }},     correct: false}
+            - {value: {{ form_form(form) }},              correct: false}
+            - {value: {% form_display(form) %},           correct: false}
+            - {value: {{ form_display_fields(form) }},    correct: false}
+    -
+        question: 'What would be the correct syntax to render the errors of a form?'
+        answers:
+            - {value: {{ form_errors(form) }},              correct: true}
+            - {value: {{ form_error(form) }},               correct: false}
+            - {value: {{ form_errors_render(form) }},       correct: false}
+            - {value: {{ formErrors(form) }},               correct: false}
+            - {value: {% form_errors(form) %},              correct: false}
+            - {value: {% form_render_erros(form) %},        correct: false}
+    -
+        question: 'Which syntax would you use to render only a certain field WITH label and errors called "dueDate" of a form?'
+        answers:
+            - {value: {{ form_row(form.dueDate) }},                 correct: true}
+            - {value: {{ form_field(form.dueDate) }},               correct: false}
+            - {value: {{ form_widget(form.dueDate) }},              correct: false}
+            - {value: {% form_row(form.dueDate) %},                 correct: false}
+            - {value: {% form_field(form.dueDate) %},               correct: false}
+            - {value: {% form_widget(form.dueDate) %},              correct: false}
+    -
+        question: 'What would be the correct syntax to get the value of the field "task"?'
+        answers:
+            - {value: {{ form.vars.value.task }},         correct: true}
+            - {value: {{ form.value.task }},              correct: false}
+            - {value: {{ form.vars.task }},               correct: false}
+            - {value: {{ form.vars.task.value }},         correct: false}
+            - {value: {{ form.values.task }},             correct: false}
+            - {value: {{ form.vars.value.task.value }},   correct: false}
+    -
+        question: 'If you have a field called "task", which syntax would be correct to only display the errors of this field?'
+        answers:
+            - {value: {{ form_errors(form.task) }},           correct: true}
+            - {value: {{ form_errors('task') }},              correct: false}
+            - {value: {{ form_errors('task', form) }},        correct: false}
+            - {value: {{ form_errors(form.fields.task) }},    correct: false}
+            - {value: {{ form_errors(form.vars.task) }},      correct: false}
+    -
+        question: 'What would be the correct syntax to only render a certain field (dueDate) WITHOUT label and errors?'
+        answers:
+            - {value: {{ form_widget(form.dueDate) }},          correct: true}
+            - {value: {{ form_field(form.dueDate) }},           correct: false}
+            - {value: {{ form_widget('dueDate') }},             correct: false}
+            - {value: {{ form_render_field(form.dueDate) }},    correct: false}
+            - {value: {{ form_render_widget('dueDate') }},      correct: false}
+            - {value: {{ form_widget_field(form.dueDate) }},    correct: false}
+            - {value: {{ form_widget_field('dueDate') }},       correct: false}
+            - {value: {{ form_widget('dueDate') }},             correct: false}
+    -
+        question: 'If you have a field called "task", which syntax would be correct to only display the label of this field?'
+        answers:
+            - {value: {{ form_label(form.task) }},              correct: true}
+            - {value: {{ form_labels('task') }},                correct: false}
+            - {value: {{ form_label('task', form) }},           correct: false}
+            - {value: {{ form_labels(form.fields.task) }},      correct: false}
+            - {value: {{ {{ form_labels(form.task) }} }},       correct: false}
+    -
+        question: 'How to specify a certain CSS-class called "task_field" for a specific field?'
+        answers:
+            - {value: {{ form_widget(form.task, {'attr': {'class': 'task_field'}}) }},          correct: true}
+            - {value: {{ form_widget(form.task, {'options': {'class': 'task_field'}}) }},       correct: false}
+            - {value: {{ form_widget(form.task, {'attributes': {'class': 'task_field'}}) }},    correct: false}
+            - {value: {{ form_widget(form.task, {'attr': {'class': 'task_field'}}) }},          correct: false}
+            - {value: {{ form_widget(form.task, {'class': 'task_field'}) }},                    correct: false}
+            - {value: {{ form_widget(form.task, 'task_field') }},                               correct: false}
+            - {value: {{ form_widget(form.task, {'attr': {'cls': 'task_field'}}) }},            correct: false}
+            - {value: {{ form_widget(form.task, {'attributes': {'cls': 'task_field'}}) }},      correct: false}
+    #Forms theming - http://symfony.com/doc/current/form/form_themes.html
+    -
+        question: 'Assuming, you want to create a custom theme " for a form row, which tags would surround this definitions?'
+        answers:
+            - {value: {% block form_row %}{% endblock form_row %},   correct: true}
+            - {value: {% theme form_row %}{% endtheme form_row %},   correct: false}
+            - {value: {% theme_block form_row %}{% end_theme_block form_row %},   correct: false}
+            - {value: {% form_row %}{%  end_form_row %},   correct: false}
+    -
+        question: 'What is the correct syntax to include one or multiple custom theme(s) in a twig-template?'
+        answers:
+            - {value: {% form_theme form 'form/fields.html.twig' %},                            correct: true}
+            - {value: {% form_theme form 'form/fields.html.twig' 'form/fields2.html.twig' %},   correct: true}
+            - {value: {% form_block form 'form/fields.html.twig' %},                            correct: false}
+            - {value: {% form_block form 'form/fields.html.twig' 'form/fields2.html.twig' %},   correct: false}
+            - {value: {% theme form 'form/fields.html.twig' %},                                 correct: false}
+            - {value: {% theme form 'form/fields.html.twig' 'form/fields2.html.twig' %},        correct: false}
+            - {value: {% form_theme form 'form/fields.html' %},                                 correct: false}
+            - {value: {% form_theme form 'form/fields.html' 'form/fields2.html' %},             correct: false}
+            - {value: {% form_block form 'form/fields.html' %},                                 correct: false}
+            - {value: {% form_block form 'form/fields.html' 'form/fields2.html' %},             correct: false}
+            - {value: {% theme form 'form/fields.html' %},                                      correct: false}
+            - {value: {% theme form 'form/fields.html' 'form/fields2.html' %},                  correct: false}
+            - {value: {% include form_theme 'form/fields.html.twig' %},                            correct: false}
+            - {value: {% include form_theme 'form/fields.html.twig' 'form/fields2.html.twig' %},   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+    -
+        question: ''
+        answers:
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
+            - {value: ,   correct: false}
