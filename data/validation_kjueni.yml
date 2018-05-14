@@ -1,0 +1,334 @@
+category: Validation (kjueni)
+questions:
+    #PHP object validation - http://symfony.com/doc/current/validation.html#the-basics-of-validation
+    -
+        question: 'What is the namespace of all constraints in Symfony?'
+        answers:
+            - {value: "Symfony\\Component\\Validator\\Constraints", correct: true}
+            - {value: "Symfony\\Validator\\Constraints", correct: false}
+            - {value: "Symfony\\Component\\Validators\\Constraints", correct: false}
+            - {value: "Symfony\\Validators\\Constraints", correct: false}
+    -
+        question: 'True or False ? Only public properties can be validated'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Private, protected properties as well as getters and entire classes can be validated'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What type is returned by the validate method of the validator?'
+        answers:
+            - {value: "A ConstraintViolationList", correct: true}
+            - {value: "A plain PHP array", correct: false}
+            - {value: "A ViolationList", correct: false}
+            - {value: "A ConstraintViolationErrorList", correct: false}
+    -
+        question: 'How can the validator be enabled for the framework in the config framework.yaml?'
+        answers:
+            - {value: "validation: { enabled: true }", correct: true}
+            - {value: "validator: { enabled: true }", correct: false}
+            - {value: "validation: true", correct: false}
+            - {value: "validator: true", correct: false}
+    -
+        question: 'How can annotations be enabled for the framework in the config framework.yaml?'
+        answers:
+            - {value: "validation: { enable_annotations: true }", correct: true}
+            - {value: "validator: { enable_annotations: true }", correct: false}
+            - {value: "validation: { annotations: true }", correct: false}
+            - {value: "validator: { annotations: true }", correct: false}
+    #Built-in validation constraints - http://symfony.com/doc/current/validation.html#supported-constraints
+    -
+        question: 'Which of the following basic constraints do exist?'
+        answers:
+            - {value: "NotBlank", correct: true}
+            - {value: "Blank", correct: true}
+            - {value: "NotNull", correct: true}
+            - {value: "IsNull", correct: true}
+            - {value: "IsTrue", correct: true}
+            - {value: "IsFalse", correct: true}
+            - {value: "Type", correct: true}
+            - {value: "IsBlank", correct: false}
+            - {value: "IsNotBlank", correct: false}
+            - {value: "IsNotTrue", correct: false}
+            - {value: "InstanceOf", correct: false}
+            - {value: "MemberOf", correct: false}
+            - {value: "TypeOf", correct: false}
+    -
+        question: 'Which of the following string constraints do exist?'
+        answers:
+            - {value: "Email", correct: true}
+            - {value: "Length", correct: true}
+            - {value: "Url", correct: true}
+            - {value: "Regex", correct: true}
+            - {value: "Ip", correct: true}
+            - {value: "Uuid", correct: true}
+            - {value: "Id", correct: false}
+            - {value: "Uri", correct: false}
+            - {value: "Mail", correct: false}
+            - {value: "Host", correct: false}
+    -
+        question: 'Which of the following number constraints do exist?'
+        answers:
+            - {value: "Range", correct: true}
+            - {value: "Integer", correct: false}
+            - {value: "Number", correct: false}
+            - {value: "Int", correct: false}
+            - {value: "Digit", correct: false}
+    -
+        question: 'Which of the following comparison constraints do exist?'
+        answers:
+            - {value: "EqualTo", correct: true}
+            - {value: "NotEqualTo", correct: true}
+            - {value: "IdenticalTo", correct: true}
+            - {value: "NotIdenticalTo", correct: true}
+            - {value: "LessThan", correct: true}
+            - {value: "LessThanOrEqual", correct: true}
+            - {value: "GreaterThan", correct: true}
+            - {value: "GreaterThanOrEqual", correct: true}
+            - {value: "SameAs", correct: false}
+            - {value: "LowerThan", correct: false}
+            - {value: "LowerThanOrEqual", correct: false}
+    -
+        question: 'Which of the following date constraints do exist?'
+        answers:
+            - {value: "Date", correct: true}
+            - {value: "DateTime", correct: true}
+            - {value: "Time", correct: true}
+            - {value: "DateTimeImmutable", correct: false}
+    -
+        question: 'Which of the following collection constraints do exist?'
+        answers:
+            - {value: "Choice", correct: true}
+            - {value: "Collection", correct: true}
+            - {value: "Count", correct: true}
+            - {value: "UniqueEntity", correct: true}
+            - {value: "Language", correct: true}
+            - {value: "Locale", correct: true}
+            - {value: "Country", correct: true}
+            - {value: "City", correct: false}
+            - {value: "DuplicateEntity", correct: false}
+            - {value: "Selection", correct: false}
+            - {value: "Range", correct: false}
+    -
+        question: 'Which of the following file constraints do exist?'
+        answers:
+            - {value: "File", correct: true}
+            - {value: "Image", correct: true}
+            - {value: "Blob", correct: false}
+            - {value: "Binary", correct: false}
+            - {value: "Resource", correct: false}
+    -
+        question: 'Which of the following financial and others constraints to exist?'
+        answers:
+            - {value: "Bic", correct: true}
+            - {value: "CardScheme", correct: true}
+            - {value: "Currency", correct: true}
+            - {value: "Luhn", correct: true}
+            - {value: "Iban", correct: true}
+            - {value: "Isbn", correct: true}
+            - {value: "Issn", correct: true}
+            - {value: "Sdir", correct: false}
+            - {value: "CreditCard", correct: false}
+    -
+        question: 'Which of the following other constraints do exist?'
+        answers:
+            - {value: "Callback", correct: true}
+            - {value: "Expression", correct: true}
+            - {value: "All", correct: true}
+            - {value: "UserPassword", correct: true}
+            - {value: "Valid", correct: true}
+            - {value: "Invalid", correct: false}
+            - {value: "None", correct: false}
+            - {value: "Every", correct: false}
+    -
+        question: 'Which of the following statements are correct?'
+        answers:
+            - {value: '@Assert\Choice(choices = { "fiction", "non-fiction" })', correct: true}
+            - {value: '@Assert\Choice({"fiction", "non-fiction"})', correct: true}
+            - {value: '@Assert\Choice("fiction", "non-fiction")', correct: false}
+            - {value: '@Assert\Choice("fiction, non-fiction")', correct: false}
+            - {value: '@Assert\Choice(choices = "fiction", "non-fiction" )', correct: false}
+    #Validation scopes - http://symfony.com/doc/current/validation.html#constraint-targets
+    -
+        question: 'If there is a property $firstName, what would be the correct constraint to check for a string length of at least 3 characters?'
+        answers:
+            - {value: "@Assert\Length(min=3)", correct: true}
+            - {value: "@Assert\\StringLength(min=3)", correct: false}
+            - {value: "@Assert\\StringLength(min_length=3)", correct: false}
+            - {value: "@Assert\Length(min_length=3)", correct: false}
+            - {value: "@Assert\Length({min:3})", correct: false}
+            - {value: "@Assert\\StringLength({min:3})", correct: false}
+    -
+        question: 'How do the names of your getter methods have to start so a constraint can be added?'
+        answers:
+            - {value: "get", correct: true}
+            - {value: "is", correct: true}
+            - {value: "has", correct: true}
+            - {value: "set", correct: false}
+            - {value: "constrainable", correct: false}
+            - {value: "got", correct: false}
+            - {value: "can", correct: false}
+            - {value: "con", correct: false}
+    -
+        question: 'Which constraint must be applied to a getter method to check if the return value must === true?'
+        answers:
+            - {value: '@Assert\IsTrue(message="Your message")', correct: true}
+            - {value: '@Assert\IsTrue()', correct: true}
+            - {value: '@Assert\IsTrue("Your message")', correct: false}
+    -
+        question: 'True or False ? The getter prefixes is, has or get are omitted in the mappings for the YAML, XML and PHP formats'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #Validation groups - http://symfony.com/doc/current/validation/groups.html
+    -
+        question: 'True or False ? The "Default" validation group contains the constraints in the current class and all referenced classes that belong to no other group'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The "Default" validation group contains the constraints in the current class bot not the constraints of referenced classes'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? There is always a second validation group by default with the name of the class. e.g. "User" for class "User"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'If you want to apply a NotBlank constraint only for the validation group "registration" to a property of your class, what would be the correct syntax?'
+        answers:
+            - {value: '@Assert\NotBlank(groups={"registration"})', correct: true}
+            - {value: '@Assert\NotBlank(group="registration")', correct: false}
+            - {value: '@Assert\NotBlank(groups="registration")', correct: false}
+            - {value: '@Assert\NotBlank(group="registration")', correct: false}
+            - {value: '@Assert\NotBlank groups={"registration"}', correct: false}
+    -
+        question: 'If you have a validation group called "registration" in your "User" class and you would like to validate only this group, what would be the correct syntax?'
+        answers:
+            - {value: "$errors = $validator->validate($user, null, array('registration'));", correct: true}
+            - {value: "$errors = $validator->validate($user, array('registration'));", correct: false}
+            - {value: "$errors = $validator->validateGroup($user, 'registration');", correct: false}
+            - {value: "$errors = $validator->validate($user, null, 'registration');", correct: false}
+            - {value: "$errors = $validator->validateGroup($user, null, 'registration');", correct: false}
+            - {value: "$errors = $validator->validateGroup($user, array('registration'));", correct: false}
+    #Group sequence - http://symfony.com/doc/current/validation/sequence_provider.html
+    -
+        question: 'True or False ? If you specify @Assert\GroupSequence({"User", "Strict"}) in the DocBlock of your class both of the validation groups will be validated for sure'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? If you specify @Assert\GroupSequence({"User", "Strict"}) in the DocBlock of your class the "Strict" group will only be validated if the "User" group passes validation'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the correct key to set in the options of the form to define the validation groups or group sequences to use?'
+        answers:
+            - {value: "validation_groups", correct: true}
+            - {value: "groups", correct: false}
+            - {value: "validator_groups", correct: false}
+            - {value: "validation.groups", correct: false}
+    -
+        question: 'If your class implements the GroupSequenceProviderInterface and you have 3 validation groups (User, Premium and Api) and you want that the groups User and Premium are validated for sure but the Api group only, if the two others pass. How would your return array look like?'
+        answers:
+            - {value: "return array(array('User', 'Premium'), 'Api');", correct: true}
+            - {value: "return array(array('User'), array('Premium'), 'Api');", correct: false}
+            - {value: "return array(array('User', 'Premium', array('Api')));", correct: false}
+            - {value: "return array('User, Premium', 'Api');", correct: false}
+    -
+        question: 'True or False ? The array key to add a GroupSequence to your form via the OptionsResolver must be "validation_group_sequence"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'If your class implements the GroupSequenceProviderInterface, which method must be added to get an array of validation groups?'
+        answers:
+            - {value: "getGroupSequence", correct: true}
+            - {value: "getGroups", correct: false}
+            - {value: "getSequenceGroups", correct: false}
+            - {value: "getGroupSequences", correct: false}
+            - {value: "getValidationGroup", correct: false}
+    #Custom callback validators - http://symfony.com/doc/current/reference/constraints/Callback.html
+    -
+        question: 'True or False ? A custom validator must return an associative array with all error messages'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What would be the correct syntax to add a violation to a specific field called "firstName" in the validate method?'
+        answers:
+            - {value: "$context->buildViolation('Error!')->atPath('firstName')->addViolation();", correct: true}
+            - {value: "$context->buildViolation('Error!')->atPath('firstName');", correct: false}
+            - {value: "$context->buildViolation()->atPath('firstName')->addViolation('Error!');", correct: false}
+            - {value: "$context->createViolation('Error!')->atPath('firstName')->addViolation();", correct: false}
+            - {value: "$context->createViolation('Error!')->atPath('firstName');", correct: false}
+            - {value: "$context->createViolation()->atPath('firstName')->addViolation('Error!');", correct: false}
+            - {value: "$context->assertViolation('Error!')->atPath('firstName')->addViolation();", correct: false}
+            - {value: "$context->assertViolation('Error!')->atPath('firstName');", correct: false}
+            - {value: "$context->assertViolation()->atPath('firstName')->addViolation('Error!');", correct: false}
+    -
+        question: 'True or False ? If you declare the validate method as static, the class instance has to be added as second parameter after the context parameter'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? If you declare the validate method as static, the class instance has to be added as first parameter before the context parameter'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the right syntax to add an annotation for an external validator called "Acme\Validator" with the validation method "validate"?'
+        answers:
+            - {value: '@Assert\Callback({"Acme\Validator", "validate"})', correct: true}
+            - {value: '@Assert\CallbackValidator({"Acme\Validator", "validate"})', correct: false}
+            - {value: '@Assert\Callback({"Acme\Validator::validate"})', correct: false}
+            - {value: '@Assert\CallbackValidator({"Acme\Validator::validate"})', correct: false}
+            - {value: '@Assert\StaticCallback({"Acme\Validator", "validate"})', correct: false}
+            - {value: '@Assert\StaticCallback({"Acme\Validator::validate"})', correct: false}
+    #Violations builder - https://symfony.com/doc/current/validation/custom_constraint.html#creating-the-validator-itself
+    -
+        question: 'True or False ? If you create your own constraint and you would like to use via annotations, it is necessary to add an "@Annotation" annotation to your DocBlock'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If you create your own constraint and you would like to use via annotations, it is NOT necessary to add an "@Annotation" annotation to your DocBlock'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Every custom constraint that extends the "Constraint" class must implement the validate method'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Every custom constraint validator that extends the "ConstraintValidator" class must implement the "validate" method'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'If the message of your constraint contains a placeholder called "{{ string }}" how would you apply the entered value ($value) to the error message via the ViolationBuilder?'
+        answers:
+            - {value: "$this->context->buildViolation($message)->setParameter('{{ string }}', $value)->addViolation()", correct: true}
+            - {value: "$this->context->buildViolation($message)->setParam('{{ string }}', $value)->addViolation()", correct: false}
+            - {value: "$this->context->buildViolation($message)->setParameter('string', $value)->addViolation()", correct: false}
+            - {value: "$this->context->buildViolation($message)->setParam('string', $value)->addViolation()", correct: false}
+            - {value: "$this->context->buildViolation($message)->setParameters(array('string' => $value)->addViolation()", correct: false}
+    -
+        question: 'How must a custom constraint called "ContainsAlphanumeric" of the namespace "AcmeAssert" be applied via annotations to a property?'
+        answers:
+            - {value: "@AcmeAssert\\ContainsAlphanumeric", correct: true}
+            - {value: "@Annotation(AcmeAssert\\ContainsAlphanumeric)", correct: false}
+            - {value: "@AcmeAssert\\ContainsAlphanumeric()", correct: false}
+            - {value: "@Annotation(AcmeAssert\\ContainsAlphanumeric())", correct: false}
+    -
+        question: 'True or False ? You can only either use a constraint as a class constraint OR as a property constraint'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}

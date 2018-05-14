@@ -329,7 +329,7 @@ questions:
             - {value: You can change the name of the hidden field by setting the option 'field_name' in the OptionsResolver of the form,                    correct: false}
             - {value: CSRF protection is enabled by default when installing the Symfony Form component,                                                     correct: false}
             - {value: "In Twig {{ csrf_token('delete-item') }} generates a new token",                                                                      correct: true}
-            - {value: "In Twig {{ csrf_generate_token('delete-item') }} generates a new token",                                                            correct: false}
+            - {value: "In Twig {{ csrf_generate_token('delete-item') }} generates a new token",                                                             correct: false}
     #Handling file upload - http://symfony.com/doc/current/controller/upload_file.html
     -
         question: 'Which annotation would you use in an entity to make sure only pdf-files should be uploaded? Assuming that you have included the following validator as "Assert": Symfony\Component\Validator\Constraints'
