@@ -15,7 +15,6 @@ questions:
             - {value: $form->addField('dueDate', DateType::class);,   correct: false}
             - {value: $form->add('due_date', DateType::class);,       correct: false}
             - {value: $form->addField('dueDate', DateType::class);,   correct: false}
-            - {value: $form->addField('dueDate', 'date');,            correct: false}
     #Forms handling - http://symfony.com/doc/current/forms.html#handling-form-submissions
     -
         question: 'What would be the correct way to pass a request back to the form, assuming to have a valid request object?'
