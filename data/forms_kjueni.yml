@@ -15,7 +15,6 @@ questions:
             - {value: $form->addField('dueDate', DateType::class);,   correct: false}
             - {value: $form->add('due_date', DateType::class);,       correct: false}
             - {value: $form->addField('dueDate', DateType::class);,   correct: false}
-            - {value: $form->add('dueDate', 'date');,                 correct: false}
             - {value: $form->addField('dueDate', 'date');,            correct: false}
     #Forms handling - http://symfony.com/doc/current/forms.html#handling-form-submissions
     -
