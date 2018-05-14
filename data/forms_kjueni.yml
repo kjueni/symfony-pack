@@ -15,6 +15,8 @@ questions:
             - {value: $form->addField('dueDate', DateType::class);,   correct: false}
             - {value: $form->add('due_date', DateType::class);,       correct: false}
             - {value: $form->addField('dueDate', DateType::class);,   correct: false}
+            - {value: "$form->add('dueDate', 'date');",               correct: false}
+            - {value: "$form->addField('dueDate', 'date');",          correct: false}
     #Forms handling - http://symfony.com/doc/current/forms.html#handling-form-submissions
     -
         question: 'What would be the correct way to pass a request back to the form, assuming to have a valid request object?'
@@ -34,8 +36,8 @@ questions:
     -
         question: 'The "$form->createView()" method should be called BEFORE the "$form->handleRequest($request)" is called, correct?'
         answers:
-            - {value: False,    correct: true}
-            - {value: True,     correct: false}
+            - {value: "False",    correct: true}
+            - {value: "True",     correct: false}
     -
         question: 'After a valid form submission, what would be the right way to perform a post/redirect/get handling if you are inside a controller?'
         answers:
@@ -47,24 +49,24 @@ questions:
     -
         question: 'If you would like to submit a form manually and only update some fields after a PATCH request, which of the following would be the correct way?'
         answers:
-            - {value: $form->submit($request->request->get($form->getName()), false);,    correct: true}
-            - {value: $form->submit($request->request->get($form->getName()));,           correct: false}
-            - {value: $form->submit($request->request->get($form->getForm()), false);,    correct: false}
-            - {value: $form->submit($request->request->get($form->getForm()));,           correct: false}
-            - {value: $form->submit($request->request->getData(), false);,                correct: false}
-            - {value: $form->submit($request->request->getData());,                       correct: false}
-            - {value: $form->submit($request->request->get($form->getName()), true);,     correct: false}
-            - {value: $form->submit($request->request->get($form->getForm()), false);,    correct: false}
+            - {value: "$form->submit($request->request->get($form->getName()), false);",    correct: true}
+            - {value: $form->submit($request->request->get($form->getName()));,             correct: false}
+            - {value: "$form->submit($request->request->get($form->getForm()), false);",    correct: false}
+            - {value: $form->submit($request->request->get($form->getForm()));,             correct: false}
+            - {value: "$form->submit($request->request->getData(), false);",                correct: false}
+            - {value: $form->submit($request->request->getData());,                         correct: false}
+            - {value: "$form->submit($request->request->get($form->getName()), true);",     correct: false}
+            - {value: "$form->submit($request->request->get($form->getForm()), false);",    correct: false}
     #Form types - http://symfony.com/doc/current/forms.html#creating-form-classes
     -
         question: 'When creating form classes that extend the Symfony\Component\Form\AbstractType, which method with which parameters needs to be implemented to tell the builder which fields should be added?'
         answers:
-            - {value: buildForm(FormBuilderInterface $builder, array $options),     correct: true}
-            - {value: buildForm(FormBuilderInterface $builder),                     correct: false}
-            - {value: createForm(FormBuilderInterface $builder, array $options),    correct: false}
-            - {value: createForm(FormBuilderInterface $builder),                    correct: false}
-            - {value: buildForm(),                                                  correct: false}
-            - {value: createForm(),                                                 correct: false}
+            - {value: "buildForm(FormBuilderInterface $builder, array $options)",       correct: true}
+            - {value: buildForm(FormBuilderInterface $builder),                         correct: false}
+            - {value: "createForm(FormBuilderInterface $builder, array $options)",      correct: false}
+            - {value: createForm(FormBuilderInterface $builder),                        correct: false}
+            - {value: buildForm(),                                                      correct: false}
+            - {value: createForm(),                                                     correct: false}
     -
         question: 'What will happen, if you map a form to an object and a field does not exist on the mapped object?'
         answers:
@@ -75,10 +77,10 @@ questions:
     -
         question: 'If you have a checkbox called "agreeTerms" you do not want to be mapped to the object, what would be the correcty syntax?'
         answers:
-            - {value: $builder->add('agreeTerms', CheckboxType::class, array('mapped' => false));,    correct: true}
-            - {value: $builder->add('agreeTerms', CheckboxType::class, false);,                       correct: false}
-            - {value: $builder->add('agreeTerms', array('mapped' => false), CheckboxType::class);,    correct: false}
-            - {value: $builder->add('agreeTerms', false, CheckboxType::class);,                       correct: false}
+            - {value: "$builder->add('agreeTerms', CheckboxType::class, array('mapped' => false));",    correct: true}
+            - {value: "$builder->add('agreeTerms', CheckboxType::class, false);",                       correct: false}
+            - {value: "$builder->add('agreeTerms', array('mapped' => false), CheckboxType::class);",    correct: false}
+            - {value: "$builder->add('agreeTerms', false, CheckboxType::class);",                       correct: false}
     -
         question: 'If a field, e.g. "agreeTerms" is not mapped to the given object, how could you get its submitted value?'
         answers:
@@ -101,130 +103,129 @@ questions:
     -
         question: 'What would be the correct syntax to render the start tag of a form?'
         answers:
-            - {value: {{ form_start(form) }},   correct: true}
-            - {value: {{ start_form(form) }},   correct: false}
-            - {value: {{ form(form) }},   correct: false}
-            - {value: {{ startForm(form) }},   correct: false}
-            - {value: {{ formStart(form) }},   correct: false}
-            - {value: {{ start(form) }},   correct: false}
+            - {value: "{{ form_start(form) }}",     correct: true}
+            - {value: "{{ start_form(form) }}",     correct: false}
+            - {value: "{{ form(form) }}",           correct: false}
+            - {value: "{{ startForm(form) }}",      correct: false}
+            - {value: "{{ formStart(form) }}",      correct: false}
+            - {value: "{{ start(form) }}",          correct: false}
     -
         question: 'What would be the correct syntax to render the end tag of a form?'
         answers:
-            - {value: {{ form_end(form) }},   correct: true}
-            - {value: {{ end_form(form) }},   correct: false}
-            - {value: {{ form(form) }},       correct: false}
-            - {value: {{ endForm(form) }},    correct: false}
-            - {value: {{ formEnd(form) }},    correct: false}
-            - {value: {{ end(form) }},        correct: false}
+            - {value: "{{ form_end(form) }}",   correct: true}
+            - {value: "{{ end_form(form) }}",   correct: false}
+            - {value: "{{ form(form) }}",       correct: false}
+            - {value: "{{ endForm(form) }}",    correct: false}
+            - {value: "{{ formEnd(form) }}",    correct: false}
+            - {value: "{{ end(form) }}",        correct: false}
     -
         question: 'What would be the correct syntax to render all fields of a form inside the start and end tag?'
         answers:
-            - {value: {{ form_widget(form) }},            correct: true}
-            - {value: {{ form_fields(form) }},            correct: false}
-            - {value: {% form_fields(form) %},            correct: false}
-            - {value: {% form_render(form) %},            correct: false}
-            - {value: {{ form_render_fields(form) }},     correct: false}
-            - {value: {{ form_form(form) }},              correct: false}
-            - {value: {% form_display(form) %},           correct: false}
-            - {value: {{ form_display_fields(form) }},    correct: false}
+            - {value: "{{ form_widget(form) }}",            correct: true}
+            - {value: "{{ form_fields(form) }}",            correct: false}
+            - {value: "{% form_fields(form) %}",            correct: false}
+            - {value: "{% form_render(form) %}",            correct: false}
+            - {value: "{{ form_render_fields(form) }}",     correct: false}
+            - {value: "{{ form_form(form) }}",              correct: false}
+            - {value: "{% form_display(form) %}",           correct: false}
+            - {value: "{{ form_display_fields(form) }}",    correct: false}
     -
         question: 'What would be the correct syntax to render the errors of a form?'
         answers:
-            - {value: {{ form_errors(form) }},              correct: true}
-            - {value: {{ form_error(form) }},               correct: false}
-            - {value: {{ form_errors_render(form) }},       correct: false}
-            - {value: {{ formErrors(form) }},               correct: false}
-            - {value: {% form_errors(form) %},              correct: false}
-            - {value: {% form_render_erros(form) %},        correct: false}
+            - {value: "{{ form_errors(form) }}",              correct: true}
+            - {value: "{{ form_error(form) }}",               correct: false}
+            - {value: "{{ form_errors_render(form) }}",       correct: false}
+            - {value: "{{ formErrors(form) }}",               correct: false}
+            - {value: "{% form_errors(form) %}",              correct: false}
+            - {value: "{% form_render_erros(form) %}",        correct: false}
     -
         question: 'Which syntax would you use to render only a certain field WITH label and errors called "dueDate" of a form?'
         answers:
-            - {value: {{ form_row(form.dueDate) }},                 correct: true}
-            - {value: {{ form_field(form.dueDate) }},               correct: false}
-            - {value: {{ form_widget(form.dueDate) }},              correct: false}
-            - {value: {% form_row(form.dueDate) %},                 correct: false}
-            - {value: {% form_field(form.dueDate) %},               correct: false}
-            - {value: {% form_widget(form.dueDate) %},              correct: false}
+            - {value: "{{ form_row(form.dueDate) }}",                 correct: true}
+            - {value: "{{ form_field(form.dueDate) }}",               correct: false}
+            - {value: "{{ form_widget(form.dueDate) }}",              correct: false}
+            - {value: "{% form_row(form.dueDate) %}",                 correct: false}
+            - {value: "{% form_field(form.dueDate) %}",               correct: false}
+            - {value: "{% form_widget(form.dueDate) %}",              correct: false}
     -
         question: 'What would be the correct syntax to get the value of the field "task"?'
         answers:
-            - {value: {{ form.vars.value.task }},         correct: true}
-            - {value: {{ form.value.task }},              correct: false}
-            - {value: {{ form.vars.task }},               correct: false}
-            - {value: {{ form.vars.task.value }},         correct: false}
-            - {value: {{ form.values.task }},             correct: false}
-            - {value: {{ form.vars.value.task.value }},   correct: false}
+            - {value: "{{ form.vars.value.task }}",         correct: true}
+            - {value: "{{ form.value.task }}",              correct: false}
+            - {value: "{{ form.vars.task }}",               correct: false}
+            - {value: "{{ form.vars.task.value }}",         correct: false}
+            - {value: "{{ form.values.task }}",             correct: false}
+            - {value: "{{ form.vars.value.task.value }}",   correct: false}
     -
         question: 'If you have a field called "task", which syntax would be correct to only display the errors of this field?'
         answers:
-            - {value: {{ form_errors(form.task) }},           correct: true}
-            - {value: {{ form_errors('task') }},              correct: false}
-            - {value: {{ form_errors('task', form) }},        correct: false}
-            - {value: {{ form_errors(form.fields.task) }},    correct: false}
-            - {value: {{ form_errors(form.vars.task) }},      correct: false}
+            - {value: "{{ form_errors(form.task) }}",           correct: true}
+            - {value: "{{ form_errors('task') }}",              correct: false}
+            - {value: "{{ form_errors('task', form) }}",        correct: false}
+            - {value: "{{ form_errors(form.fields.task) }}",    correct: false}
+            - {value: "{{ form_errors(form.vars.task) }}",      correct: false}
     -
         question: 'What would be the correct syntax to only render a certain field (dueDate) WITHOUT label and errors?'
         answers:
-            - {value: {{ form_widget(form.dueDate) }},          correct: true}
-            - {value: {{ form_field(form.dueDate) }},           correct: false}
-            - {value: {{ form_widget('dueDate') }},             correct: false}
-            - {value: {{ form_render_field(form.dueDate) }},    correct: false}
-            - {value: {{ form_render_widget('dueDate') }},      correct: false}
-            - {value: {{ form_widget_field(form.dueDate) }},    correct: false}
-            - {value: {{ form_widget_field('dueDate') }},       correct: false}
-            - {value: {{ form_widget('dueDate') }},             correct: false}
+            - {value: "{{ form_widget(form.dueDate) }}",          correct: true}
+            - {value: "{{ form_field(form.dueDate) }}",           correct: false}
+            - {value: "{{ form_widget('dueDate') }}",             correct: false}
+            - {value: "{{ form_render_field(form.dueDate) }}",    correct: false}
+            - {value: "{{ form_render_widget('dueDate') }}",      correct: false}
+            - {value: "{{ form_widget_field(form.dueDate) }}",    correct: false}
+            - {value: "{{ form_widget_field('dueDate') }}",       correct: false}
+            - {value: "{{ form_widget('dueDate') }}",             correct: false}
     -
         question: 'If you have a field called "task", which syntax would be correct to only display the label of this field?'
         answers:
-            - {value: {{ form_label(form.task) }},              correct: true}
-            - {value: {{ form_labels('task') }},                correct: false}
-            - {value: {{ form_label('task', form) }},           correct: false}
-            - {value: {{ form_labels(form.fields.task) }},      correct: false}
-            - {value: {{ {{ form_labels(form.task) }} }},       correct: false}
+            - {value: "{{ form_label(form.task) }}",              correct: true}
+            - {value: "{{ form_labels('task') }}",                correct: false}
+            - {value: "{{ form_label('task', form) }}",           correct: false}
+            - {value: "{{ form_labels(form.fields.task) }}",      correct: false}
+            - {value: "{{ form_labels(form.task) }}",             correct: false}
     -
         question: 'How to specify a certain CSS-class called "task_field" for a specific field?'
         answers:
-            - {value: {{ form_widget(form.task, {'attr': {'class': 'task_field'}}) }},          correct: true}
-            - {value: {{ form_widget(form.task, {'options': {'class': 'task_field'}}) }},       correct: false}
-            - {value: {{ form_widget(form.task, {'attributes': {'class': 'task_field'}}) }},    correct: false}
-            - {value: {{ form_widget(form.task, {'attr': {'class': 'task_field'}}) }},          correct: false}
-            - {value: {{ form_widget(form.task, {'class': 'task_field'}) }},                    correct: false}
-            - {value: {{ form_widget(form.task, 'task_field') }},                               correct: false}
-            - {value: {{ form_widget(form.task, {'attr': {'cls': 'task_field'}}) }},            correct: false}
-            - {value: {{ form_widget(form.task, {'attributes': {'cls': 'task_field'}}) }},      correct: false}
+            - {value: "{{ form_widget(form.task, {'attr': {'class': 'task_field'}}) }}",          correct: true}
+            - {value: "{{ form_widget(form.task, {'options': {'class': 'task_field'}}) }}",       correct: false}
+            - {value: "{{ form_widget(form.task, {'attributes': {'class': 'task_field'}}) }}",    correct: false}
+            - {value: "{{ form_widget(form.task, {'class': 'task_field'}) }}",                    correct: false}
+            - {value: "{{ form_widget(form.task, 'task_field') }}",                               correct: false}
+            - {value: "{{ form_widget(form.task, {'attr': {'cls': 'task_field'}}) }}",            correct: false}
+            - {value: "{{ form_widget(form.task, {'attributes': {'cls': 'task_field'}}) }}",      correct: false}
     #Forms theming - http://symfony.com/doc/current/form/form_themes.html
     -
         question: 'Assuming, you want to create a custom theme for a form row, which tags would surround this definitions?'
         answers:
-            - {value: {% block form_row %}{% endblock form_row %},   correct: true}
-            - {value: {% theme form_row %}{% endtheme form_row %},   correct: false}
-            - {value: {% theme_block form_row %}{% end_theme_block form_row %},   correct: false}
-            - {value: {% form_row %}{%  end_form_row %},   correct: false}
+            - {value: "{% block form_row %}{% endblock form_row %}",                correct: true}
+            - {value: "{% theme form_row %}{% endtheme form_row %}",                correct: false}
+            - {value: "{% theme_block form_row %}{% end_theme_block form_row %}",   correct: false}
+            - {value: "{% form_row %}{%  end_form_row %}",                          correct: false}
     -
         question: 'What is the correct syntax to include one or multiple custom theme(s) in a twig-template?'
         answers:
-            - {value: {% form_theme form 'form/fields.html.twig' %},                                correct: true}
-            - {value: {% form_theme form 'form/fields.html.twig' 'form/fields2.html.twig' %},       correct: true}
-            - {value: {% form_theme form form/fields.html.twig form/fields2.html.twig %},           correct: false}
-            - {value: {% form_block form form/fields.html.twig %},                                  correct: false}
-            - {value: {% form_block form 'form/fields.html.twig' 'form/fields2.html.twig' %},       correct: false}
-            - {value: {% theme form 'form/fields.html.twig' %},                                     correct: false}
-            - {value: {% theme form 'form/fields.html.twig' 'form/fields2.html.twig' %},            correct: false}
-            - {value: {% form_theme form 'form/fields.html' %},                                     correct: false}
-            - {value: {% form_theme form form/fields.html form/fields2.html %},                     correct: false}
-            - {value: {% form_block form 'form/fields.html' %},                                     correct: false}
-            - {value: {% form_block form 'form/fields.html' 'form/fields2.html' %},                 correct: false}
-            - {value: {% theme form 'form/fields.html' %},                                          correct: false}
-            - {value: {% theme form 'form/fields.html' 'form/fields2.html' %},                      correct: false}
-            - {value: {% include form_theme 'form/fields.html.twig' %},                             correct: false}
-            - {value: {% include form_theme 'form/fields.html.twig' 'form/fields2.html.twig' %},    correct: false}
+            - {value: "{% form_theme form 'form/fields.html.twig' %}",                                correct: true}
+            - {value: "{% form_theme form 'form/fields.html.twig' 'form/fields2.html.twig' %}",       correct: true}
+            - {value: "{% form_theme form form/fields.html.twig form/fields2.html.twig %}",           correct: false}
+            - {value: "{% form_block form form/fields.html.twig %}",                                  correct: false}
+            - {value: "{% form_block form 'form/fields.html.twig' 'form/fields2.html.twig' %}",       correct: false}
+            - {value: "{% theme form 'form/fields.html.twig' %}",                                     correct: false}
+            - {value: "{% theme form 'form/fields.html.twig' 'form/fields2.html.twig' %}",            correct: false}
+            - {value: "{% form_theme form 'form/fields.html' %}",                                     correct: false}
+            - {value: "{% form_theme form form/fields.html form/fields2.html %}",                     correct: false}
+            - {value: "{% form_block form 'form/fields.html' %}",                                     correct: false}
+            - {value: "{% form_block form 'form/fields.html' 'form/fields2.html' %}",                 correct: false}
+            - {value: "{% theme form 'form/fields.html' %}",                                          correct: false}
+            - {value: "{% theme form 'form/fields.html' 'form/fields2.html' %}",                      correct: false}
+            - {value: "{% include form_theme 'form/fields.html.twig' %}",                             correct: false}
+            - {value: "{% include form_theme 'form/fields.html.twig' 'form/fields2.html.twig' %}",    correct: false}
     -
         question: 'What is the correct helper function to output minified html content in twig?'
         answers:
-            - {value: {% spaceless %}{% endspaceless %},              correct: true}
-            - {value: {% minified %}{% endminified %},                correct: false}
-            - {value: {% nospace %}{% endnospace %},                  correct: false}
-            - {value: {% filter_nospace %}{% endfileter_nospace %},   correct: false}
+            - {value: "{% spaceless %}{% endspaceless %}",              correct: true}
+            - {value: "{% minified %}{% endminified %}",                correct: false}
+            - {value: "{% nospace %}{% endnospace %}",                  correct: false}
+            - {value: "{% filter_nospace %}{% endfileter_nospace %}",   correct: false}
     -
         question: 'Which different parts of a form exist by default?'
         answers:
@@ -260,20 +261,20 @@ questions:
     -
         question: 'If you want to customize a formblock directly in your template, how would you import the active theme?'
         answers:
-            - {value: {% form_theme form _self %},          correct: true}
-            - {value: {% import form_theme form _self %},   correct: false}
-            - {value: {% include form_theme _self %},       correct: false}
-            - {value: {% include theme form _self %},       correct: false}
-            - {value: {% theme form _self %},               correct: false}
-            - {value: {% hinclude form _self %},            correct: false}
-            - {value: {% include form _self %},             correct: false}
+            - {value: "{% form_theme form _self %}",          correct: true}
+            - {value: "{% import form_theme form _self %}",   correct: false}
+            - {value: "{% include form_theme _self %}",       correct: false}
+            - {value: "{% include theme form _self %}",       correct: false}
+            - {value: "{% theme form _self %}",               correct: false}
+            - {value: "{% hinclude form _self %}",            correct: false}
+            - {value: "{% include form _self %}",             correct: false}
     -
         question: 'Inside which tags would you override the label fragement?'
         answers:
-            - {value: {% block form_label %}{% endblock form_label %},   correct: true}
-            - {value: {% block widget_label %}{% endblock widgetlabel %},   correct: false}
-            - {value: {% theme form_label %}{% endtheme form_label %},   correct: false}
-            - {value: {% form theme form_label %}{% endform theme form_label %},   correct: false}
+            - {value: "{% block form_label %}{% endblock form_label %}",   correct: true}
+            - {value: "{% block widget_label %}{% endblock widgetlabel %}",   correct: false}
+            - {value: "{% theme form_label %}{% endtheme form_label %}",   correct: false}
+            - {value: "{% form theme form_label %}{% endform theme form_label %}",   correct: false}
     -
         question: 'If you would like to include the customized templates in templates/form in all templates, where would you add the "form" config?'
         answers:
@@ -286,30 +287,30 @@ questions:
             - {value: In config/packages/templates.yaml in framework/form/resources,              correct: false}
             - {value: In config/packages/framework.yaml in framework/form/resources,              correct: false}
     -
-        question: '"{% use \'form_div_layout.html.twig\' with integer_widget as base_integer_widget %}" imports the integer widget block as a reference base_integer_widget, True or False?'
+        question: '{% use "form_div_layout.html.twig" with integer_widget as base_integer_widget %} imports the integer widget block as a reference base_integer_widget, True or False?'
         answers:
-            - {value: True,    correct: true}
-            - {value: False,   correct: false}
+            - {value: "True",    correct: true}
+            - {value: "False",   correct: false}
     -
-        question: '"{% \'form_div_layout.html.twig\' with integer_widget as base_integer_widget %}" imports the integer widget block as a reference base_integer_widget, True or False?'
+        question: '{% "form_div_layout.html.twig" with integer_widget as base_integer_widget %} imports the integer widget block as a reference base_integer_widget, True or False?'
         answers:
-            - {value: True,    correct: false}
-            - {value: False,   correct: true}
+            - {value: "True",    correct: false}
+            - {value: "False",   correct: true}
     -
-        question: '"{% use \'form_div_layout.html.twig\' integer_widget as base_integer_widget %}" imports the integer widget block as a reference base_integer_widget, True or False?'
+        question: '{% use "form_div_layout.html.twig" integer_widget as base_integer_widget %} imports the integer widget block as a reference base_integer_widget, True or False?'
         answers:
-            - {value: True,    correct: false}
-            - {value: False,   correct: true}
+            - {value: "True",    correct: false}
+            - {value: "False",   correct: true}
     -
         question: 'If you want to extend a widget template block in an external template, how would include its base template in twig?'
         answers:
-            - {value: {{ parent() }},           correct: true}
-            - {value: {{ base_template() }},    correct: false}
-            - {value: {{ include_parent() }},   correct: false}
-            - {value: {{ callParent() }},       correct: false}
-            - {value: {{ render_parent() }},    correct: false}
-            - {value: {{ call_parent() }},      correct: false}
-            - {value: {{ _self::parent() }},    correct: false}
+            - {value: "{{ parent() }}",           correct: true}
+            - {value: "{{ base_template() }}",    correct: false}
+            - {value: "{{ include_parent() }}",   correct: false}
+            - {value: "{{ callParent() }}",       correct: false}
+            - {value: "{{ render_parent() }}",    correct: false}
+            - {value: "{{ call_parent() }}",      correct: false}
+            - {value: "{{ _self::parent() }}",    correct: false}
     #CSRF protection - http://symfony.com/doc/current/security/csrf.html
     -
         question: 'What does CSRF stand for?'
@@ -324,33 +325,33 @@ questions:
         answers:
             - {value: A session is started automatically as soon as you render a form with CSRF protection,                                                 correct: true}
             - {value: CSRF tokens are meant to be the same for every user,                                                                                  correct: false}
-            - {value: To enable CSRF protection for a specific form, you must set 'csrf_protection' to true when passing defaults to the OptionsResolver,   correct: true}
+            - {value: "To enable CSRF protection for a specific form, you must set 'csrf_protection' to true when passing defaults to the OptionsResolver", correct: true}
             - {value: You can change the name of the hidden field by setting the option 'field_name' in the OptionsResolver of the form,                    correct: false}
             - {value: CSRF protection is enabled by default when installing the Symfony Form component,                                                     correct: false}
-            - {value: In Twig {{ csrf_token('delete-item') }} generates a new token,                                                                        correct: true}
-            - {value: In Twig {{ csrf_generates_token('delete-item') }} generates a new token,                                                              correct: false}
+            - {value: "In Twig {{ csrf_token('delete-item') }} generates a new token",                                                                      correct: true}
+            - {value: "In Twig {{ csrf_generate_token('delete-item') }} generates a new token",                                                            correct: false}
     #Handling file upload - http://symfony.com/doc/current/controller/upload_file.html
     -
         question: 'Which annotation would you use in an entity to make sure only pdf-files should be uploaded? Assuming that you have included the following validator as "Assert": Symfony\Component\Validator\Constraints'
         answers:
-            - {value: @Assert\File(mimeTypes={"application/pdf"}),      correct: true}
-            - {value: @Assert\File\PDF(true),                           correct: false}
-            - {value: @Assert\File( "application/pdf" ),                correct: false}
-            - {value: @Assert\File(mimeType={"application/pdf"}),       correct: false}
-            - {value: @Assert\File(mime_type={"application/pdf"}),      correct: false}
-            - {value: @Assert\File(mimeTypes=[{"application/pdf"}]),    correct: false}
+            - {value: 'Assert\File(mimeTypes={"application/pdf"})',      correct: true}
+            - {value: 'Assert\File\PDF(true)',                           correct: false}
+            - {value: 'Assert\File("application/pdf")',                  correct: false}
+            - {value: 'Assert\File(mimeType={"application/pdf"})',       correct: false}
+            - {value: 'Assert\File(mime_type={"application/pdf"})',      correct: false}
+            - {value: 'Assert\File(mimeTypes=[{"application/pdf"}])',    correct: false}
     -
         question: 'What would be the correct syntax to add a file-field called "brochure" to your form via the FormBuilder?'
         answers:
-            - {value: $builder->add('brochure', FileType::class, array('label' => 'Brochure (PDF file)')),            correct: true}
-            - {value: $builder->addField('brochure', FileType::class, 'Brochure (PDF file)'),                         correct: false}
-            - {value: $builder->addField('brochure', FileType::class, array('label' => 'Brochure (PDF file)')),       correct: false}
-            - {value: $builder->add(FileType::class, 'brochure', array('label' => 'Brochure (PDF file)')),            correct: false}
-            - {value: $builder->add('brochure', FileType::class, array('label' => 'Brochure (PDF file)')),            correct: false}
-            - {value: $builder->add('brochure', FileType::class, array('label' => 'Brochure (PDF file)')),            correct: false}
-            - {value: $builder->addField('FileType::class, brochure', array('label' => 'Brochure (PDF file)')),       correct: false}
-            - {value: $builder->add('brochure', 'FileType', array('label' => 'Brochure (PDF file)')),                 correct: false}
-            - {value: $builder->add(FileType::class, array('label' => 'Brochure (PDF file)', 'name' => 'brochure')),  correct: false}
+            - {value: "$builder->add('brochure', FileType::class, array('label' => 'Brochure (PDF file)'))",            correct: true}
+            - {value: "$builder->addField('brochure', FileType::class, 'Brochure (PDF file)')",                         correct: false}
+            - {value: "$builder->addField('brochure', FileType::class, array('label' => 'Brochure (PDF file)'))",       correct: false}
+            - {value: "$builder->add(FileType::class, 'brochure', array('label' => 'Brochure (PDF file)'))",            correct: false}
+            - {value: "$builder->add('brochure', FileType::class, array('label' => 'Brochure (PDF file)'))",            correct: false}
+            - {value: "$builder->add('brochure', FileType::class, array('label' => 'Brochure (PDF file)'))",            correct: false}
+            - {value: "$builder->addField('FileType::class, brochure', array('label' => 'Brochure (PDF file)'))",       correct: false}
+            - {value: "$builder->add('brochure', 'FileType', array('label' => 'Brochure (PDF file)'))",                 correct: false}
+            - {value: "$builder->add(FileType::class, array('label' => 'Brochure (PDF file)', 'name' => 'brochure'))",  correct: false}
     -
         question: 'Which method of Symfony\Component\HttpFoundation\File\UploadedFile can assume the extension of an uploaded file based on the mime-type?'
         answers:
@@ -364,8 +365,8 @@ questions:
     -
         question: 'For security reasons you should use guessExtension and not getExtension when using Symfony\Component\HttpFoundation\File\UploadedFile. Is this statement correct?'
         answers:
-            - {value: True,   correct: true}
-            - {value: False,   correct: false}
+            - {value: "True",   correct: true}
+            - {value: "False",   correct: false}
     #Built-in form types - https://certification.symfony.com/
     -
         question: 'Which of the following text field types exist in the Symfony Form component?'
@@ -433,13 +434,13 @@ questions:
     -
         question: 'To set the form type for a CollectionType field you have to specify the "entry_type" property in the field-options. Is this statement correct?'
         answers:
-            - {value: True,     correct: true}
-            - {value: False,    correct: false}
+            - {value: "True",     correct: true}
+            - {value: "False",    correct: false}
     -
         question: 'To set the form type for a CollectionType field you have to specify the "form_type" property in the field-options. Is this statement correct?'
         answers:
-            - {value: True,     correct: false}
-            - {value: False,    correct: true}
+            - {value: "True",     correct: false}
+            - {value: "False",    correct: true}
     -
         question: 'What would be the most common use of the RepeatedType type?'
         answers:
@@ -461,13 +462,13 @@ questions:
     -
         question: 'When calling "addModelTransformer" method with a CallbackTransformer, the first argument of the transformer would be a callback function to convert "modelData -> normData" and the second would be a callback function  to convert "normData -> modelData". Is this statement correct?'
         answers:
-            - {value: True,   correct: true}
-            - {value: False,   correct: false}
+            - {value: "True",   correct: true}
+            - {value: "False",   correct: false}
     -
         question: 'When calling "addModelTransformer" method with a CallbackTransformer, the first argument of the transformer would be a callback function to convert "normData -> modelData" and the second would be a callback function  to convert "modelData -> normData". Is this statement correct?'
         answers:
-            - {value: True,   correct: false}
-            - {value: False,   correct: true}
+            - {value: "True",   correct: false}
+            - {value: "False",   correct: true}
     -
         question: 'When implementing the DataTransformerInterface which of the following method(s) needs to be implemented?'
         answers:
@@ -479,13 +480,13 @@ questions:
     -
         question: 'As a general rule, the normalized data should contain as much information as possible. Is this statement correct?'
         answers:
-            - {value: True,     correct: true}
-            - {value: False,    correct: false}
+            - {value: "True",     correct: true}
+            - {value: "False",    correct: false}
     -
         question: 'As a general rule, the normalized data should contain as little information as possible. Is this statement correct?'
         answers:
-            - {value: True,     correct: false}
-            - {value: False,    correct: true}
+            - {value: "True",     correct: false}
+            - {value: "False",    correct: true}
     #Form events - http://symfony.com/doc/current/form/events.html
     -
         question: 'Which event constants do exist for pre-populating a form?'
@@ -522,37 +523,37 @@ questions:
     -
         question: 'The form events are fired in the following order: form.pre_set_data, form.post_set_data, form.pre_bind, form.bind, form.post_bind? Is this statement correct?'
         answers:
-            - {value: True,     correct: true}
-            - {value: False,    correct: false}
+            - {value: "True",     correct: true}
+            - {value: "False",    correct: false}
     -
         question: 'The form events are fired in the following order: form.pre_bind, form.bind, form.post_bind, form.pre_set_data, form.post_set_data? Is this statement correct?'
         answers:
-            - {value: True,     correct: false}
-            - {value: False,    correct: true}
+            - {value: "True",     correct: false}
+            - {value: "False",    correct: true}
     -
         question: 'The form events are fired in the following order: form.pre_bind, form.bind, form.pre_set_data, form.post_set_data, form.post_bind? Is this statement correct?'
         answers:
-            - {value: True,     correct: false}
-            - {value: False,    correct: true}
+            - {value: "True",     correct: false}
+            - {value: "False",    correct: true}
     -
         question: 'The form events are fired in the following order: form.bind, form.post_bind, form.pre_set_data, form.post_set_data, form.pre_bind? Is this statement correct?'
         answers:
-            - {value: True,     correct: false}
-            - {value: False,    correct: true}
+            - {value: "True",     correct: false}
+            - {value: "False",    correct: true}
     -
         question: 'The form.post_set_data event is fired BEFORE the form.pre_bind event. Is this statement correct?'
         answers:
-            - {value: True,     correct: true}
-            - {value: False,    correct: false}
+            - {value: "True",     correct: true}
+            - {value: "False",    correct: false}
     -
         question: 'The form.pre_bind event event is fired BEFORE the form.post_set_data. Is this statement correct?'
         answers:
-            - {value: True,     correct: false}
-            - {value: False,    correct: true}
+            - {value: "True",     correct: false}
+            - {value: "False",    correct: true}
 
     #Form type extensions - http://symfony.com/doc/current/form/create_form_type_extension.html
     -
-        question: 'Which of the following methods MUST be override when extendending a FormType?'
+        question: 'Which of the following methods MUST be overriden when extendending a FormType?'
         answers:
             - {value: getExtendedType,    correct: true}
             - {value: buildForm,          correct: false}
