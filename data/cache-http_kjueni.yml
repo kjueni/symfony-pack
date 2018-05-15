@@ -1,0 +1,242 @@
+category: HTTP Cache (kjueni)
+questions:
+    #Cache types (browser, proxies and reverse-proxies) - http://symfony.com/doc/current/http_cache.html
+    -
+        question: 'Which of the following statements are synonyms of a gateway cache?'
+        answers:
+            - {value: "Reverse proxy cache", correct: true}
+            - {value: "Surrogate caches", correct: true}
+            - {value: "HTTP accelerators", correct: true}
+            - {value: "Browser cache", correct: false}
+            - {value: "Resolved proxy cache", correct: false}
+    -
+        question: 'What would be the correct syntax to enable the Symfony reverse proxy cache in your front controller assuming you have extended the HttpCache in App\\CacheKernel?'
+        answers:
+            - {value: "$kernel = new \\App\\CacheKernel($kernel);", correct: true}
+            - {value: "$kernel = new \\App\\Kernel(\\App\\CacheKernel());", correct: false}
+    -
+        question: 'True or False ? To set the options when extending the HttpCache you must override the getOptions method and return an associative array'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? To set specific options when extending the HttpCache component you must override the getDefaultOptions method and return a flat array'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following options can be set for HttpCache?'
+        answers:
+            - {value: "debug", correct: true}
+            - {value: "default_ttl", correct: true}
+            - {value: "private_headers", correct: true}
+            - {value: "allow_reload", correct: true}
+            - {value: "allow_revalidate", correct: true}
+            - {value: "stalewhilerevalidate", correct: true}
+            - {value: "staleiferror", correct: true}
+            - {value: "public_headers", correct: false}
+            - {value: "staleiffailure", correct: false}
+            - {value: "allow_validate", correct: false}
+    -
+        question: 'Which of the following headers can be set to enable caching according to the Http specifications?'
+        answers:
+            - {value: "Cache-Control", correct: true}
+            - {value: "Expires", correct: true}
+            - {value: "ETag", correct: true}
+            - {value: "Last-Modified", correct: true}
+            - {value: "Must-Revalidate", correct: false}
+            - {value: "Enable-Caching", correct: false}
+            - {value: "Cache-Lifetime", correct: false}
+            - {value: "Enable-Caching", correct: false}
+    -
+        question: 'What would be the correct syntax to add a cache control directive called "Must-Revalidate" to your response in the controller?'
+        answers:
+            - {value: "$response->headers->addCacheControlDirective('must-revalidate', true);", correct: true}
+            - {value: "$response->addCacheControlDirective('must-revalidate', true);", correct: false}
+            - {value: "$response->getHeaders->addCacheControlDirective('must-revalidate', true);", correct: false}
+            - {value: "$response->headers->addCacheDirective('must-revalidate', true);", correct: false}
+            - {value: "$response->headers->addMustRevalidateDirective(true);", correct: false}
+    -
+        question: 'What would be the correct syntax to cache your response for one hour in your controller?'
+        answers:
+            - {value: "$response->setSharedMaxAge(3600);", correct: true}
+            - {value: "$response->setExpiration(3600);", correct: false}
+            - {value: "$response->setDefaultTtl(3600);", correct: false}
+            - {value: "$response->setSharedMaxAge(60);", correct: true}
+            - {value: "$response->setExpiration(60);", correct: false}
+            - {value: "$response->setDefaultTtl(60);", correct: false}
+    -
+        question: 'True or False ? The URI of the request is used as the cache key'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The signature of the request is used as the cache key'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following requests can actually be cached?'
+        answers:
+            - {value: "GET", correct: true}
+            - {value: "HEAD", correct: true}
+            - {value: "PUT", correct: false}
+            - {value: "PATCH", correct: false}
+            - {value: "DELETE", correct: false}
+    -
+        question: 'True or False ? $response->expire(); marks the response as stale'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? $response->setNotModified(); forces the response to return a proper 304 response with no content'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? $response->setModified(false); forces the response to return a proper 304 response with no content'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following options can be set via the $response->setCache(); method?'
+        answers:
+            - {value: "etag", correct: true}
+            - {value: "last_modified", correct: true}
+            - {value: "max_age", correct: true}
+            - {value: "s_maxage", correct: true}
+            - {value: "public", correct: true}
+            - {value: "private", correct: true}
+            - {value: "must_revalidate", correct: false}
+    #Expiration (Expires, Cache-Control) - http://symfony.com/doc/current/http_cache/expiration.html
+    -
+        question: 'True or False ? It is possible to define HTTP caching headers for expiration and validation by using annotations'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? You can just either use expiration caching oder validation caching'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? "$response->setExpires($dateTime);" sets the expiration date of your cache'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? "$response->setExpirationDate($dateTime);" sets the expiration date of your cache'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following directives result in ignoring the "Expires" header?'
+        answers:
+            - {value: "s-maxage", correct: true}
+            - {value: "max-age", correct: true}
+            - {value: "s-max_age", correct: false}
+            - {value: "maxage", correct: false}
+            - {value: "must-revalidate", correct: false}
+            - {value: "must_revalidate", correct: false}
+            - {value: "d-maxage", correct: false}
+    #Validation (ETag, Last-Modified) - http://symfony.com/doc/current/http_cache/validation.html
+    -
+        question: 'Which status code should be returned by your application if the cache is still valid?'
+        answers:
+            - {value: "304", correct: true}
+            - {value: "301", correct: false}
+            - {value: "302", correct: false}
+            - {value: "303", correct: false}
+            - {value: "305", correct: false}
+            - {value: "403", correct: false}
+            - {value: "404", correct: false}
+    -
+        question: 'True or False ? When returning a response with the status code "304" you should also return the cached response'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? When returning a response with the status code "304" you should return an empty response'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following statements is correct?'
+        answers:
+            - {value: "Expiration wins over validation", correct: true}
+            - {value: "Validation wins over expiration", correct: false}
+            - {value: "Both are treated equally", correct: false}
+    -
+        question: 'True or False ? An ETag is like a fingerprint of your content'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Symfony also supports weak ETags by passing true as the second argument to the setEtag() method'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Symfony also supports weak ETags by passing true as the first argument to the setEtag() method'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'How do you make sure that the response in your controller is cacheable?'
+        answers:
+            - {value: "$response->setPublic();", correct: true}
+            - {value: "$response->setCachingEnabled(true);", correct: false}
+            - {value: "$response->allowCaching(true);", correct: false}
+            - {value: "$response->cache();", correct: false}
+            - {value: "$response->cache(true);", correct: false}
+    #Edge Side Includes - http://symfony.com/doc/current/http_cache/esi.html
+    -
+        question: 'What does ESI stand for?'
+        answers:
+            - {value: "Edge Side Includes", correct: true}
+            - {value: "Edge Site Includes", correct: false}
+            - {value: "External Side Includes", correct: false}
+            - {value: "External Site Includes", correct: false}
+            - {value: "Enable Side Includes", correct: false}
+            - {value: "Enable Site Includes", correct: false}
+    -
+        question: 'True or False ? The ESI tag "<esi:include src=... />" expects a relative URL'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The ESI tag "<esi:include src=... />" expects a fully-qualified URL'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "false", correct: false}
+    -
+        question: 'In your config/framework.yaml - What needs to be set to enable ESI in your application?'
+        answers:
+            - {value: "esi: { enabled: true }", correct: true}
+            - {value: "esi_enabled: true", correct: false}
+            - {value: "esi: true", correct: false}
+            - {value: "enable_esi: true", correct: false}
+    -
+        question: 'Which of the following statements would be correct if you want to embedd a resource via ESI in twig?'
+        answers:
+            - {value: "{{ render_esi(controller('App\\Controller\\NewsController::latest', { 'maxPerPage': 5 })) }}", correct: true}
+            - {value: "{{ render_esi(url('latest_news', { 'maxPerPage': 5 })) }}", correct: true}
+            - {value: "{{ esi_render(controller('App\\Controller\\NewsController::latest', { 'maxPerPage': 5 })) }}", correct: false}
+            - {value: "{{ esi_render(url('latest_news', { 'maxPerPage': 5 })) }}", correct: false}
+            - {value: "{{ render_esi('App\\Controller\\NewsController::latest', { 'maxPerPage': 5 }) }}", correct: false}
+            - {value: "{{ render_esi('latest_news', { 'maxPerPage': 5 }) }}", correct: false}
+            - {value: "{{ esi_render('App\\Controller\\NewsController::latest', { 'maxPerPage': 5 }) }}", correct: false}
+            - {value: "{{ esi_render('latest_news', { 'maxPerPage': 5 }) }}", correct: false}
+    -
+        question: 'True or False ? To be able to use the Edge Side Includes (ESI) correctly you need to enable the FragmentListener in the framework.yaml config'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following options exist for the render_esi helper?'
+        answers:
+            - {value: "alt", correct: true}
+            - {value: "ignore_errors", correct: true}
+            - {value: "ignore_failures", correct: false}
+            - {value: "alt-text", correct: false}
+            - {value: "attr", correct: false}
