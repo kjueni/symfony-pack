@@ -1,0 +1,250 @@
+category: Routing (kjueni)
+questions:
+    #Configuration (YAML, XML, PHP & annotations) -
+    -
+        question: 'What would be the correct annotation for a route to the url "/blog" with the name "blog_list"?'
+        answers:
+            - {value: '@Route("/blog", name="blog_list")', correct: true}
+            - {value: '@Route({path="/blog", name="blog_list"})', correct: false}
+            - {value: 'Route("/blog", name="blog_list")', correct: false}
+            - {value: 'Route({path="/blog", name="blog_list"})', correct: false}
+    -
+        question: 'When defining routes in a YAML, XML or PHP file, what must be defined ADDITIONALLY?'
+        answers:
+            - {value: "controller or _controller (php)", correct: true}
+            - {value: "id", correct: false}
+            - {value: "path", correct: false}
+            - {value: "url", correct: false}
+    -
+        question: 'In which attribute in the <route.../> node the key of the route has to be declared?'
+        answers:
+            - {value: "id", correct: true}
+            - {value: "key", correct: false}
+            - {value: "path", correct: false}
+            - {value: "route", correct: false}
+            - {value: "name", correct: false}
+    -
+        question: 'What is the name of the container of many routes?'
+        answers:
+            - {value: "RouteCollection", correct: true}
+            - {value: "RouteContainer", correct: false}
+            - {value: "RoutesCollection", correct: false}
+            - {value: "RoutesContainer", correct: false}
+            - {value: "Router", correct: false}
+            - {value: "RouterCollection", correct: false}
+    #Restrict URL parameters - http://symfony.com/doc/current/routing.html#adding-wildcard-requirements
+    -
+        question: 'Regarding if you want to add a requirement to the route param "page" that it can only containe digits, which of the following statements would be valid inside a route config?'
+        answers:
+            - {value: 'requirements={"page"="\\d+"} (Annotation)', correct: true}
+            - {value: "requirements.page:'\\d+' (YAML)", correct: true}
+            - {value: '<route...><requirement key="page">\\d+</requirement></route> (XML)', correct: true}
+            - {value: "An associative array with a regular expression '\\d+' for the key page as third argument for the Route constructor", correct: true}
+            - {value: 'requirements=["page"="\\d+"] (Annotation)', correct: false}
+            - {value: "requirement.page:'\\d+' (YAML)", correct: false}
+            - {value: '<route...><requirement id="page">\\d+</requirement></route> (XML)', correct: false}
+            - {value: "An associative array with a regular expression '\\d+' for the key 'page' as second argument for the Route constructor", correct: false}
+    -
+        question: 'Which attribute in the "<route><requirement></requirement></route>" node defines the identifier for the page-wildcard?'
+        answers:
+            - {value: "key", correct: true}
+            - {value: "id", correct: false}
+            - {value: "identifier", correct: false}
+            - {value: "name", correct: false}
+    #Set default values to URL parameters - http://symfony.com/doc/current/routing.html#giving-placeholders-a-default-value
+    -
+        question: 'To define a default value for your wildcard "page" what would be the correct syntax/solution?'
+        answers:
+            - {value: "Add a default value for the method argument for this wildcard (Annotation)", correct: true}
+            - {value: "defaults.page: 1 (YAML)", correct: true}
+            - {value: '<route...><default key="page">1</default></route>', correct: true}
+            - {value: "Add a key called 'page' to the array of the second argument", correct: true}
+            - {value: 'defaults={"page"="\d+"} (Annotation)', correct: false}
+            - {value: "default.page: 1 (YAML)", correct: false}
+            - {value: '<route...><default id="page">1</default></route>', correct: false}
+            - {value: "Add a key called 'page' to the array of the third argument", correct: false}
+    -
+        question: 'What would be the correct shell command to print out a list of all of your routes?'
+        answers:
+            - {value: "php bin/console debug:router", correct: true}
+            - {value: "php bin/console de:ro", correct: true}
+            - {value: "php bin/console debug:routes", correct: false}
+            - {value: "php bin/console router:routes", correct: false}
+            - {value: "php bin/console ro:ro", correct: false}
+            - {value: "php bin/console r:r", correct: false}
+    #Generate URL parameters - http://symfony.com/doc/current/routing.html#generating-urls
+    -
+        question: 'What would be the correct syntax to get an URL of route in the controller?'
+        answers:
+            - {value: "$url = $this->generateUrl('blog_show', array('slug' => 'my-blog-post'));", correct: true}
+            - {value: "$url = $this->router->generate('blog_show', array('slug' => 'my-blog-post'));", correct: true}
+            - {value: "$url = $this->getHelper('url')->getUrl('blog_show', array('slug' => 'my-blog-post'));", correct: false}
+            - {value: "$url = $this->getUrl('blog_show', array('slug' => 'my-blog-post'));", correct: false}
+            - {value: "$url = $this->router->getUrl('blog_show', array('slug' => 'my-blog-post'));", correct: false}
+    -
+        question: 'True or False ? To generate an absolute URL you have to pass "UrlGeneratorInterface::ABSOLUTE_URL" as third argument to the generateUrl helper or the generate method (Router)'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? To generate an absolute URL you have to pass "UrlGeneratorInterface::ABSOLUTE_URL" as second argument to the generateUrl helper or the generate method (Router)'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? To make url-generating available in the console yout have to define the host and scheme for the context in the services.yaml config as parameters'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? To make url-generating available in the console yout have to define the host and scheme for the context in the framework.yaml config as parameters'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    #Trigger redirects - http://symfony.com/doc/current/routing/redirect_in_config.html
+    -
+        question: 'Whats the difference between the two methods "urlRedirectAction" and "redirectAction"?'
+        answers:
+            - {value: "redirectAction needs a config 'your_route.defaults.route' config defined while urlRedirectAction works with 'your_route.defaults.path' config", correct: true}
+            - {value: "There is no difference, redirectAction is just an alias", correct: false}
+            - {value: "redirectAction needs a default config 'your_route.defaults.route' defined while urlRedirectAction works with 'your_route.defaults.url' config", correct: false}
+            - {value: "There is no difference, urlRedirectAction is just an alias", correct: false}
+    -
+        question: 'What happens if you set "your_route.defaults.permanent = true" and add the RedirectController as controller?'
+        answers:
+            - {value: "The HTTP status code of the response will be 301 instead of 302", correct: true}
+            - {value: "The HTTP status code of the response will be 302 instead of 301", correct: false}
+    -
+        question: 'Which special routing parameters do exist?'
+        answers:
+            - {value: "_controller", correct: true}
+            - {value: "_format", correct: true}
+            - {value: "_fragment", correct: true}
+            - {value: "_locale", correct: true}
+            - {value: "_action", correct: false}
+            - {value: "controller", correct: false}
+            - {value: "format", correct: false}
+            - {value: "fragment", correct: false}
+            - {value: "locale", correct: false}
+            - {value: "action", correct: false}
+    -
+        question: 'Which arguments can you pass to the Route constructor?'
+        answers:
+            - {value: "The URL path route as first argument", correct: true}
+            - {value: "An array of default values as second argument", correct: true}
+            - {value: "An array of requirements as third argument", correct: true}
+            - {value: "An array of options as fourth argument", correct: true}
+            - {value: "A host as fifth", correct: true}
+            - {value: "An array of schemes as sixth argument", correct: true}
+            - {value: "An array of http-methods as seventh argument", correct: true}
+            - {value: "An condition in ExpressionSyntax as 8th argument", correct: true}
+            - {value: "An array of settings seventh argument", correct: false}
+            - {value: "The URL path route as second argument", correct: false}
+            - {value: "An array of default values as fourth argument", correct: false}
+            - {value: "An array of requirements as sixth argument", correct: false}
+            - {value: "An array of options as first argument", correct: false}
+    #Domain name matching - https://symfony.com/doc/current/routing/hostname_pattern.html
+    -
+        question: 'Which config parameter has to be set if your route should match a host?'
+        answers:
+            - {value: "host", correct: true}
+            - {value: "domain", correct: false}
+            - {value: "scheme", correct: false}
+            - {value: "protocol", correct: false}
+    -
+        question: 'True or False ? You cannot use wildcards in the "host" config for your route match'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? You can use wildcards in the "host" config for your route match'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? You can specify a default and a requirement which point to a defined parameter in your config/services.yaml'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #Conditional request matching - http://symfony.com/doc/current/routing/conditions.html
+    -
+        question: 'Which Objects are available in a condition?'
+        answers:
+            - {value: "RequestContext", correct: true}
+            - {value: "Request", correct: true}
+            - {value: "Route", correct: false}
+            - {value: "Router", correct: false}
+            - {value: "Options", correct: false}
+    -
+        question: 'True or False ? A routing condition has to be written in regex'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? A routing condition has to be written in ExpressionLanguage'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #HTTP methods matching - http://symfony.com/doc/current/components/routing.html#set-the-request-parameters
+    -
+        question: 'Which parameters does the class RequestContext support?'
+        answers:
+            - {value: "baseUrl", correct: true}
+            - {value: "method", correct: true}
+            - {value: "host", correct: true}
+            - {value: "scheme", correct: true}
+            - {value: "httpPort", correct: true}
+            - {value: "httpsPort", correct: true}
+            - {value: "path", correct: true}
+            - {value: "queryString", correct: true}
+            - {value: "port", correct: false}
+            - {value: "domain", correct: false}
+            - {value: "query", correct: false}
+            - {value: "headers", correct: false}
+            - {value: "header", correct: false}
+    -
+        question: 'What would be the right way to populate the request data into the RequestContext?'
+        answers:
+            - {value: "$context->fromRequest(Request::createFromGlobals());", correct: true}
+            - {value: "$context->fromArray(Request::createFromGlobals());", correct: false}
+            - {value: "$context->fromRequest(Request::createByGlobals());", correct: false}
+            - {value: "$context->fromArray(Request::createFromRequest());", correct: false}
+            - {value: "$context->fromArray(Request::createFromRequest());", correct: false}
+    -
+        question: 'Which arguments need to be passed to the UrlGenerator?'
+        answers:
+            - {value: "RouteCollection", correct: true}
+            - {value: "RequestContext", correct: true}
+            - {value: "Router", correct: false}
+            - {value: "RequestConditions", correct: false}
+            - {value: "OptionResolver", correct: false}
+    #User's locale guessing - https://symfony.com/doc/current/translation/locale.html
+    -
+        question: 'True or False ? If you create a listener to determine the user locale, this listener must be called BEFORE the LocaleListener'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If you create a listener to determine the user locale, this listener must be called AFTER the LocaleListener'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    #Router debugging - https://symfony.com/doc/current/routing/debug.html
+    -
+        question: 'What would be the correct syntax to get information for a specific route "blog"?'
+        answers:
+            - {value: "php bin/console debug:router blog", correct: true}
+            - {value: "php bin/console debug:routes:blog", correct: false}
+            - {value: "php bin/console debug:routes blog", correct: false}
+            - {value: "php bin/console debug:router -blog", correct: false}
+            - {value: "php bin/console debuger:router blog", correct: false}
+            - {value: "php bin/console debuger:routes blog", correct: false}
+    -
+        question: 'How could you check if an url fragment (/blog) matches a specific route?'
+        answers:
+            - {value: "php bin/console router:match /blog/", correct: true}
+            - {value: "php bin/console routes:match /blog/", correct: false}
+            - {value: "php bin/console debug:router:match /blog/", correct: false}
+            - {value: "php bin/console debug:routes:match /blog/", correct: false}
+            - {value: "php bin/console debug:router match /blog/", correct: false}
+            - {value: "php bin/console debug:routes match /blog/", correct: false}
