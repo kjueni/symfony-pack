@@ -1,0 +1,466 @@
+category: Console (kjueni)
+questions:
+    #Built-in commands - https://symfony.com/doc/current/components/console/usage.html
+    -
+        question: 'Assuming you have a file application.php where you have create an instance of a console application "$application = new Application();", how would you register an existing command called "GenerateAdminCommand"'
+        answers:
+            - {value: "$application->add(new GenerateAdminCommand());", correct: true}
+            - {value: "$application->addCommand(new GenerateAdminCommand());", correct: false}
+            - {value: "$application->addCommand(GenerateAdminCommand::class);", correct: false}
+            - {value: "$application->add(GenerateAdminCommand::class);", correct: false}
+            - {value: "$application->add('GenerateAdminCommand');", correct: false}
+    -
+        question: 'How would be the correct syntax to output a list of all possible arguments and registered commands?'
+        answers:
+            - {value: "php application.php list", correct: true}
+            - {value: "php application.php", correct: true}
+            - {value: "php application.php payload", correct: false}
+            - {value: "php application list", correct: false}
+            - {value: "php application payload", correct: false}
+            - {value: "php application.php config", correct: false}
+            - {value: "php application config", correct: false}
+    -
+        question: 'How would be the correct syntax to output the help information for the built-in "ListCommand"?'
+        answers:
+            - {value: "php application.php help list", correct: true}
+            - {value: "php application.php list --help", correct: true}
+            - {value: "php application.php list --h", correct: false}
+            - {value: "php application.php list -h", correct: true}
+            - {value: "php application.php list -help", correct: false}
+            - {value: "php application.php list help", correct: false}
+    -
+        question: 'What would be the correct syntax to disable the output of the "ListCommand"?'
+        answers:
+            - {value: "php application.php list --quiet", correct: true}
+            - {value: "php application.php list -q", correct: true}
+            - {value: "php application.php list -quiet", correct: false}
+            - {value: "php application.php list --q", correct: false}
+            - {value: "php application.php list --verbose", correct: false}
+            - {value: "php application.php list -v", correct: false}
+            - {value: "php application.php list -verbose", correct: false}
+            - {value: "php application.php list --v", correct: false}
+    -
+        question: 'True or False ? "php application.php list --ansi" turns on ANSI coloring'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? "php application.php list -ansi" turns on ANSI coloring'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? "php application.php list -vv" and "php application.php list -vvv" outputs even more verbose output messages than using option -v'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? "php application.php list -v" and "php application.php list --version" outputs the application name and version passed to the constructor'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? "php application.php list -V" and "php application.php list --version" outputs the application name and version passed to the constructor'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the correct syntax if you want to suppress all interactive in your command?'
+        answers:
+            - {value: "php application.php list --no-interaction", correct: true}
+            - {value: "php application.php list -n", correct: true}
+            - {value: "php application.php list --nointeraction", correct: false}
+            - {value: "php application.php list --n", correct: false}
+            - {value: "php application.php list --no_interaction", correct: false}
+            - {value: "php application.php list -ni", correct: false}
+    -
+        question: 'Which of the following shortcuts would be valid for the command "lint:twig" assuming that no other commands exist with the same name as the shortcut?'
+        answers:
+            - {value: "l:t", correct: true}
+            - {value: "lint:t", correct: true}
+            - {value: "l:twig", correct: true}
+            - {value: "lin:t", correct: true}
+            - {value: "t:l", correct: false}
+    -
+        question: 'Which methods can be used in the configure method of a command for different settings'
+        answers:
+            - {value: "setName", correct: true}
+            - {value: "setDescription", correct: true}
+            - {value: "setHelp", correct: true}
+            - {value: "addArgument", correct: true}
+            - {value: "setText", correct: false}
+            - {value: "setHelpText", correct: false}
+            - {value: "setId", correct: false}
+    #Custom commands - http://symfony.com/doc/current/console.html
+    -
+        question: 'True or False ? When creating a command you must implement the two methods configure and execute'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If you do not use autoconfiguration you need to tag your command as "console.command"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If you do not use autoconfiguration you need to tag your command as "command"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The execute message in your command has two arguments, the first ist "InputInterface $input", the second is "OutputInterface $output"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The execute message in your command has two arguments, the first ist "OutputInterface $output", the second is "InputInterface $input"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What would be the correct syntax to output a string "Whoa!" followed by a newline?'
+        answers:
+            - {value: "$output->writeln('Whoa!');", correct: true}
+            - {value: "$output->write('Whoa!\\n');", correct: false}
+            - {value: "$output->print('Whoa!\\n');", correct: false}
+            - {value: "$output->println('Whoa!');", correct: false}
+    -
+        question: 'What would be the correct Syntax to add a required argument called "username" to your command?'
+        answers:
+            - {value: "$this->addArgument('username', InputArgument::REQUIRED, 'The username of the user.');", correct: true}
+            - {value: "$this->add('username', InputArgument::REQUIRED, 'The username of the user.');", correct: false}
+            - {value: "$this->addArgument('username', Argument::REQUIRED, 'The username of the user.');", correct: false}
+            - {value: "$this->add('username', Argument::REQUIRED, 'The username of the user.');", correct: false}
+            - {value: "$this->addArgument('username', ConsoleArgument::REQUIRED, 'The username of the user.');", correct: false}
+    -
+        question: 'What would be the correct syntax to execute a command "CreateUserCommand" in the "App\\Command" namespace with the input argument "Kevin"?'
+        answers:
+            - {value: "php bin/console app:create-user Kevin", correct: true}
+            - {value: "php bin/console create-user Kevin", correct: false}
+            - {value: "php bin/console app:create:user Kevin", correct: false}
+            - {value: "php bin/console app:create_user Kevin", correct: false}
+            - {value: "php bin/console app:create user Kevin", correct: false}
+            - {value: "php bin/console create user Kevin", correct: false}
+    -
+        question: 'Beside the required execute and configure methods, which lifecycle methods can be optionally implemented in a command?'
+        answers:
+            - {value: "initialize", correct: true}
+            - {value: "interact", correct: true}
+            - {value: "init", correct: false}
+            - {value: "compose", correct: false}
+            - {value: "teardown", correct: false}
+    -
+        question: 'True or False ? The main purpose of the initialize lifecycle method is to initialize variables used in the rest of the command methods'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The purpose of the initialize lifecycle method is to check if some of the options/arguments are missing and interactively ask the user for those values'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The purpose of the interact lifecycle method is to check if some of the options/arguments are missing and interactively ask the user for those values'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The execute method is execute before the interact method but after the initialize method'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What is the correct syntax to get the class of a registered command called "CreateUserCommand" in the "App\\Command" namespace?'
+        answers:
+            - {value: "$command = $application->find('app:create-user');", correct: true}
+            - {value: "$command = $application->find('create-user');", correct: false}
+            - {value: "$command = $application->find('app:create-user-command');", correct: false}
+            - {value: "$command = $application->findCommand('app:create-user-command');", correct: false}
+            - {value: "$command = $application->findCommand('create-user');", correct: false}
+            - {value: "$command = $application->findCommand('app:create-user');", correct: true}
+    #Options and arguments - https://symfony.com/doc/current/console/input.html
+    -
+        question: 'What would be the correct syntax to add an optional argument called last_name to a command in the configure method?'
+        answers:
+            - {value: "$this->addArgument('last_name', InputArgument::OPTIONAL, 'Your last name?');", correct: true}
+            - {value: "$this->add('last_name', null, 'Your last name?');", correct: false}
+            - {value: "$this->addArgument(InputArgument::OPTIONAL, 'last_name', 'Your last name?');", correct: false}
+            - {value: "$this->add(InputArgument::OPTIONAL, 'last_name', 'Your last name?');", correct: false}
+            - {value: "$this->addArgument(false, 'last_name', 'Your last name?');", correct: false}
+    -
+        question: 'What would be the correct syntax to receive a given argument called "last_name" in the execute method?'
+        answers:
+            - {value: "$lastName = $input->getArgument('last_name');", correct: true}
+            - {value: "$lastName = $output->getArgument('last_name');", correct: false}
+            - {value: "$lastName = $input->get('last_name');", correct: false}
+            - {value: "$lastName = $output->get('last_name');", correct: false}
+            - {value: "$lastName = $input->getArg('last_name');", correct: false}
+            - {value: "$lastName = $output->getArg('last_name');", correct: false}
+    -
+        question: 'What would be the correct syntax to add an argument that could receive a list of values?'
+        answers:
+            - {value: "$this->addArgument('names', InputArgument::IS_ARRAY, 'Add values separated by spaces');?", correct: true}
+            - {value: "$this->addArgument('names', IS_ARRAY, 'Add values separated by spaces');?", correct: false}
+            - {value: "$this->addArgument(InputArgument::IS_ARRAY, 'names', 'Add values separated by spaces');?", correct: false}
+            - {value: "$this->addArgument('names', array(), 'Add values separated by spaces');?", correct: false}
+    -
+        question: 'Assuming you have a command called "GreetCommand" in the "App\\Command" namespace, how would you submit a list of names for an array argument called "names"?'
+        answers:
+            - {value: "php bin/console app:greet Fabien Ryan Bernhard", correct: true}
+            - {value: "php bin/console app:greet Fabien,Ryan,Bernhard", correct: false}
+            - {value: "php app/console app:greet Fabien Ryan Bernhard", correct: false}
+            - {value: "app/console app:greet Fabien,Ryan,Bernhard", correct: false}
+            - {value: "php bin/console app:greet [Fabien,Ryan,Bernhard]", correct: false}
+    -
+        question: 'If you want to combine two or more of the argument variants (InputArgument::OPTIONAL, InputArgument::REQUIRED, InputArgument::IS_ARRAY), what would be the correct syntax?'
+        answers:
+            - {value: "InputArgument::IS_ARRAY | InputArgument::REQUIRED", correct: true}
+            - {value: "array(InputArgument::IS_ARRAY, InputArgument::REQUIRED)", correct: false}
+            - {value: "InputArgument::IS_ARRAY || InputArgument::REQUIRED", correct: false}
+    -
+        question: 'True or False ? Command options are ordered'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Command arguments are ordered'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Command options are specified by two dashes (--your-option)'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Command arguments are specified by two dashes (--your-argument)'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What would be the correct syntax to pass an option called "iterations" with the shortcut letter "i" with a value of 5 to a command?'
+        answers:
+            - {value: "php bin/console app:greet Fabien --iterations=5", correct: true}
+            - {value: "php app/command-line app:greet Fabien --iterations=5", correct: false}
+            - {value: "php bin/console app:greet Fabien --iterations 5", correct: true}
+            - {value: "php app/command-line app:greet Fabien --iterations 5", correct: false}
+            - {value: "php bin/console app:greet Fabien -iterations 5", correct: false}
+            - {value: "php bin/console app:greet Fabien -iterations=5", correct: false}
+            - {value: "php app/command-line app:greet Fabien -iterations=5", correct: false}
+            - {value: "php bin/console app:greet Fabien -iterations 5", correct: false}
+            - {value: "php app/command-line app:greet Fabien -iterations 5", correct: false}
+            - {value: "php bin/console app:greet Fabien -i 5", correct: false}
+            - {value: "php bin/console app:greet Fabien -i5", correct: true}
+    -
+        question: 'True or False ? One-letter shortcut are identified by two dashes (--h)'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? One-letter shortcut are identified by one dash (-h)'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If the input option "InputOption::VALUE_NONE" is specified for an option, inputs for this option are not accepted'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Always place options after the command name'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Always place options before the command name'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    #Built-in helpers - https://symfony.com/doc/current/components/console/helpers/index.html
+    -
+        question: 'Which console helpers exist by default?'
+        answers:
+            - {value: "Formatter Helper", correct: true}
+            - {value: "Process Helper", correct: true}
+            - {value: "ProgressBar", correct: true}
+            - {value: "Question Helper", correct: true}
+            - {value: "Table", correct: true}
+            - {value: "Debug Formatter Helper", correct: true}
+            - {value: "Debug Helper", correct: false}
+            - {value: "Interaction Helper", correct: false}
+            - {value: "Output Helper", correct: false}
+            - {value: "Progress Helper", correct: false}
+            - {value: "Format Helper", correct: false}
+    -
+        question: 'What is the correct syntax to get the "formatter" helper in a command?'
+        answers:
+            - {value: "$formatter = $this->getHelper('formatter');", correct: true}
+            - {value: "$formatter = new FormatterHelper();", correct: false}
+            - {value: "$formatter = $this->getApplication()->getHelper()->getFormatterHelper();", correct: false}
+            - {value: "$formatter = $this->getFormatterHelper();", correct: false}
+            - {value: "$formatter = $this->getFormatter();", correct: false}
+            - {value: "$formatter = $this->container->getFormatter();", correct: false}
+            - {value: "$formatter = $this->container->getHelper('formatter');", correct: false}
+    -
+        question: 'Which methods exist for the formatter helper?'
+        answers:
+            - {value: "formatSection", correct: true}
+            - {value: "formatBlock", correct: true}
+            - {value: "truncate", correct: true}
+            - {value: "format", correct: false}
+    -
+        question: 'True or False ? "$progressBar->advance(3);" advances the progress bar bei 3 units'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Without calling "$progressBar->finish();" the bar will never reach 100%'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following formats exist for the progressbar helper display?'
+        answers:
+            - {value: "normal, normal_nomax", correct: true}
+            - {value: "verbose, verbose_nomax", correct: true}
+            - {value: "very_verbose, very_verbose_nomax", correct: true}
+            - {value: "debug, debug_nomax", correct: true}
+            - {value: "default, default_nomax", correct: false}
+            - {value: "standard, standard_nomax", correct: false}
+            - {value: "colored, colored_nomax", correct: false}
+    -
+        question: 'For the question console helper: "$question->setHiddenFallback(false);" means an exception is thrown if a no fallback could be found to hide the user-input'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following methods exist for a ChoiceQuestion in the QuestionHelper?'
+        answers:
+            - {value: "setErrorMessage", correct: true}
+            - {value: "setMultiselect", correct: true}
+            - {value: "setMulti", correct: false}
+    -
+        question: 'Which of the following question types exist?'
+        answers:
+            - {value: "Question", correct: true}
+            - {value: "ConfirmationQuestion", correct: true}
+            - {value: "ChoiceQuestion", correct: true}
+            - {value: "RangeQuestion", correct: false}
+            - {value: "SimpleQuestion", correct: false}
+            - {value: "SingleQuestion", correct: false}
+    -
+        question: 'Which of the following methods exist for all Question types in the QuestionHelper?'
+        answers:
+            - {value: "setErrorMessage", correct: true}
+            - {value: "setValidator", correct: true}
+            - {value: "setNormalizer", correct: true}
+            - {value: "setHidden", correct: true}
+            - {value: "setAutocompleterValues", correct: true}
+            - {value: "setMaxAttempts", correct: true}
+            - {value: "setMessage", correct: false}
+            - {value: "setValues", correct: false}
+    -
+        question: 'Which of the following methods do exist for the Debug Formatter Helper?'
+        answers:
+            - {value: "start", correct: true}
+            - {value: "stop", correct: true}
+            - {value: "progress", correct: true}
+            - {value: "process", correct: false}
+            - {value: "advance", correct: false}
+            - {value: "end", correct: false}
+    -
+        question: 'What is the first argument for all methods of the Debug Formatter Helper?'
+        answers:
+            - {value: "A unique identifier for the running program", correct: true}
+            - {value: "A text that will be prefixed to the output", correct: false}
+            - {value: "A text that will be postfixed to the output", correct: false}
+            - {value: "The status of the current program", correct: false}
+    #Console events - https://symfony.com/doc/current/components/console/events.html
+    -
+        question: 'True or False ? Commands called by the main command will not trigger any event'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Commands called by the main command will also trigger their events'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The ConsoleEvents::COMMAND event is dispatched just before executing any command'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which code is returned to the application if you disabled a command by calling "$event->disableCommand();" in the event listener attached to the ConsoleEvents::COMMAND event'
+        answers:
+            - {value: "113", correct: true}
+            - {value: "111", correct: false}
+            - {value: "0", correct: false}
+            - {value: "112", correct: false}
+            - {value: "114", correct: false}
+            - {value: "13", correct: false}
+            - {value: "3", correct: false}
+            - {value: "11", correct: false}
+    -
+        question: 'Which of the following console events do exist?'
+        answers:
+            - {value: "ConsoleEvents::COMMAND", correct: true}
+            - {value: "ConsoleEvents::ERROR", correct: true}
+            - {value: "ConsoleEvents::TERMINATE", correct: true}
+            - {value: "ConsoleEvents::DEBUG", correct: false}
+            - {value: "ConsoleEvents::START", correct: false}
+            - {value: "ConsoleEvents::END", correct: false}
+            - {value: "ConsoleEvents::INIT", correct: false}
+            - {value: "ConsoleEvents::TEARDOWN", correct: false}
+    -
+        question: 'True or False ? The ConsoleEvents::TERMINATE Event is not dispatched if an exception was raised during execution'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following verbosity levels with their shell values in brackets do exist?'
+        answers:
+            - {value: "OutputInterface::VERBOSITY_QUIET (-1)", correct: true}
+            - {value: "OutputInterface::VERBOSITY_NORMAL (0)", correct: true}
+            - {value: "OutputInterface::VERBOSITY_VERBOSE (1)", correct: true}
+            - {value: "OutputInterface::VERBOSITY_VERY_VERBOSE (2)", correct: true}
+            - {value: "OutputInterface::VERBOSITY_DEBUG (3)", correct: true}
+            - {value: "OutputInterface::VERBOSITY_VERY_VERY_VERBOSE (3)", correct: false}
+            - {value: "OutputInterface::VERBOSITY_VERBOSE_DEBUG (3)", correct: false}
+            - {value: "OutputInterface::VERBOSITY_QUIET (0)", correct: false}
+    -
+        question: 'True or False ? The full exception stacktrace is printed if the VERBOSITY_VERBOSE level or above is used'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The full exception stacktrace is printed if the VERBOSITY_VERY_VERBOSE level or above is used'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    #Built-in Commands - $ bin/console list
+    -
+        question: 'Which of the following built-in commands do exist?'
+        answers:
+            - {value: "about", correct: true}
+            - {value: "help", correct: true}
+            - {value: "list", correct: true}
+            - {value: "cache:clear", correct: true}
+            - {value: "cache:pool:prune", correct: true}
+            - {value: "debug:autowiring", correct: true}
+            - {value: "debug:event-dispatcher", correct: true}
+            - {value: "lint:twig", correct: true}
+            - {value: "make:form", correct: true}
+            - {value: "make:twig-extension", correct: true}
+            - {value: "server:start", correct: true}
+            - {value: "server:run", correct: true}
+            - {value: "make:controller", correct: true}
+            - {value: "make:functional-test", correct: true}
+            - {value: "make:unit-test", correct: true}
+            - {value: "make:test", correct: false}
+            - {value: "make:event", correct: false}
+            - {value: "make:authenticator", correct: false}
+            - {value: "debug:events", correct: false}
+            - {value: "cache:prune", correct: false}
+            - {value: "cache:invalidate", correct: false}
