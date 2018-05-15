@@ -1,0 +1,620 @@
+category: Templating (kjueni)
+questions:
+  #Auto escaping - https://symfony.com/doc/current/reference/configuration/twig.html#autoescape
+    -
+        question: 'Which "autoescape" strategies exist by default?'
+        answers:
+            - {value: "html", correct: true}
+            - {value: "js", correct: true}
+            - {value: "css", correct: true}
+            - {value: "url", correct: true}
+            - {value: "html_attr", correct: true}
+            - {value: "name", correct: true}
+            - {value: "content", correct: false}
+            - {value: "attr", correct: false}
+            - {value: "standard", correct: false}
+            - {value: "default", correct: false}
+    -
+        question: 'Which of the following is the default strategy for auto escaping?'
+        answers:
+            - {value: "html", correct: false}
+            - {value: "js", correct: false}
+            - {value: "css", correct: false}
+            - {value: "url", correct: false}
+            - {value: "html_attr", correct: false}
+            - {value: "name", correct: true}
+    -
+        question: 'True or False ? Setting the "autoescape" option to false is dangerous and it will make your application vulnerable to XSS exploits'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Setting the "autoescape" option to false is dangerous and it will make your application vulnerable to Session hijacking'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The auto escape strategy "name" escapes the contents of a template according to the template name extension (e.g. it uses html for *.html.twig templates and js for *.js.html templates)'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'If you would want to display the unescaped raw value of a variable, what would be the correct syntax?'
+        answers:
+            - {value: "{{ myMarkup|raw }}", correct: true}
+            - {value: "{% myMarkup|raw %}", correct: false}
+            - {value: "{% myMarkup raw %}", correct: false}
+            - {value: "{% myMarkup:raw %}", correct: false}
+            - {value: "{{ myMarkup:raw }}", correct: false}
+    -
+        question: 'If you only want to escape a certain block in your template, which of the following syntaxes would be correct?'
+        answers:
+            - {value: "{% autoescape 'html' %}{{ myMarkup }}{% endautoescape %}", correct: true}
+            - {value: "{% escape 'html' %}{{ myMarkup }}{% escape %}", correct: false}
+            - {value: "{{ autoescape 'html' }}{% myMarkup %}{{ endautoescape }}", correct: false}
+            - {value: "{{ escape 'html' }}{% myMarkup %}{{ escape }}", correct: false}
+            - {value: "{% autoescape 'html' %}{% myMarkup %}{% endautoescape %}", correct: false}
+            - {value: "{% autoescape 'html' %}{{ myMarkup }}{% endautoescape %}", correct: false}
+    -
+        question: 'True or False ? Escaping is applied before printing, after any other filter is applied'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Escaping is applied BEFORE any other filter is applied'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'How would the correct syntax be if you would want to escape a string in a template manually with the "html" strategy?'
+        answers:
+            - {value: "{{ var|escape('html') }}", correct: true}
+            - {value: "{% var|escape('html') %}", correct: false}
+            - {value: "{ var|escape('html') }", correct: false}
+            - {value: "{{ var escape('html') }}", correct: true}
+            - {value: "{% var escape('html') %}", correct: false}
+            - {value: "{ var escape('html') }", correct: false}
+    -
+        question: 'Which of the following syntax will result in an unescaped string?'
+        answers:
+            - {value: "{{ var|upper|raw }}", correct: true}
+            - {value: "{{ var|raw|upper }}", correct: false}
+            - {value: "{{ raw|var|upper }}", correct: false}
+    #Template inheritance - http://symfony.com/doc/current/templating.html#template-inheritance-and-layouts
+    -
+        question: 'What would be the correct syntax to extend a base template called "base.html.twig"?'
+        answers:
+            - {value: "{% extends 'base.html.twig' %}", correct: true}
+            - {value: "{% extend 'base.html.twig' %}", correct: false}
+            - {value: "{{ extends 'base.html.twig' }}", correct: false}
+            - {value: "{{ extend 'base.html.twig' }}", correct: false}
+    -
+        question: 'True or False ? Content within a {% block %} tag in a parent template is always used by default'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If you use {% extends %} in a template, it must be the first tag in that template'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If you use {% extends %} in a template, it does not have to be the first tag in that template'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What would be the correct syntax to add the content of the parent block in a child template?'
+        answers:
+            - {value: "{{ parent() }}", correct: true}
+            - {value: "{% parent() %}", correct: false}
+            - {value: "{{ callParent() }}", correct: false}
+            - {value: "{% callParent() %}", correct: false}
+            - {value: "{{ parent|raw }}", correct: false}
+            - {value: "{% parent|raw %}", correct: false}
+    #Global variables - http://symfony.com/doc/current/templating/app_variable.html
+    -
+        question: 'Which of the following objects are available via the global app variable?'
+        answers:
+            - {value: "app.user", correct: true}
+            - {value: "app.request", correct: true}
+            - {value: "app.session", correct: true}
+            - {value: "app.environment", correct: true}
+            - {value: "app.debug", correct: true}
+            - {value: "app.globals", correct: false}
+            - {value: "app.database", correct: false}
+            - {value: "app.user_session", correct: false}
+            - {value: "app.templates", correct: false}
+    -
+        question: 'What would be the correct syntax to add a global variable called "ga_tracking_code" to all templates?'
+        answers:
+            - {value: "twig.globals.ga_tracking_code: your_code", correct: true}
+            - {value: "twig.globals.variables.ga_tracking_code: your_code", correct: false}
+            - {value: "twig.ga_tracking_code: your_code", correct: false}
+            - {value: "twig.global.ga_tracking_code: your_code", correct: false}
+            - {value: "globals.ga_tracking_code: your_code", correct: false}
+    -
+        question: 'True or False ? Services set as global variables in twig ARE loaded lazily'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Services set as global variables in twig ARE NOT loaded lazily'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the correct syntax to reference a service in a global variable?'
+        answers:
+            - {value: "twig.globals.your_service: '@App\\YourService'", correct: true}
+            - {value: "twig.globals.your_service: 'App\\YourService'", correct: false}
+            - {value: "twig.globals.your_service: 'App\\YourService::class'", correct: false}
+            - {value: "twig.your_service: '@App\\YourService'", correct: false}
+            - {value: "twig.your_service: 'App\\YourService'", correct: false}
+    #Filters and functions - https://twig.symfony.com/doc/2.x/filters/index.html
+    -
+        question: 'Which of the following filters DO exist?'
+        answers:
+            - {value: "abs", correct: true}
+            - {value: "batch", correct: true}
+            - {value: "capitalize", correct: true}
+            - {value: "convert_encoding", correct: true}
+            - {value: "date", correct: true}
+            - {value: "date_modify", correct: true}
+            - {value: "remove", correct: false}
+            - {value: "combine", correct: false}
+    -
+        question: 'Which of the following filters DOES NOT exist?'
+        answers:
+            - {value: "default", correct: false}
+            - {value: "escape", correct: false}
+            - {value: "first", correct: false}
+            - {value: "format", correct: false}
+            - {value: "join", correct: false}
+            - {value: "json_encode", correct: false}
+            - {value: "keys", correct: false}
+            - {value: "last", correct: false}
+            - {value: "json_decode", correct: true}
+    -
+        question: 'Which of the following filters DO exist?'
+        answers:
+            - {value: "length", correct: true}
+            - {value: "lower", correct: true}
+            - {value: "merge", correct: true}
+            - {value: "decode", correct: false}
+            - {value: "convert", correct: false}
+            - {value: "unmerge", correct: false}
+            - {value: "define", correct: false}
+            - {value: "range", correct: false}
+    -
+        question: 'Which of the following filters DO exist?'
+        answers:
+            - {value: "nl2br", correct: true}
+            - {value: "number_format", correct: true}
+            - {value: "define", correct: false}
+            - {value: "revert", correct: false}
+            - {value: "splice", correct: false}
+            - {value: "to_upper", correct: false}
+            - {value: "to_lower", correct: false}
+            - {value: "stripcode", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "raw", correct: true}
+            - {value: "replace", correct: true}
+            - {value: "round", correct: true}
+            - {value: "reverse", correct: true}
+            - {value: "slice", correct: true}
+            - {value: "sort", correct: true}
+            - {value: "split", correct: true}
+            - {value: "exist", correct: false}
+            - {value: "url_decode", correct: false}
+    -
+        question: 'Which of the following filters DO NOT exist?'
+        answers:
+            - {value: "striptags", correct: false}
+            - {value: "title", correct: false}
+            - {value: "trim", correct: false}
+            - {value: "upper", correct: false}
+            - {value: "url_encode", correct: false}
+            - {value: "string_format", correct: true}
+            - {value: "unbind", correct: true}
+            - {value: "current", correct: true}
+    -
+        question: 'What would be the correct syntax to use the "striptags" filter and remove all occurences of "<br>" and "<p>" tags?'
+        answers:
+            - {value: "{{ some_html|striptags('<br><p>') }}", correct: true}
+            - {value: "{{ some_html|striptags '<br><p>' }}", correct: false}
+            - {value: "{{ some_html|striptags|<br><p> }}", correct: false}
+            - {value: "{{ some_html|striptags|'<br><p>' }}", correct: false}
+            - {value: "{{ some_html|striptags(<br><p>) }}", correct: false}
+    -
+        question: 'True or False ? The "last" filter can be used to get the last element from an array, an object or even a string'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The "last" filter can only be used to get the last element of an array'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following syntaxes would result in a string "A tree has leafs"?'
+        answers:
+            - {value: "{{ 'A %name% has %items%'|replace({'%name%':'tree','%items%':'leafs'}) }}", correct: true}
+            - {value: "{{ 'A _name_ has _items_'|replace({'_name_':'tree','_items_':'leafs'}) }}", correct: true}
+            - {value: "{{ 'A name has items'|replace({'name':'tree','items':'leafs'}) }}", correct: true}
+            - {value: "{{ 'A name has %items%'|replace({'%name%':'tree','%items%':'leafs'}) }}", correct: false}
+            - {value: "{{ 'A _name_ has _items_'|replace({'_name_':'tree','items_':'leafs'}) }}", correct: false}
+            - {value: "{{ 'A name has items'|replace({'%name':'tree','items':'leafs'}) }}", correct: false}
+            - {value: "{{ 'A name has items'|replace({'%name':'tree','_items':'leafs'}) }}", correct: false}
+    -
+        question: 'Which of the following syntaxes is correct assuming you want to define the value of a variable?'
+        answers:
+            - {value: "{% set values = [1, 2] %}", correct: true}
+            - {value: "{% define values = [1, 2] %}", correct: false}
+            - {value: "{% var values = [1, 2] %}", correct: false}
+            - {value: "{{ var values = [1, 2] }}", correct: false}
+    -
+        question: 'True or False ? The placeholders used for a "format" filter follow the notation of sprintf'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The placeholders used for a "format" filter DO NOT follow the notation of sprintf'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following functions DO exist?'
+        answers:
+            - {value: "attribute", correct: true}
+            - {value: "block", correct: true}
+            - {value: "constant", correct: true}
+            - {value: "cycle", correct: true}
+            - {value: "remove", correct: false}
+            - {value: "reverse", correct: false}
+            - {value: "bind", correct: false}
+            - {value: "escape", correct: false}
+    -
+        question: 'Which of the following functions DO exist?'
+        answers:
+            - {value: "date", correct: true}
+            - {value: "dump", correct: true}
+            - {value: "include", correct: true}
+            - {value: "validate", correct: false}
+            - {value: "coombine", correct: false}
+            - {value: "declare", correct: false}
+            - {value: "loop", correct: false}
+            - {value: "unset", correct: false}
+    -
+        question: 'Which of the following functions DOES NOT exist?'
+        answers:
+            - {value: "max", correct: false}
+            - {value: "min", correct: false}
+            - {value: "parent", correct: false}
+            - {value: "random", correct: false}
+            - {value: "range", correct: false}
+            - {value: "source", correct: false}
+            - {value: "template_from_string", correct: false}
+            - {value: "collate", correct: true}
+    -
+        question: 'What would be the correct syntax to check if a constant is defined?'
+        answers:
+            - {value: "{% if constant('SOME_CONST') is defined %}{% endif %}", correct: true}
+            - {value: "{% if constant('SOME_CONST') defined %}{% endif %}", correct: false}
+            - {value: "{% if defined(constant('SOME_CONST')) %}{% endif %}", correct: false}
+            - {value: "{% if defined constant('SOME_CONST') %}{% endif %}", correct: false}
+    -
+        question: 'Which of the following statements is correct regarding the output of the following code: cycle(["even","odd"],loop.index);"?'
+        answers:
+            - {value: "The first output in the iteration will be 'odd'", correct: true}
+            - {value: "The first output in the iteration will be 'event'", correct: false}
+    -
+        question: 'Which of the following statements is correct regarding the output of the following code: cycle(["even","odd"],loop0);"?'
+        answers:
+            - {value: "The first output in the iteration will be 'even'", correct: true}
+            - {value: "The first output in the iteration will be 'odd'", correct: false}
+    -
+        question: 'What will be the result of following function call: {{ dump() }}?'
+        answers:
+            - {value: "All variables from the current context are dumped", correct: true}
+            - {value: "Nothing is dumped", correct: false}
+            - {value: "An error is raised", correct: false}
+    -
+        question: 'What would be the output of the following function call: {{ max({2: "e", 1: "a", 3: "b", 5: "d", 4: "c"}) }}?'
+        answers:
+            - {value: "e", correct: true}
+            - {value: "a", correct: false}
+            - {value: "An error would be raised", correct: false}
+            - {value: "null", correct: false}
+    -
+        question: 'What would be the output of the following function call: {{ min({2: "e", 1: "a", 3: "b", 5: "d", 4: "c"}) }}?'
+        answers:
+            - {value: "a", correct: true}
+            - {value: "e", correct: false}
+            - {value: "An error would be raised", correct: false}
+            - {value: "null", correct: false}
+    -
+        question: 'True or False ? {{ random() }} would output a random number according to the php function "mt_rand"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? {{ random() }} would output a random number according to the php function "rand"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What would be the output of the following function call: {% for i in range(0, 6, 2) %}{{ i }},{% endfor %}?'
+        answers:
+            - {value: "0,2,4,6,", correct: true}
+            - {value: "0,2,4,6", correct: false}
+            - {value: "0,1,2,3,4,5,6,", correct: false}
+            - {value: ",0,2,4,6", correct: false}
+    -
+        question: 'True or False ? {{ source("template.html") }} would return the content of a template without rendering it'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? {{ source("template.html") }} would include the content of a template and render it'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    #Template includes - http://symfony.com/doc/current/templating.html#including-other-templates
+    -
+        question: 'Which of the following syntaxes would be correct to import a template in a template?'
+        answers:
+            - {value: "{{ include('article/details.html.twig', { 'article': article }) }}", correct: true}
+            - {value: "{{ import('article/details.html.twig', { 'article': article }) }}", correct: false}
+            - {value: "{{ inject('article/details.html.twig', { 'article': article }) }}", correct: false}
+            - {value: "{% include('article/details.html.twig', { 'article': article }) %}", correct: false}
+            - {value: "{% import('article/details.html.twig', { 'article': article }) %}", correct: false}
+            - {value: "{% inject('article/details.html.twig', { 'article': article }) %}", correct: false}
+    -
+        question: "Which of the following statements are correct regaring this code: {{ include('template.html', with_context = false) }}"
+        answers:
+            - {value: "No variables will be accessible", correct: true}
+            - {value: "This will result in a syntax error", correct: false}
+            - {value: "The 'with_context' argument should have the name 'no_context' and the value should be true", correct: false}
+    #Loops and conditions - https://twig.symfony.com/doc/2.x/templates.htm
+    -
+        question: 'Which of the following syntaxes is correct for the for-loop?'
+        answers:
+            - {value: "{% for i in 0..10 %}{% endfor %}", correct: true}
+            - {value: "{{ for i in 0..10 }}{{ endfor }}", correct: false}
+            - {value: "{% for i in 0-10 %}{% endfor %}", correct: false}
+            - {value: "{{ for i in 0-10 }}{{ endfor }}", correct: false}
+    -
+        question: 'Which of the following loops are valid?'
+        answers:
+            - {value: "{% for user in users %}{% endfor %}", correct: true}
+            - {value: "{% for i in 0..10 %}{% endfor %}", correct: true}
+            - {value: "{% for letter in 'a'..'z' %}{% endfor %}", correct: true}
+            - {value: "{% for letter in 'a'|upper..'z'|upper %}{% endfor %}", correct: true}
+            - {value: "{% foreach user in users %}{% endforeach %}", correct: false}
+            - {value: "{% for i in 0-10 %}{% endfor %}", correct: false}
+            - {value: "{% for letter in 'a'-'z' %}{% endfor %}", correct: false}
+    -
+        question: 'True or False ? {% for user in users if user.active %}{% endfor %} loops only over the active users'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the correct syntax to loop over the first 10 users?'
+        answers:
+            - {value: "{% for user in users|slice(0, 10) %}{% endfor %}", correct: true}
+            - {value: "{% for user in users|splice(0, 10) %}{% endfor %}", correct: false}
+            - {value: "{% for user in slice(users, 0, 10) %}{% endfor %}", correct: false}
+    -
+        question: 'Which of the following loops are valid?'
+        answers:
+            - {value: "{% for user in users %}{% else %}{% endfor %}", correct: true}
+            - {value: "{% for key in users|keys %}{% endfor %}", correct: true}
+            - {value: "{% for user in users|slice(0, 10) %}{% endfor %}", correct: true}
+            - {value: "{% for keys() in users %}{% endfor %}", correct: false}
+            - {value: "{% for user in slice(users, 0, 10) %}", correct: false}
+            - {value: "{% foreach users %}{% endforeach %}", correct: false}
+    -
+        question: 'Which of the following loops are valid?'
+        answers:
+            - {value: "{% for key, user in users %}{% endfor %}", correct: true}
+            - {value: "{% for key in users|keys %}{% endfor %}", correct: true}
+            - {value: "{% for user in users %}{% else %}{% endfor %}", correct: true}
+            - {value: "{% for keys() in users %}{% endfor %}", correct: false}
+    -
+        question: 'Which of the following if statements are valid?'
+        answers:
+            - {value: "{% if online == false %}{% endif %}", correct: true}
+            - {value: "{% if users %}{% endif %}", correct: true}
+            - {value: "{% if not user.subscribed %}{% endif %}", correct: true}
+            - {value: "{% if temperature > 18 and temperature < 27 %}{% endif %}", correct: true}
+            - {value: "{% if kenny.sick %}{% elseif kenny.dead %}{% else %}{% endif %}", correct: true}
+            - {value: "{% if kenny.sick %}{% elseif kenny.dead %}{% endif %}", correct: true}
+            - {value: "{% if online = false %}{% endif %}", correct: false}
+            - {value: "{% if user is not subscribed %}{% endif %}", correct: false}
+    -
+        question: 'True or False ? Macros are comparable with functions in regular programming languages'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? {% import _self as forms %} imports all macros from the same template into the variable "forms"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? {% import _self as forms %} imports all macros from the parent template into the variable "forms"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following statements imports only the macros "input_field" and "textarea" from the given template?'
+        answers:
+            - {value: "{% from 'forms.html' import input as input_field, textarea as input_textarea %}", correct: true}
+            - {value: "{% from 'forms.html' import input, textarea %}", correct: true}
+            - {value: "{% import from 'forms.html' input as input_field, textarea as input_textarea %}", correct: false}
+            - {value: "{% from 'forms.html' use input, textarea %}", correct: false}
+    -
+        question: 'True or False ? The "with" tag creates a new inner scope'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? {% with only %} by declaring the "only" keyword, only local variables can be accessed inside the new scope'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? {% with { foo: 42 } %}{% endwith %} creates a new scope with the local variable foo'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? {% with ({ foo: 42 }) %}{% endwith %} creates a new scope with the local variable foo'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The flush tag ({% flush %}) tells Twig to flush the output buffer'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The flush tag ({% flush %}) tells Twig to clear the template cache'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The embed tag combines the behaviour of include and extends tags'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The embed tag combines the behaviour of import and extends tags'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The embed tag combines the behaviour of include and import tags'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following statements using "set" are valid?'
+        answers:
+            - {value: "{% set foo = 'bar' %}", correct: true}
+            - {value: "{% set foo = 'foo' ~ 'bar' %}", correct: true}
+            - {value: "{% set foo, bar = 'foo', 'bar' %}", correct: true}
+            - {value: "{% set foo %}li la lu{% endset %}", correct: true}
+            - {value: "{% set foo = 'foo', 'bar' %}", correct: false}
+            - {value: "{% set foo = 'a' - 'z' %}", correct: false}
+    -
+        question: 'True or False ? The "use" statement is the import for macros, but with blocks'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #URLs generation - http://symfony.com/doc/current/templating.html#linking-to-pages
+    -
+        question: 'Which of the following syntaxes are valid to generate a relative url?'
+        answers:
+            - {value: "{{ path('welcome') }}", correct: true}
+            - {value: "{{ path('article_show', {'slug': article.slug}) }}", correct: true}
+            - {value: "{{ asset('images/logo.png') }}", correct: true}
+            - {value: "{{ url('welcome') }}", correct: false}
+            - {value: "{{ absolute_url(asset('images/logo.png')) }}", correct: false}
+            - {value: "{{ path('article_show', ('slug' = article.slug)) }}", correct: false}
+    -
+        question: 'Which of the following syntaxes are valid to generate an absolute url?'
+        answers:
+            - {value: "{{ url('welcome') }}", correct: true}
+            - {value: "{{ absolute_url(asset('images/logo.png')) }}", correct: true}
+            - {value: "{{ path('welcome') }}", correct: false}
+            - {value: "{{ path('article_show', {'slug': article.slug}) }}", correct: false}
+            - {value: "{{ asset('images/logo.png') }}", correct: fales}
+            - {value: "{{ path('article_show', ('slug' = article.slug)) }}", correct: false}
+    #Controller rendering - http://symfony.com/doc/current/templating/embedding_controllers.html
+    -
+        question: 'Which would be the correct syntax to render a controller inside a template?'
+        answers:
+            - {value: "{{ render(controller('App\\Controller\\ArticleController::recentArticles',{ 'max': 3 })) }}", correct: true}
+            - {value: "{{ render(controller('App\\Controller\\ArticleController::recentArticles')) }}", correct: true}
+            - {value: "{{ controller('App\\Controller\\ArticleController::recentArticles',{ 'max': 3 }) }}", correct: false}
+            - {value: "{{ controller('App\\Controller\\ArticleController::recentArticles',{ 'max': 3 }) }}", correct: false}
+            - {value: "{{ controller('App\\Controller\\ArticleController::recentArticles',{ 'max': 3 }) }}", correct: false}
+    -
+        question: 'True or False ? Rendering embedded controllers is "heavier" than including a template or calling a custom Twig function'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Rendering embedded controllers is NOT "heavier" than including a template or calling a custom Twig function'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    #Translations and pluralization - https://symfony.com/doc/current/translation.html
+    -
+        question: 'What would be the correct syntax to set the translation domain to "app"?'
+        answers:
+            - {value: "{% trans_default_domain 'app' %}", correct: true}
+            - {value: "{% trans_domain 'app' %}", correct: false}
+            - {value: "{% domain 'app' %}", correct: false}
+            - {value: "{% trans_default_domain = 'app' %}", correct: false}
+            - {value: "{% trans_domain = 'app' %}", correct: false}
+            - {value: "{% trans_default_domain : 'app' %}", correct: false}
+            - {value: "{% trans_domain : 'app' %}", correct: false}
+    -
+        question: 'Which of the following translation syntaxes are valid?'
+        answers:
+            - {value: "{% trans %}Hello %name%{% endtrans %}", correct: true}
+            - {value: "{% trans with {'%name%': 'Kevin'} from 'app' %}Hello %name%{% endtrans %}", correct: true}
+            - {value: "{% trans with {'%name%': 'Fabien'} from 'app' into 'fr' %}Hello %name%{% endtrans %}", correct: true}
+            - {value: "{% transchoice 5 %}{% transchoice)}", correct: true}
+            - {value: "{{ message|trans }}", correct: true}
+            - {value: "{{ message|transchoice(5) }}", correct: true}
+            - {value: "{{ message|transchoice(5, 'app') }}", correct: false}
+            - {value: "{% trans with {'%name%': 'Fabien'} from 'app' to 'fr' %}Hello %name%{% endtrans %}", correct: false}
+            - {value: "{% trans {'%name%': 'Fabien'} from 'app' into 'fr' %}Hello %name%{% endtrans %}", correct: false}
+    -
+        question: 'True or False ? The "into" keyword is used to declare the language, the translation should be executed for'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #String interpolation - https://twig.symfony.com/doc/2.x/templates.html#string-interpolation
+    -
+        question: 'True or False ? String interpolation (#{expression}) allows any valid expression to appear within a double-quoted string'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? String interpolation (#{expression}) allows any valid expression to appear within a single-quoted string'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? String interpolation #(expression) allows any valid expression to appear within a double-quoted string'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    #Debugging variables - http://symfony.com/doc/current/templating/debug.html
+    -
+        question: 'True or False ? The output of {{ dump(foo.bar) }} is rendered in the web developer toolbar'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The output of {{ dump(foo.bar) }} is rendered directly in your template'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The output of {% dump foo.bar %} is rendered in the web developer toolbar'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The output of {{ dump(foo.bar) }} is rendered directly in your template'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
