@@ -1,0 +1,249 @@
+category: Dependency Injection (kjueni)
+questions:
+    #Service container - http://symfony.com/doc/current/service_container.html
+    -
+        question: 'True or False ? In your config/services.yaml - If you set services:_defaults:autowire === true then Symfony automatically registers your services as commands, event subscribers, etc.'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? In your config/services.yaml - If you set services:_defaults:autoconfigure === true then Symfony automatically registers your services as commands, event subscribers, etc.'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'In your config/services.yaml - If you set services._defaults.public === false what are the consequences?'
+        answers:
+            - {value: "$container->get() won't work anymore", correct: true}
+            - {value: "You can only use built-in services in your application", correct: false}
+            - {value: "You have to explicitly declare the services via type hinting and/or in the config that you want to inject in your classes", correct: true}
+    -
+        question: 'In your config/services.yaml - What would be valid patterns (glob) to define for your services:App\:resource or services:App\:exclude settings'
+        answers:
+            - {value: "../src/*", correct: true}
+            - {value: "../src/{Entity,Migrations,Tests,Kernel.php}", correct: true}
+            - {value: "../src/[Entity,Migrations,Tests,Kernel.php]", correct: false}
+            - {value: "../src/{*}", correct: false}
+    -
+        question: 'What would be the correct console command to check which services would be available for autowiring?'
+        answers:
+            - {value: "php bin/console debug:autowiring", correct: true}
+            - {value: "php bin/console autowiring", correct: false}
+            - {value: "php bin/console services:autowiring", correct: false}
+            - {value: "php bin/console debug:services:autowiring", correct: false}
+    -
+        question: 'In your config/services.yaml - If you define a parameter called admin_email (parameters:admin_email), how could this parameter be referenced e.g. in a service setting?'
+        answers:
+            - {value: "%admin_email%", correct: true}
+            - {value: "admin_email", correct: false}
+            - {value: "%services:parameters:admin_email%", correct: false}
+            - {value: "[services:parameters:admin_email]", correct: false}
+            - {value: "{services:parameters:admin_email}", correct: false}
+            - {value: "{admin_email}", correct: false}
+    -
+        question: 'In your config/services.yaml - How would define an argument called admin_email for the service App\Updates\SiteUpdateManager?'
+        answers:
+            - {value: "services:App\\Updates\\SiteUpdateManager:arguments:$adminEmail:'%admin_email%'", correct: true}
+            - {value: "App\\Updates\\SiteUpdateManager:arguments:$adminEmail:'%admin_email%'", correct: false}
+            - {value: "SiteUpdateManager:arguments:$adminEmail:'%admin_email%'", correct: false}
+            - {value: "services:App\\Updates\\SiteUpdateManager:args:$adminEmail:'%admin_email%'", correct: false}
+            - {value: "App\\Updates\\SiteUpdateManager:args:$adminEmail:'%admin_email%'", correct: false}
+            - {value: "SiteUpdateManager:args:$adminEmail:'%admin_email%'", correct: false}
+            - {value: "services:App\\Updates\\SiteUpdateManager:args:adminEmail:'%admin_email%'", correct: false}
+            - {value: "App\\Updates\\SiteUpdateManager:args:adminEmail:'%admin_email%'", correct: false}
+            - {value: "SiteUpdateManager:args:adminEmail:'%admin_email%'", correct: false}
+    -
+        question: 'In your config/services.yaml - If you want to make sure that the "$logger" argument would be the service with the id "monolog.logger.request", how would your assignment look?'
+        answers:
+            - {value: "$logger:'@monolog.logger.request'", correct: true}
+            - {value: "$logger:'monolog.logger.request'", correct: false}
+            - {value: "$logger:'$monolog.logger.request'", correct: false}
+            - {value: "$logger:'@{monolog.logger.request}'", correct: false}
+            - {value: "logger:'@monolog.logger.request'", correct: false}
+    -
+        question: 'In your config/services.yaml - If you want to define an argument "$adminEmail" available for all services in this file, how would you do that?'
+        answers:
+            - {value: "services:_defaults:bind:$adminEmail:'manager@example.com'", correct: true}
+            - {value: "services:_defaults:bind:adminEmail:'manager@example.com'", correct: false}
+            - {value: "services:bind:_defaults:adminEmail:'manager@example.com'", correct: false}
+            - {value: "services:bind:_defaults:bind:$adminEmail:'manager@example.com'", correct: false}
+            - {value: "services:defaults:bind:$adminEmail:'manager@example.com'", correct: false}
+    -
+        question: 'How can you access the service container in the controller?'
+        answers:
+            - {value: "$this->container", correct: true}
+            - {value: "$this->getContainer()", correct: false}
+            - {value: "$this->serviceContainer", correct: false}
+            - {value: "$this->getServiceContainer()", correct: false}
+            - {value: "$this->getController()->getServiceContainer()", correct: false}
+    -
+        question: 'True or False ? The service container is only available in a controller if the base controller class is extended'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #Configuration parameters - http://symfony.com/doc/current/service_container/parameters.html
+    -
+        question: 'True or False ? The values between parameter tags in XML configuration files are not trimmed'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'How would you define the parameter values "@securepass" and "%discount" in a config?'
+        answers:
+            - {value: "@@securepass and %%discount", correct: true}
+            - {value: "\\@securepass and \\%discount", correct: false}
+            - {value: "_@securepass and _%discount", correct: false}
+            - {value: "/@securepass and /%discount", correct: false}
+            - {value: ".@securepass and .%discount", correct: false}
+    -
+        question: 'True or False ? It is possible to set service container parameters at runtime'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What would be the correct syntax to add the value of an the ENV variable "DATABASE_URL" to a config?'
+        answers:
+            - {value: "%env(DATABASE_URL)%", correct: true}
+            - {value: "%ENV(DATABASE_URL)%", correct: false}
+            - {value: "env(DATABASE_URL)", correct: false}
+            - {value: "ENV(DATABASE_URL)", correct: false}
+            - {value: "@env(DATABASE_URL)", correct: false}
+            - {value: "@ENV(DATABASE_URL)", correct: false}
+    -
+        question: 'Which of the following config(s) are valid?'
+        answers:
+            - {value: "global.constant.value: !php/const GLOBAL_CONSTANT", correct: true}
+            - {value: "global.constant.value: !php/const MyClass::CONSTANT_NAME", correct: true}
+            - {value: "my_mailer.gateways: [mail1, mail2, mail3]", correct: true}
+            - {value: "global.constant.value: !GLOBAL_CONSTANT", correct: false}
+            - {value: "global.constant.value: !MyClass::CONSTANT_NAME", correct: false}
+            - {value: "my_mailer.gateways: !php/array[mail1, mail2, mail3]", correct: false}
+    #Services registration - http://symfony.com/doc/current/service_container.html#creating-configuring-services-in-the-container
+    -
+        question: 'True or False ? A service is only created once: the same instance is returned each time you ask for it'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #Tags - http://symfony.com/doc/current/service_container/tags.html
+    -
+        question: 'True or False ? Services tagged with the twig.extension tag are collected during the initialization of TwigBundle and added to Twig as extension'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the correct syntax to apply a service tag called "app.custom_tag" to all services which implement the interface "CustomInterface"?'
+        answers:
+            - {value: "$container->registerForAutoconfiguration(CustomInterface::class)->addTag('app.custom_tag');", correct: true}
+            - {value: "$container->register(CustomInterface::class)->addTag('app.custom_tag');", correct: false}
+            - {value: "$container->registerForAutoconfiguration(CustomInterface)->addTag('app.custom_tag');", correct: false}
+            - {value: "$container->autoRegister(CustomInterface::class)->addTag('app.custom_tag');", correct: false}
+            - {value: "$container->registerInterface(CustomInterface::class)->addTag('app.custom_tag');", correct: false}
+    -
+        question: 'How do you add a custom compiler pass (CustomPass) during compilation to your container builder?'
+        answers:
+            - {value: "$containerBuilder->addCompilerPass(new CustomPass());", correct: true}
+            - {value: "$containerBuilder->addPass(CustomPass::class);", correct: false}
+            - {value: "$containerBuilder->add(new CustomPass());", correct: false}
+            - {value: "$containerBuilder->add(CustomPass::class);", correct: false}
+    -
+        question: 'Which method your compiler pass must own if he is implementing the "CompilerPassInterface"'
+        answers:
+            - {value: "process(ContainerBuilder $container)", correct: true}
+            - {value: "compile(ContainerBuilder $container)", correct: false}
+            - {value: "build(ContainerBuilder $container)", correct: false}
+            - {value: "add(ContainerBuilder $container)", correct: false}
+            - {value: "addCompilationToBuilder(ContainerBuilder $container)", correct: false}
+            - {value: "compileBuild(ContainerBuilder $container)", correct: false}
+    -
+        question: 'True or False ? In your compiler pass only work with services definition and do not create service instances. In practice, this means using the methods has(), findDefinition(), getDefinition(), setDefinition()'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? In your compiler pass do not work with services definition and create service instances directly. In practice, this means using the methods get(), set() etc.'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "true", correct: false}
+    -
+        question: 'To define when your compiler pass should be executed during compilation, which types are available?'
+        answers:
+            - {value: "PassConfig::TYPE_BEFORE_OPTIMIZATION", correct: true}
+            - {value: "PassConfig::TYPE_OPTIMIZE", correct: true}
+            - {value: "PassConfig::TYPE_BEFORE_REMOVING", correct: true}
+            - {value: "PassConfig::TYPE_REMOVE", correct: true}
+            - {value: "PassConfig::TYPE_AFTER_REMOVING", correct: true}
+            - {value: "PassConfig::TYPE_AFTER_COMPILATION", correct: false}
+            - {value: "PassConfig::TYPE_BEFORE_COMPILATION", correct: false}
+            - {value: "PassConfig::TYPE_SET_UP", correct: false}
+            - {value: "PassConfig::TYPE_BEFORE_TEAR_DOWN", correct: false}
+            - {value: "PassConfig::TYPE_AFTER_TEAR_DOWN", correct: false}
+    -
+        question: 'In your config/services.yaml - How would you define an alias ("sendmail") for a specific services tag (app.mail_transport)?'
+        answers:
+            - {value: "- { name: app.mail_transport, alias: sendmail }", correct: true}
+            - {value: "- [ 'app.mail_transport', 'sendmail' ]", correct: false}
+            - {value: "- { 'app.mail_transport', 'sendmail' }", correct: false}
+            - {value: "- name: app.mail_transport, alias: sendmail", correct: false}
+    -
+        question: 'How do you register a method to be executed for each tagged service in the process method of a CompilerPass for a service called "TransportChain"?'
+        answers:
+            - {value: "$container->findDefinition(TransportChain::class)->addMethodCall('yourFunction')", correct: true}
+            - {value: "$container->findDefinition(TransportChain::class)->addFunction('yourFunction')", correct: false}
+            - {value: "$container->findDefinition(TransportChain::class)->addServiceCall('yourFunction')", correct: false}
+            - {value: "$container->findService(TransportChain::class)->addFunction('yourFunction')", correct: false}
+            - {value: "$container->findService(TransportChain::class)->addMethodCall('yourFunction')", correct: false}
+    -
+        question: 'How would you find all service ids in a service container which have the tag "app.mail_transport"?'
+        answers:
+            - {value: "$container->findTaggedServiceIds('app.mail_transport')", correct: true}
+            - {value: "$container->findServices('app.mail_transport')", correct: false}
+            - {value: "$container->findServicesByTag('app.mail_transport')", correct: false}
+            - {value: "$container->getServcies('app.mail_transport')", correct: false}
+            - {value: "$container->findTaggedServices('app.mail_transport')", correct: false}
+            - {value: "$container->findByTag('app.mail_transport')", correct: false}
+    -
+        question: 'Instead of writing your own CompilerPass, how would you define in the services config, that all services tagged with "app.handler" should be injected to a service constructor via arguments?'
+        answers:
+            - {value: "arguments: [!tagged app.handler]", correct: true}
+            - {value: "arguments: !tagged app.handler", correct: false}
+            - {value: "arguments: [tagged app.handler", correct: false}
+            - {value: "arguments: {!tagged app.handler}", correct: false}
+            - {value: "arguments: [@tagged app.handler]", correct: false}
+            - {value: "arguments: @(app.handler)", correct: false}
+            - {value: "arguments: @app.handler", correct: false}
+    #Factories - http://symfony.com/doc/current/service_container/factories.html
+    -
+        question: 'How do you specify a factory called "App\\Email\\NewsletterManagerStaticFactory" with a method called "createNewsletterManager" to create the service "App\\Email\\NewsletterManager" in the services config'
+        answers:
+            - {value: "factory: ['App\\Email\\NewsletterManagerStaticFactory', createNewsletterManager]", correct: true}
+            - {value: "factory: ['App\\Email\\NewsletterManagerStaticFactory:createNewsletterManager', ]", correct: true}
+            - {value: "factory: 'App\\Email\\NewsletterManagerStaticFactory\\createNewsletterManager'", correct: false}
+            - {value: "factory: ['App\\Email\\NewsletterManagerStaticFactory\\createNewsletterManager']", correct: false}
+            - {value: "creator_factory: ['App\\Email\\NewsletterManagerStaticFactory', createNewsletterManager]", correct: false}
+            - {value: "creator_factory: 'App\\Email\\NewsletterManagerStaticFactory\\createNewsletterManager'", correct: false}
+            - {value: "creator_factory: {'App\\Email\\NewsletterManagerStaticFactory\\createNewsletterManager'}", correct: false}
+    #Services autowiring - http://symfony.com/doc/current/service_container/autowiring.html
+    -
+        question: 'True or false ? There is no runtime overhead for using autowiring'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or false ? There is a pretty big runtime overhead for using autowiring'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'How could you add a service alias called "App\\Util\\Rot13Transformer" for the service id "app.rot13.transformer" in the service config?'
+        answers:
+            - {value: "App\\Util\\Rot13Transformer: '@app.rot13.transformer'", correct: true}
+            - {value: "App\\Util\\Rot13Transformer: 'app.rot13.transformer'", correct: false}
+            - {value: "App\\Util\\Rot13Transformer: '@rot13.transformer'", correct: false}
+            - {value: "App\\Util\\Rot13Transformer: '{rot13.transformer}'", correct: false}
+    -
+        question: 'In your config/services.yaml - How to make sure that the "App\\Util\\Rot13Transformer" class is injected if a services implements the interface "App\\Util\\TransformerInterface"?'
+        answers:
+            - {value: "App\\Util\\TransformerInterface: '@App\\Util\\Rot13Transformer'", correct: true}
+            - {value: "App\\Util\\TransformerInterface: 'App\\Util\\Rot13Transformer'", correct: false}
+            - {value: "App\\Util\\TransformerInterface: ['@App\\Util\\Rot13Transformer']", correct: false}
+            - {value: "App\\Util\\TransformerInterface: ['App\\Util\\Rot13Transformer']", correct: false}
