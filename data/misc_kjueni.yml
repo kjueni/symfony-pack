@@ -401,7 +401,7 @@ questions:
             - {value: "$person = $serializer->deserialize($data, 'xml', Person);", correct: false}
             - {value: "$person = $serializer->deserialize($data, Person, 'xml');", correct: false}
     -
-        question: 'How could provide an existing object you want to de-serialize into?'
+        question: 'How could you provide an existing object to the deserializer you want to deserialize into?'
         answers:
             - {value: "$serializer->deserialize($data, Person::class, 'xml', array('object_to_populate' => $person));", correct: true}
             - {value: "$serializer->deserialize($data, Person::class, 'xml', $person);", correct: false}
@@ -509,168 +509,258 @@ questions:
             - {value: "False", correct: true}
             - {value: "True", correct: false}
     -
-        question: ''
+        question: 'What would be a correct approach to handle circular references'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "$normalizer->setCircularReferenceHandler(function(){});", correct: true}
+            - {value: "$serializer->setCircularReferenceHandler(function(){});", correct: false}
+            - {value: "$normalizer->setCircularReferenceConverter(function(){});", correct: false}
+            - {value: "$serializer->setCircularReferencePreventer(function(){});", correct: false}
+            - {value: "$normalizer->setCircularReferenceLimit(2);", correct: false}
+            - {value: "$serializer->setCircularReferenceLimit(2);", correct: false}
     -
-        question: ''
+        question: 'What would be a valid "Annotation" to specify a serialization depth maximum?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "@MaxDepth(2)", correct: true}
+            - {value: "@MaxSerializationDepth(2)", correct: false}
+            - {value: "@MaxDepth({2})", correct: false}
+            - {value: "@MaxSerializationDepth({2})", correct: false}
+            - {value: "@SerializationDepthMax({2})", correct: false}
+            - {value: "@SerializationDepthMax(2)", correct: false}
     -
-        question: ''
+        question: 'True or False ? If you want to deserialize an array of objects you should use the "ArrayDenormalizer"'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
     -
-        question: ''
+        question: 'True or False ? If you want to deserialize an array of objects you should use the "ArrayNormalizer"'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
     -
-        question: ''
+        question: 'What would be the correct syntax to deserialize data if "$data" would be a JSON array of persons?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "$persons = $serializer->deserialize($data, 'Acme\Person[]', 'json');", correct: true}
+            - {value: "$persons = $serializer->deserialize($data, 'Acme\Person', 'json');", correct: false}
+            - {value: "$persons = $serializer->deserialize($data, Acme\Person[], 'json');", correct: false}
+            - {value: "$persons = $serializer->deserialize($data, '[Acme\Person]', 'json');", correct: false}
+            - {value: "$persons = $serializer->deserialize($data, Acme\Person::class, 'json');", correct: false}
     -
-        question: ''
+        question: 'True or False ? XmlEncoder: # would be the correct prefix for an array key to declare its value is the data of a node'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
     -
-        question: ''
+        question: 'True or False ? XmlEncoder: @ would be the correct prefix for an array key to declare its value is the data of a node'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
     -
-        question: ''
+        question: 'True or False ? XmlEncoder: # would be the correct prefix for an array key to declare it should be handled as xml-attribute'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
     -
-        question: ''
+        question: 'True or False ? XmlEncoder: @ would be the correct prefix for an array key to declare it should be handled as xml-attribute'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
     -
-        question: ''
+        question: 'Which of the following options are available for the XmlEncoder (associative array "$context") to pass to the encode method: $xmlEncoder->encode($array, "xml", $context)?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "xml_format_output", correct: true}
+            - {value: "xml_version", correct: true}
+            - {value: "xml_encoding", correct: true}
+            - {value: "xml_standalone", correct: true}
+            - {value: "xml_root_node_name", correct: true}
+            - {value: "remove_empty_tags", correct: true}
+            - {value: "xml_format", correct: false}
+            - {value: "xml_output", correct: false}
+            - {value: "empty_tags_removal", correct: false}
+            - {value: "root_node_name", correct: false}
     -
-        question: ''
+        question: 'How can you define to use e.g. a specific normalizer as default for the serialization process?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "Add it as a service and add set tags to [serializer.normalizer]", correct: true}
+            - {value: "Add it as a service and add set tags to [serializer.serializer]", correct: false}
+            - {value: "Add it as a service and add set tags to [serializer_normalizer]", correct: false}
+            - {value: "Add it as a service and add set tags to [serializer.normalizers.normalizer]", correct: false}
+    #Data collectors - https://symfony.com/doc/current/profiler/data_collector.html
     -
-        question: ''
+        question: 'True or False ? Data collectors can be used to collect data to use in a profiler'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
     -
-        question: ''
+        question: 'True or False ? Data collectors are used to generate data-proxies for database abstracion'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
     -
-        question: ''
+        question: 'True or False ? Data collectors collect data by storing request or response data'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
     -
-        question: ''
+        question: 'True or False ? You should not provide unserializable objects (with no "serialize" method) to the DataCollector as the profiler needs to serialize its data'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If you do not use autoconfigure you have to manually register your custom data collectors as service and tag it with "data_collector"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If you do not use autoconfigure you have to manually register your custom data collectors as service and tag it with "collectible"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? If you do not use autoconfigure you have to manually register your custom data collectors as service and tag it with "collector"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which methods have to be implemented in your custom data collector to be able to use it in a template?'
+        answers:
+            - {value: "getMethod", correct: true}
+            - {value: "getAcceptableContentTypes", correct: true}
+            - {value: "getTemplateName", correct: false}
+            - {value: "getTemplatePath", correct: false}
+            - {value: "getContentTypes", correct: false}
+            - {value: "getContentTypeRange", correct: false}
+            - {value: "getCollectorMethod", correct: false}
+            - {value: "getDataMethod", correct: false}
+    -
+        question: 'Which of the following syntaxes would be correct to extend your profile template from the WebProfiler base template?'
+        answers:
+            - {value: "{% extends '@WebProfiler/Profiler/layout.html.twig' %}", correct: true}
+            - {value: "{% extends '@Profiler/Web/layout.html.twig' %}", correct: false}
+            - {value: "{% extends '@WebProfiler/layout.html.twig' %}", correct: false}
+            - {value: "{% extends '@Web/Profiler/layout.html.twig' %}", correct: false}
+    -
+        question: 'Which variables have to be set in the block "toolbar" if you extend the base profiler layout and you want your data collector to appear in the Web Debug Toolbar?'
+        answers:
+            - {value: "icon", correct: true}
+            - {value: "text", correct: true}
+            - {value: "description", correct: false}
+            - {value: "toolbar", correct: false}
+            - {value: "toolbar_item", correct: false}
+    -
+        question: 'How would your template include call look like if you only would want to create a toolbar item and not a profiler detail page?'
+        answers:
+            - {value: "{{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: false }) }}", correct: true}
+            - {value: "{{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: true }) }}", correct: false}
+            - {value: "{{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { no_link: false }) }}", correct: false}
+            - {value: "{{ include('@WebProfiler/toolbar_item.html.twig', { link: false }) }}", correct: false}
+            - {value: "{{ include('@WebProfiler/toolbar_item.html.twig', { link: true }) }}", correct: false}
+            - {value: "{{ include('@WebProfiler/toolbar_item.html.twig', { no_link: false }) }}", correct: false}
+    -
+        question: 'Which additional blocks would have to be implemented if you also would want to display a profiler page of your data collector?'
+        answers:
+            - {value: "menu", correct: true}
+            - {value: "panel", correct: true}
+            - {value: "header", correct: false}
+            - {value: "list", correct: false}
+            - {value: "panel_list", correct: false}
+    -
+        question: 'True or False ? Additional stylesheets for your profiler panel can be defined in an optional block called "head"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Additional stylesheets for your profiler panel can be defined in an optional block called "header"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Whats the correct name of the block you have to implement in your template to add a toolbar item to the Web Debug Toolbar?'
+        answers:
+            - {value: "toolbar", correct: true}
+            - {value: "toolbar-item", correct: false}
+            - {value: "toolbar_item", correct: false}
+            - {value: "Toolbar", correct: false}
+            - {value: "toolbarItem", correct: false}
+    -
+        question: 'True or False ? A service tag can be a simple string or an object with properties "name" and optionally e.g. "id" or "template"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? A service tag can only be a string'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Where can you specify the correct template for a custom data collector?'
+        answers:
+            - {value: "In config/services.yaml as a property 'template' in a service tag object", correct: true}
+            - {value: "In config/framework.yaml: framework.your_data_collector.template", correct: false}
+            - {value: "In config/services.yaml Your\\Data\\Collector.template", correct: false}
+            - {value: "You have to implemented the method 'getTemplatePath' for your data collector", correct: false}
+            - {value: "You have to implemented the method 'getTemplate' for your data collector", correct: false}
+    #Internationalization and localization -
+    -
+        question: 'True or False ? Translation files by default are stored in the translations/ directory at the root of your project'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Symfony recommends the XLIFF format for your translation files'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Symfony recommends the gettext format for your translation files'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Always use keys for translations instead of content strings'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Always use content strings for translations instead of simple keys'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? "trans-unit" is the node name of an XLIFF XML node'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? "trans-item "is the node name of an XLIFF XML node'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? In XLIFF the child nodes of "trans-unit" are "source" and "target"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? In XLIFF the child nodes of "trans-unit" are "key" and "value"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following commands would be the correct to update your translation files with the contents from your scripts?'
+        answers:
+            - {value: "./bin/console translation:update --dump-messages --force fr", correct: true}
+            - {value: "php bin/console translation:update --force fr", correct: true}
+            - {value: "php bin/console translation:update --dump-messages fr", correct: false}
+            - {value: "php app/console translation:update --force fr", correct: false}
+            - {value: "php bin/console translation:update --dump-messages fr", correct: false}
+    -
+        question: 'True or False ? "xlf" is the correct extension for your XLIFF files'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? "xliff" is the correct extension for your XLIFF files'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
 
