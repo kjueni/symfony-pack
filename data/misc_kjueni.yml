@@ -1,0 +1,676 @@
+category: Miscellaneous (kjueni)
+questions:
+    #Code debugging - http://symfony.com/doc/current/components/debug.html
+    -
+        question: 'How can the debugger be enabled?'
+        answers:
+            - {value: "\\Symfony\\Component\\Debug\\Debug::enable()", correct: true}
+            - {value: "\\Symfony\\Component\\Debug\\Debug::enableDebugger()", correct: false}
+            - {value: "\\Debug\\Debug::enableDebugger()", correct: false}
+            - {value: "\\Component\\Debug::enable()", correct: false}
+            - {value: "\\Symfony\\Debug::enableDebugger()", correct: false}
+    -
+        question: 'How can the exception handler be enabled?'
+        answers:
+            - {value: "\\Symfony\\Component\\Debug\\ExceptionHandler::enable()", correct: true}
+            - {value: "\\Component\\Debug\\ExceptionHandler::enableExceptionHandler()", correct: false}
+            - {value: "\\Symfony\\Component\\ExceptionHandler::enable()", correct: false}
+            - {value: "\\Symfony\\ExceptionHandler::enable()", correct: false}
+            - {value: "\\Symfony\\ExceptionHandler::enableExceptionHandler()", correct: false}
+    -
+        question: 'How can the error handler be enabled?'
+        answers:
+            - {value: "\\Symfony\\Component\\Debug\\ErrorHandler::enable()", correct: true}
+            - {value: "\\Component\\Debug\\ErrorHandler::enableErrorHandler()", correct: false}
+            - {value: "\\Symfony\\Component\\ErrorHandler::enable()", correct: false}
+            - {value: "\\Symfony\\ErrorHandler::enable()", correct: false}
+            - {value: "\\Symfony\\ErrorHandler::enableHandler()", correct: false}
+    -
+        question: 'How can the error debug class loader be enabled?'
+        answers:
+            - {value: "\\Symfony\\Component\\Debug\\DebugClassLoader::enable()", correct: true}
+            - {value: "\\Component\\Debug\\DebugClassLoader::enableClassLoader()", correct: false}
+            - {value: "\\Symfony\\Component\\DebugClassLoader::enable()", correct: false}
+            - {value: "\\Symfony\\DebugClassLoader::enable()", correct: false}
+            - {value: "\\Symfony\\DebugClassLoader::enableClassLoader()", correct: false}
+    -
+        question: 'True or False ? The DebugClassLoader attempts to throw more helpful exceptions when a class is not found by the registered autoloaders'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #Deployment best practices - https://symfony.com/doc/current/deployment.html
+    -
+        question: 'Which of the following statements are part of the deployment process for Symfony?'
+        answers:
+            - {value: "Upload your code to the production server", correct: true}
+            - {value: "Install your vendor dependencies", correct: true}
+            - {value: "Running database migrations", correct: true}
+            - {value: "Clearing or warming up your cache", correct: true}
+            - {value: "Set the correct environment", correct: false}
+            - {value: "Add a new version manually for your assets", correct: false}
+    -
+        question: 'Which of the following statements can be part of the deployment process for Symfony?'
+        answers:
+            - {value: "Tagging a particular version of your code as a release", correct: true}
+            - {value: "Creating a temporary staging area", correct: true}
+            - {value: "Running any tests available", correct: true}
+            - {value: "Removal of any unnecessary files from the public/ directory", correct: true}
+            - {value: "Clearing of external cache system like Memcached or Redis", correct: true}
+            - {value: "Set the correct environment", correct: false}
+            - {value: "Add a new version manually for your assets", correct: false}
+    -
+        question: 'True or False ? When using Git, a common approach is to create a tag for each release'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Basic File Transfer has the disadvantage as you lack control over the system'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following Platform as a Service (PaaS) providers work well with Symfony?'
+        answers:
+            - {value: "Heroku", correct: true}
+            - {value: "Platform.sh", correct: true}
+            - {value: "Azure", correct: true}
+            - {value: "fortrabbit", correct: true}
+            - {value: "Hedoku", correct: false}
+    -
+        question: 'Which of the following build scripts and tools exist to deploy your Symfony application?'
+        answers:
+            - {value: "EasyDeployBundle", correct: true}
+            - {value: "Deployer", correct: true}
+            - {value: "Ansistrano", correct: true}
+            - {value: "Magallanes", correct: true}
+            - {value: "Fabric", correct: true}
+            - {value: "Capistrano with Symfony plugin", correct: true}
+            - {value: "Basic scripting", correct: true}
+            - {value: "sf2debpkg (build a native Debian package)", correct: false}
+            - {value: "Magalles", correct: false}
+            - {value: "Frantic", correct: false}
+            - {value: "Visual Basic", correct: false}
+            - {value: "Capifony with Symfony plugin", correct: false}
+    -
+        question: 'After deployment, how can you check if your server meets the requirements?'
+        answers:
+            - {value: "php bin/symfony_requirements", correct: true}
+            - {value: "php bin/console symfony_requirements", correct: false}
+            - {value: "php bin/console requirements", correct: false}
+            - {value: "php console/symfony_requirements", correct: false}
+    -
+        question: 'Which of the following steps are part of the Post Deployment Process?'
+        answers:
+            - {value: "Check Requirements", correct: true}
+            - {value: "Configure your Environment Variables", correct: true}
+            - {value: "Install/Update your Vendors", correct: true}
+            - {value: "Clear your Symfony Cache", correct: true}
+            - {value: "Dump your Assetic Assets", correct: true}
+            - {value: "Pushing assets to a CDN", correct: true}
+            - {value: "Creating a temporary staging area", correct: false}
+    -
+        question: 'How would your environment variable for the current environment be named if you use Symfony Flex?'
+        answers:
+            - {value: "APP_ENV", correct: true}
+            - {value: "SYMFONY_ENV", correct: false}
+            - {value: "ENVIRONMENT_ENV", correct: false}
+    -
+        question: 'How would you update/install your vendors on your production server?'
+        answers:
+            - {value: "composer install --no-dev --optimize-autoloader", correct: true}
+            - {value: "composer install --optimize-autoloader", correct: false}
+            - {value: "composer install", correct: false}
+    -
+        question: 'If you get a "class not found" error during the composer install process, what should be the first thing to do?'
+        answers:
+            - {value: "Run export SYMFONY_ENV=prod or export APP_ENV=prod", correct: true}
+            - {value: "Delete the vendor directory manually", correct: false}
+            - {value: "Run composer install --find-missing-files", correct: false}
+    -
+        question: 'How can you clear and warm up your cache?'
+        answers:
+            - {value: "php bin/console cache:clear --env=prod --no-debug", correct: true}
+            - {value: "php bin/app cache:clear --env=prod --no-debug", correct: false}
+            - {value: "php bin/console clear:cache --env=prod --no-debug", correct: false}
+            - {value: "php bin/console clear:cache", correct: false}
+            - {value: "php bin/console clear:cache --env=prod", correct: false}
+            - {value: "php bin/app clear:cache --env=prod", correct: false}
+            - {value: "php bin/app clear:cache --env=prod --no-debug", correct: false}
+    -
+        question: 'Which of the following statements are strongly advised by Symfony regarding deployment?'
+        answers:
+            - {value: "Use of staging environments", correct: true}
+            - {value: "Use of testing environments", correct: true}
+            - {value: "Use of Continuous Integration", correct: true}
+            - {value: "Use of Quality Assurance", correct: true}
+            - {value: "Use of capability to roll back", correct: true}
+            - {value: "Use of deployment branches", correct: false}
+            - {value: "Use of deployment profiling", correct: false}
+            - {value: "Use of deployment automatication (Roger)", correct: false}
+    -
+        question: 'If your application does not use composer and you removed the composer.json file how can you make your application work on the production server?'
+        answers:
+            - {value: "Override getProjectDir in your Kernel.php and return your projects root-directory", correct: true}
+            - {value: "Override getDir in your Kernel.php and return your projects root-directory", correct: false}
+            - {value: "Implement setProjectDir in your Kernel.php and set your projects root-directory", correct: false}
+    -
+        question: 'If you deploy your application behind a load balancer or reverse proxy, what can be done to fix some potential issues (special headers e.g.)?'
+        answers:
+            - {value: "Set trusted proxies and headers via: Request::setTrustedProxies", correct: true}
+            - {value: "Set headers via: Request::setTrustedHeaders", correct: false}
+            - {value: "Set proxies and headers via: Request::setProxies", correct: false}
+            - {value: "Set load balancers via: Request::setTrustedLoadBalancers", correct: false}
+    #Process and Serializer components - https://symfony.com/doc/current/components/process.html
+    -
+        question: 'True or False ? The Process class executes a command in a sub-process'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The Process class replaces PHP functions like exec, passthru, shell_exec and system'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The Process class replaces PHP functions like exec, passwd, shell_exec and system'
+        answers:
+            - {value: "False", correct: false}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The Process class replaces PHP functions like exec, passthru, shell and system'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The Process class replaces PHP functions like exec, passthru, shell_exec and system_exec'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The Process class replaces PHP functions like php_exec, passthru, shell and system'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What would be the correct syntax to create a new process?'
+        answers:
+            - {value: "$process = new Process('ls -lsa');", correct: true}
+            - {value: "$builder = new Process(array('ls', '-lsa'));", correct: true}
+            - {value: "$builder = new Process(array('ls', '-l', '-s', '-a'));", correct: true}
+            - {value: "$process = new Process('ls', '-lsa');", correct: false}
+            - {value: "$process = new Process('ls', 'lsa');", correct: false}
+    -
+        question: 'True or False ? The Process component uses a PHP Iterator internally and can be looped'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the correct syntax to get the output since the last call?'
+        answers:
+            - {value: "$process->getIncrementalOutput()", correct: true}
+            - {value: "$process->getOutput()", correct: false}
+            - {value: "$process->getNewestOutput()", correct: false}
+            - {value: "$process->getIncrementingOutput()", correct: false}
+    -
+        question: 'What is the difference between the "mustRun" and the "run" method of the Process component?'
+        answers:
+            - {value: "The 'mustRun' method throws a ProcessFailedException if the process could not run sucessfully", correct: true}
+            - {value: "The 'run' method throws a ProcessFailedException if the process could not run sucessfully", correct: false}
+            - {value: "The 'mustRun' does not throw Exceptions on failure", correct: false}
+            - {value: "The 'run' method does not throw Exceptions on failure", correct: false}
+    -
+        question: 'How can you get real-time Process Output when running a process?'
+        answers:
+            - {value: "Providing a anonymous function in the process constructor as first argument", correct: true}
+            - {value: "By calling $process->setRealTimeOutput(true)", correct: false}
+            - {value: "By passing 'true' to the constructor as first argument", correct: false}
+    -
+        question: 'How can you start a subprocess asynchronously?'
+        answers:
+            - {value: "$process->start();", correct: true}
+            - {value: "$process->run(true);", correct: false}
+            - {value: "$process->mustRun(true);", correct: false}
+            - {value: "$process->async();", correct: false}
+    -
+        question: 'True or False ? If a Response is sent before a child process had a chance to complete, the server process will be killed'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If a Response is sent before a child process is complete, the server process will wait for its completion'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The "wait" method of the process is blocking, your code will halt until the process is finished'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The "wait" method of the process is non-blocking, your code will be executed even if the process is not finished yet'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? You can add a callback function to your call of the "wait" method of the Process'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? You can specify a standard input for your process by calling setInput or passing the input as 4th argument to the constructor'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? You can specify a standard input for your process by calling setInput or passing the input as 3th argument to the constructor'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? You can specify a standard input for your process by calling setInput or passing the input as 2nd argument to the constructor'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What has to be done when you are finished writing to the standard input ($input) of your subprocess?'
+        answers:
+            - {value: "$input->close();", correct: true}
+            - {value: "$input->clear();", correct: false}
+            - {value: "$input->preventWriting();", correct: false}
+            - {value: "$input->finish();", correct: false}
+    -
+        question: 'What is the default sent to a process when calling "$process->stop()"?'
+        answers:
+            - {value: "SIGKILL", correct: true}
+            - {value: "SIGINT", correct: false}
+    -
+        question: 'What is the first argument of "$process->stop()"?'
+        answers:
+            - {value: "timeout", correct: true}
+            - {value: "signal", correct: false}
+    -
+        question: 'What is the second argument of "$process->stop()"?'
+        answers:
+            - {value: "signal", correct: true}
+            - {value: "timeout", correct: false}
+    -
+        question: 'Which class would you use to execute PHP code in isolation?'
+        answers:
+            - {value: "Symfony\\Component\\Process\\PhpProcess", correct: true}
+            - {value: "Symfony\\Component\\PhpProcess", correct: false}
+            - {value: "Symfony\\Component\\Process\\Php", correct: false}
+            - {value: "Symfony\\Component\\Process\\ProcessPhp", correct: false}
+            - {value: "Symfony\\Component\\ProcessPhp", correct: false}
+    -
+        question: 'What happens if the given timeout for a process is reached?'
+        answers:
+            - {value: "A RuntimeException is raised", correct: true}
+            - {value: "A ProcessException is raised", correct: false}
+            - {value: "A fatal error is dispatched", correct: false}
+            - {value: "A ProcessRuntimeException is raised", correct: false}
+    -
+        question: 'True or False ? To raise an exception if the timeout is not reached but the process is idle, you can set an idle timeout by calling $process->setIdleTimeout(e.g. 60 seconds)'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? POSIX signals are not available on Windows platforms'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? POSIX signals are not available on Debian platforms'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? POSIX signals are not available on MacOS platforms'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Due to some limitations in PHP you may have to prefix your commands with "exec" to get the process Pid'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Due to some limitations in PHP you may have to prefix your commands with "shell_exec" to get the process Pid'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'How can the output of a "Process" be disabled?'
+        answers:
+            - {value: "$process->disableOutput();", correct: true}
+            - {value: "$process->getOutput()->disabled();", correct: false}
+            - {value: "$process->disableOutputBuffer();", correct: false}
+            - {value: "$process->disable();", correct: false}
+            - {value: "$process->setOutputDisabled(true);", correct: false}
+    -
+        question: 'What is the return value of the "find" method of the "PhpExecutableFinder"?'
+        answers:
+            - {value: "The absolute path to the executable PHP binary", correct: true}
+            - {value: "The relative path to the executable PHP binary", correct: false}
+    #Serializer component - https://symfony.com/doc/current/components/serializer.html
+    -
+        question: 'True or False ? Serializing means, to normalize an object and encode it to a specific format'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? De-serializing means, to decode a specific format and denormalize it to an object'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? De-serializing means, to normalize an object and encode it to a specific format'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Serializing means, to decode a specific format and de-normalize it to an object'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The "ObjectNormalizer" is the most commonly used normalizer'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following syntaxes is correct?'
+        answers:
+            - {value: "$serializer = new Serializer($normalizers, $encoders);", correct: true}
+            - {value: "$serializer = new Serializer($encoders, $normalizers);", correct: false}
+            - {value: "$serializer = new Serializer(true, $encoders, $normalizers);", correct: false}
+            - {value: "$serializer = new Serializer(true, $normalizers, $encoders);", correct: false}
+    -
+        question: 'Which of the following syntaxes is correct?'
+        answers:
+            - {value: "$jsonContent = $serializer->serialize($person, 'json');", correct: true}
+            - {value: "$jsonContent = $serializer->serializeJson($person);", correct: false}
+            - {value: "$jsonContent = $serializer->serializeJSON($person);", correct: false}
+            - {value: "$jsonContent = $serializer->serialize('json', $person);", correct: false}
+            - {value: "$jsonContent = $serializer->deserialize('json', $person);", correct: false}
+    -
+        question: 'Which of the following syntaxes is correct?'
+        answers:
+            - {value: "$person = $serializer->deserialize($data, Person::class, 'xml');", correct: true}
+            - {value: "$person = $serializer->deserialize(Person::class, $data, 'xml');", correct: false}
+            - {value: "$person = $serializer->deserialize($data, 'xml', Person::class);", correct: false}
+            - {value: "$person = $serializer->deserialize($data, 'xml', Person);", correct: false}
+            - {value: "$person = $serializer->deserialize($data, Person, 'xml');", correct: false}
+    -
+        question: 'How could provide an existing object you want to de-serialize into?'
+        answers:
+            - {value: "$serializer->deserialize($data, Person::class, 'xml', array('object_to_populate' => $person));", correct: true}
+            - {value: "$serializer->deserialize($data, Person::class, 'xml', $person);", correct: false}
+            - {value: "$serializer->deserialize($data, Person::class, 'xml', array('owner' => $person));", correct: false}
+            - {value: "$serializer->deserialize($data, Person::class, 'xml', array('population_object' => $person));", correct: false}
+    -
+        question: 'What would be the correct syntax to set attribute groups for a property that can be used by the de-serializer?'
+        answers:
+            - {value: '@Groups({"group3"})', correct: true}
+            - {value: '@Groups({"group1", "group2"})', correct: true}
+            - {value: '@Groups(["group1", "group2"])', correct: false}
+            - {value: '@Groups(["group3"])', correct: false}
+    -
+        question: 'What would be the correct syntax to tell the "ClassMetaDataFactory" to use "Annotations" to read attribute groups?'
+        answers:
+            - {value: "$classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));", correct: true}
+            - {value: "$classMetadataFactory = new ClassMetadataFactory(new AnnotationReader(new AnnotationLoader()));", correct: false}
+            - {value: "$classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader());", correct: false}
+            - {value: "$classMetadataFactory = new ClassMetadataFactory(new AnnotationReader());", correct: false}
+            - {value: "$classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationNormalizerReader()));", correct: false}
+    -
+        question: 'What would be the right syntax to specify attribute groups you want to serialize/deserialize with the serializer?'
+        answers:
+            - {value: "data = $serializer->normalize($obj, null, array('groups' => array('group1')));", correct: true}
+            - {value: "$obj2 = $serializer->denormalize(array('foo' => 'foo', 'bar' => 'bar'), MyObj', null, array('groups' => array('group1', 'group3')));", correct: true}
+            - {value: "data = $serializer->normalize($obj, null, array('groups' => array('group1')));", correct: false}
+            - {value: "$obj2 = $serializer->denormalize(array('foo' => 'foo', 'bar' => 'bar'), MyObj', array('groups' => array('group1', 'group3')));", correct: false}
+            - {value: "data = $serializer->normalize($obj, null, array('groups' => array('group1')));", correct: false}
+            - {value: "$obj2 = $serializer->denormalize(array('foo' => 'foo', 'bar' => 'bar'), MyObj', array('groups' => array('group1', 'group3')));", correct: false}
+            - {value: "data = $serializer->normalize($obj, null, array('attribute_groups' => array('group1')));", correct: false}
+            - {value: "$obj2 = $serializer->denormalize(array('foo' => 'foo', 'bar' => 'bar'), MyObj', array('attribute_groups' => array('group1', 'group3')));", correct: false}
+    -
+        question: 'What would be the right syntax to specify specific attributes you want to serialize/deserialize with the Serializer?'
+        answers:
+            - {value: "$data = $serializer->normalize($user, null, array('attributes' => array('familyName', 'company' => ['name'])));", correct: true}
+            - {value: "$data = $serializer->normalize($user, null, array('groups' => array('familyName', 'company' => ['name'])));", correct: false}
+            - {value: "$data = $serializer->normalize($user, array('groups' => array('familyName', 'company' => ['name'])));", correct: false}
+            - {value: "$data = $serializer->normalize($user, array('attributes' => array('familyName', 'company' => ['name'])));", correct: false}
+    -
+        question: 'True or False ? Using attribute groups instead of the setIgnoredAttributes() method is considered best practice'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Using the setIgnoredAttributes() method instead of attribute groups is considered best practice'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What would be the right approach if you want to convert names when serializing/deserializing?'
+        answers:
+            - {value: "Create a NameConverter by implementing NameConverterInterface and add it to the ObjectNormalizer constructor as second argument", correct: true}
+            - {value: "Create a NameConverter by implementing NameConverterInterface and add it to the Serializer constructor as second argument", correct: false}
+            - {value: "Create a NameConverter by implementing NameConverterInterface and add it to the ObjectNormalizer constructor as first argument", correct: false}
+            - {value: "Create a PropertyNameConverter by implementing PropertyNameConverterInterface and add it to the Serializer constructor as first argument", correct: false}
+            - {value: "Create a PropertyNameConverter by implementing PropertyNameConverterInterface and add it to the JsonEncoder constructor as first argument", correct: false}
+    -
+        question: 'What would be a valid syntax to add a camel case to snake case converter to the Normalizer?'
+        answers:
+            - {value: "$normalizer = new ObjectNormalizer(null, new CamelCaseToSnakeCaseNameConverter());", correct: true}
+            - {value: "$normalizer = new ObjectNormalizer(new CamelCaseToSnakeCaseNameConverter());", correct: false}
+            - {value: "$normalizer = new ObjectNormalizer(null, new CamelCaseSnakeCaseNameConverter());", correct: false}
+            - {value: "$normalizer = new ObjectNormalizer(null, new CamelCaseToSnakeCaseConverter());", correct: false}
+    -
+        question: 'What would be the right syntax to add callbacks to format a specific property?'
+        answers:
+            - {value: "$normalizer->setCallbacks(array('createdAt' => $callback));", correct: true}
+            - {value: "$normalizer->addCallback('createdAt', $callback);", correct: false}
+            - {value: "$normalizer->addCallbacks(array('createdAt' => $callback));", correct: false}
+            - {value: "$normalizer->setCallback('createdAt', $callback);", correct: false}
+    -
+        question: 'Which of the following Normalizers are available?'
+        answers:
+            - {value: "ObjectNormalizer", correct: true}
+            - {value: "GetSetMethodNormalizer", correct: true}
+            - {value: "PropertyNormalizer", correct: true}
+            - {value: "JsonSerializableNormalizer", correct: true}
+            - {value: "DateTimeNormalizer", correct: true}
+            - {value: "DataUriNormalizer", correct: true}
+            - {value: "DateIntervalNormalizer", correct: true}
+            - {value: "UriNormalizer", correct: false}
+            - {value: "IntervalNormalizer", correct: false}
+            - {value: "PhpPropertyNormalizer", correct: false}
+            - {value: "JsonNormalizer", correct: false}
+            - {value: "DateNormalizer", correct: false}
+    -
+        question: 'Which of the following Encoders are available?'
+        answers:
+            - {value: "JsonEncoder", correct: true}
+            - {value: "XmlEncoder", correct: true}
+            - {value: "YamlEncoder", correct: true}
+            - {value: "CsvEncoder", correct: true}
+            - {value: "TxtEncoder", correct: false}
+            - {value: "PhpEncoder", correct: false}
+            - {value: "DefaultEncoder", correct: false}
+            - {value: "StandardEncoder", correct: false}
+    -
+        question: 'True or False ? JsonSerializableNormalizer can handle circular references'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? json_encode can handle circular references'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+
