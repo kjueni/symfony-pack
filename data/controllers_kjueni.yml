@@ -1,0 +1,430 @@
+category: Controllers (kjueni)
+questions:
+  #Naming conventions - http://symfony.com/doc/current/routing.html#controller-naming-pattern
+    -
+        question: 'Which of the following controller names passed to a route would be valid?'
+        answers:
+            - {value: "App\\Controller\\IndexController::index", correct: true}
+            - {value: "App\\Controller\\IndexController:index", correct: false}
+            - {value: "App\\Controller\\IndexController(index)", correct: false}
+            - {value: "App\\Controller\\Index::index", correct: false}
+            - {value: "App\\Controller\\Index:index", correct: false}
+    -
+        question: 'True or False ? If your controller is registered as a service, you just need to pass "service_name:action" to the config'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If your controller is registered as a service, you just need to pass "service_name::action" to the config'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'If you want to refer to the __invoke() action of a controller, which of the following syntaxes would be valid?'
+        answers:
+            - {value: "App\\Controller\\IndexController::detail", correct: true}
+            - {value: "App\\Controller\\Index:detail", correct: false}
+            - {value: "App\\Controller\\IndexController:detail", correct: false}
+            - {value: "App\\Controller\\IndexController\\detail", correct: false}
+    #The base Controller class - https://symfony.com/doc/current/controller.html#index-3
+    -
+        question: 'Which of the following base controller classes do exist?'
+        answers:
+            - {value: "Controller", correct: true}
+            - {value: "AbstractController", correct: true}
+            - {value: "BaseController", correct: false}
+            - {value: "IndexController", correct: false}
+            - {value: "ControllerAbstract", correct: false}
+            - {value: "AbstractBaseController", correct: false}
+    -
+        question: 'True or False ? If you want to have access to the service container you should use the "Controller" base controller and not "AbstractController"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If you want to have access to the service container you should use the "AbstractController" base controller and not "Controller"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? "AbstractController" is more restrictive than "Controller"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following controller helpers do exist?'
+        answers:
+            - {value: "has", correct: true}
+            - {value: "get", correct: true}
+            - {value: "generateUrl", correct: true}
+            - {value: "generate", correct: false}
+            - {value: "dispatchForm", correct: false}
+            - {value: "renderForm", correct: false}
+            - {value: "denyAccess", correct: false}
+            - {value: "xml", correct: false}
+    -
+        question: 'Which of the following controller helpers do exist?'
+        answers:
+            - {value: "forward", correct: true}
+            - {value: "redirect", correct: true}
+            - {value: "redirectToRoute", correct: true}
+            - {value: "file", correct: true}
+            - {value: "json", correct: true}
+            - {value: "createForm", correct: true}
+            - {value: "denyAccessUnlessGranted", correct: true}
+            - {value: "xml", correct: false}
+    -
+        question: 'Which of the following controller helpers do exist?'
+        answers:
+            - {value: "addFlash", correct: true}
+            - {value: "getUser", correct: true}
+            - {value: "renderView", correct: true}
+            - {value: "render", correct: true}
+            - {value: "forwardToController", correct: false}
+            - {value: "dispatchController", correct: false}
+            - {value: "createView", correct: false}
+            - {value: "dispatchView", correct: false}
+    #The request - https://symfony.com/doc/current/components/http_foundation.html#request
+    -
+        question: 'Which would be the correct method to determine, if the request is an ajax request?'
+        answers:
+            - {value: "$request->isXmlHttpRequest()", correct: true}
+            - {value: "$request->isXmlHttp()", correct: false}
+            - {value: "$request->isXmlRequest()", correct: false}
+            - {value: "$request->isAjax()", correct: false}
+            - {value: "$request->isAjaxRequest()", correct: false}
+            - {value: "$request->isXHttpRequest()", correct: false}
+            - {value: "$request->isXHttp()", correct: false}
+    -
+        question: 'Which of the following syntaxes would be valid to get a parameter "page" from the query string of a GET request?'
+        answers:
+            - {value: "$request->query->get('page')", correct: true}
+            - {value: "$request->getQuery()->get('page')", correct: false}
+            - {value: "$request->getQuery()->getParam('page')", correct: false}
+            - {value: "$request->query->getParam('page')", correct: false}
+            - {value: "$request->query->page", correct: false}
+            - {value: "$request->request->get('page')", correct: false}
+            - {value: "$request->getParams()->get('page')", correct: false}
+            - {value: "$request->getParams('GET')->get('page')", correct: false}
+    -
+        question: 'What would be the correct syntax to get the "Content-Type" header from the request?'
+        answers:
+            - {value: "$request->headers->get('content_type')", correct: true}
+            - {value: "$request->headers->get('Content-Type')", correct: true}
+            - {value: "$request->getHeaders()->get('content_type')", correct: false}
+            - {value: "$request->getHeaders->get('Content-Type')", correct: false}
+            - {value: "$request->headers->content_type", correct: false}
+            - {value: "$request->headers->ContentType", correct: false}
+            - {value: "$request->getHeaders()->contentType", correct: false}
+    -
+        question: 'Which of the following ParameterBag objects to exist as request properties'
+        answers:
+            - {value: "attributes", correct: true}
+            - {value: "files", correct: true}
+            - {value: "server", correct: true}
+            - {value: "headers", correct: true}
+            - {value: "streams", correct: false}
+    -
+        question: 'Which of the following ParameterBag objects to exist as request properties'
+        answers:
+            - {value: "request", correct: true}
+            - {value: "query", correct: true}
+            - {value: "cookies", correct: true}
+            - {value: "response", correct: false}
+            - {value: "header", correct: false}
+            - {value: "file", correct: false}
+    #The response - https://symfony.com/doc/current/components/http_foundation.html#response
+    -
+        question: 'What would be the correct syntax to set the "Content-Type" header of a response to "text/css"?'
+        answers:
+            - {value: "$response->headers->set('Content-Type', 'text/css')", correct: true}
+            - {value: "$response->headers->set('content-type', 'text/css')", correct: true}
+            - {value: "$response->headers->set('content_type', 'text/css')", correct: true}
+            - {value: "$response->headers->set('contenttype', 'text/css')", correct: true}
+            - {value: "$response->setHeader('Content-Type', 'text/css')", correct: false}
+            - {value: "$response->setHeader('content-type', 'text/css')", correct: false}
+            - {value: "$response->setHeader('content_type', 'text/css')", correct: false}
+            - {value: "$response->setHeader('contenttype', 'text/css')", correct: false}
+            - {value: "$response->getHeaders()->set('Content-Type', 'text/css')", correct: false}
+            - {value: "$response->getHeaders()->set('content-type', 'text/css')", correct: false}
+            - {value: "$response->getHeaders()->set('content_type', 'text/css')", correct: false}
+            - {value: "$response->getHeaders()->set('contenttype', 'text/css')", correct: false}
+    -
+        question: 'What would be the correct syntax to set the status code of your response to 404?'
+        answers:
+            - {value: "$response->setStatusCode(Response::HTTP_NOT_FOUND)", correct: true}
+            - {value: "$response->setStatusCode(404)", correct: true}
+            - {value: "$response->setCode(Response::HTTP_NOT_FOUND)", correct: false}
+            - {value: "$response->setCode(404)", correct: false}
+            - {value: "$response->getStatus()->setCode(Response::HTTP_NOT_FOUND)", correct: false}
+            - {value: "$response->getStatus()->setCode(404)", correct: false}
+    -
+        question: 'Which of the following syntaxes are valid regarding creating a Response object?'
+        answers:
+            - {value: "$response = new Response('Content', Response::HTTP_OK, array('content-type' => 'text/html'));", correct: true}
+            - {value: "$response = new Response('Content', array('content-type' => 'text/html'), Response::HTTP_OK);", correct: false}
+            - {value: "$response = new Response('Content', array('content-type' => 'text/html', 'code' => Response::HTTP_OK));", correct: false}
+            - {value: "$response = new Response('Content', array('content-type' => 'text/html', 'status_code' => Response::HTTP_OK));", correct: false}
+    -
+        question: 'True or False ? You should not pass an indexed array as outer-most array, instead use an object'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #The cookies - https://symfony.com/doc/current/components/http_foundation.html#setting-cookies
+    -
+        question: 'What would be the correct syntax to receive the value of a cookie "PHPSESSID" in a controller?'
+        answers:
+            - {value: "$request->cookies->get('PHPSESSID')", correct: true}
+            - {value: "$request->getCookies()->get('PHPSESSID')", correct: false}
+            - {value: "$request->getCookieJar()->get('PHPSESSID')", correct: false}
+            - {value: "$request->cookies->getCookie('PHPSESSID')", correct: false}
+            - {value: "$request->getCookies()->getCookie('PHPSESSID')", correct: false}
+            - {value: "$request->getCookieJar()->getCookie('PHPSESSID')", correct: false}
+    #The session - http://symfony.com/doc/current/controller.html#managing-the-session
+    -
+        question: 'True or False ? The session service is activated automatically'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The session service has to be activated manually in the config/framework.yaml'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The base "Controller" class provides a helper to access the session'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? To use a session in your controller you have to inject it or get it via $request->getSession()'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #The flash messages - http://symfony.com/doc/current/controller.html#flash-messages
+    -
+        question: 'True or False ? Flash messages are stored in the session'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Flash messages are stored in a cookie'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Flash messages are stored in the cache'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Flash messages vanish from the session as soon as you retrieve them via the get method'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Flash messages vanish from the session as soon as you retrieve them via the peek method'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? You can retrieve the same flash message from your session as many times as you like if you are using the peek method to retrieve them'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following syntaxes are valid to add a flash message in a controller method?'
+        answers:
+            - {value: "$this->addFlash('notice', 'Your changes were saved!')", correct: true}
+            - {value: "$request->getSession()->getFlashBag()->add('notice', 'Your changes were saved')", correct: true}
+            - {value: "$this->addFlashMessage('notice', 'Your changes were saved!')", correct: false}
+            - {value: "$request->getSession()->getFlashBag()->addFlash('notice', 'Your changes were saved')", correct: false}
+            - {value: "$request->getSession()->getFlashBag()->addFlashMessage('notice', 'Your changes were saved')", correct: false}
+            - {value: "$this->getFlashMessageBag()->add('notice', 'Your changes were saved!')", correct: false}
+    -
+        question: 'Which of the following flash message keys are commonly used?'
+        answers:
+            - {value: "notice", correct: true}
+            - {value: "warning", correct: true}
+            - {value: "error", correct: true}
+            - {value: "failure", correct: false}
+            - {value: "success", correct: false}
+    #HTTP redirects - http://symfony.com/doc/current/controller.html#redirecting
+    -
+        question: 'Which of the following controller helpers exist to redirect the user?'
+        answers:
+            - {value: "redirectToRoute", correct: true}
+            - {value: "redirect", correct: true}
+            - {value: "redirectToUrl", correct: false}
+            - {value: "redirectToUri", correct: false}
+            - {value: "redirectToController", correct: false}
+            - {value: "forward", correct: false}
+            - {value: "forwardToController", correct: false}
+    -
+        question: 'Instead of using a controller helper, what would be the alternative syntax in a controller to redirect a user to the "homepage"?'
+        answers:
+            - {value: "return new RedirectResponse($this->generateUrl('homepage'));", correct: true}
+            - {value: "return new RedirectionResponse($this->generateUrl('homepage'));", correct: false}
+            - {value: "return new RedirectResponse($this->getUrl('homepage'));", correct: false}
+            - {value: "return new RedirectionResponse($this->getUrl('homepage'));", correct: false}
+    -
+        question: 'True or False ? The redirect() method does not check its destination in any way'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The redirect() method performs multiple security checks on the given destination'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    #Internal redirects - http://symfony.com/doc/current/controller/forwarding.html
+    -
+        question: 'Which of the following syntaxes would be valid?'
+        answers:
+            - {value: "$response = $this->forward('App\\Controller\\OtherController::fancy', array('name'  => $name, 'color' => 'green',));", correct: true}
+            - {value: "$response = $this->forwardController('App\\Controller\\OtherController::fancy', array('name'  => $name, 'color' => 'green',));", correct: false}
+            - {value: "$response = $this->forwardToController('App\\Controller\\OtherController::fancy', array('name'  => $name, 'color' => 'green',));", correct: false}
+            - {value: "$response = $this->forwardToControllerRoute('App\\Controller\\OtherController::fancy', array('name'  => $name, 'color' => 'green',));", correct: false}
+            - {value: "$controller = $this->forward('App\\Controller\\OtherController::fancy', array('name'  => $name, 'color' => 'green',));", correct: false}
+            - {value: "$controller = $this->forwardController('App\\Controller\\OtherController::fancy', array('name'  => $name, 'color' => 'green',));", correct: false}
+            - {value: "$controller = $this->forwardToController('App\\Controller\\OtherController::fancy', array('name'  => $name, 'color' => 'green',));", correct: false}
+            - {value: "$controller = $this->forwardToControllerRoute('App\\Controller\\OtherController::fancy', array('name'  => $name, 'color' => 'green',));", correct: false}
+    #Generate 404 pages - http://symfony.com/doc/current/controller.html#managing-errors-and-404-pages
+    -
+        question: 'If you want to prevent Symfony to return an internal server error (500) when trowing an exception, what must be considered?'
+        answers:
+            - {value: "You have to throw an exception that is an instance of HttpException", correct: true}
+            - {value: "You have to throw an exception that implements HttpExceptionInterface", correct: false}
+            - {value: "Symfony does never automatically return a 500 status error", correct: false}
+    -
+        question: 'What would be the right helper-call to throw a 404 (NotFoundHttpException) in a controller?'
+        answers:
+            - {value: "throw $this->createNotFoundException('The product does not exist');", correct: true}
+            - {value: "return $this->createNotFoundException('The product does not exist');", correct: false}
+            - {value: "throw $this->createException(HttpRequest::NOT_FOUND,'The product does not exist');", correct: false}
+            - {value: "return $this->createException(HttpRequest::NOT_FOUND,'The product does not exist');", correct: false}
+    -
+        question: 'What should you do if you want to change the look and feel of your error pages?'
+        answers:
+            - {value: "Override the default error templates", correct: true}
+            - {value: "Override the default exception controller", correct: false}
+            - {value: "Add a listener to kernel.exception event and return html code", correct: false}
+    -
+        question: 'If a HttpNotFoundException is thrown for a request with the content type "JSON", which error template would the error handler look for in the template directory of the TwigBundle?'
+        answers:
+            - {value: "error404.json.twig", correct: true}
+            - {value: "error404.json", correct: false}
+            - {value: "error404.twig", correct: false}
+            - {value: "error403.json.twig", correct: false}
+            - {value: "error403.json", correct: false}
+            - {value: "error403.twig", correct: false}
+            - {value: "400.json.twig", correct: false}
+            - {value: "400.json", correct: false}
+            - {value: "400.twig", correct: false}
+            - {value: "404.json.twig", correct: false}
+            - {value: "403.json", correct: false}
+            - {value: "402.twig", correct: false}
+    -
+        question: 'If the error handler could not find a specific error template for a 403 error with "Content-Type: application/json", what would be the fallback template?'
+        answers:
+            - {value: "error.json.twig", correct: true}
+            - {value: "json.error.twig", correct: false}
+            - {value: "json.twig", correct: false}
+            - {value: "error.twig", correct: false}
+            - {value: "error.html.twig", correct: false}
+    -
+        question: 'If the error handler could not find a specific template for the given status code or the "Content-Type", what would be the fallback template?'
+        answers:
+            - {value: "error.html.twig", correct: true}
+            - {value: "error.twig", correct: false}
+            - {value: "error.html", correct: false}
+    -
+        question: 'Which of the following template variables would be available by default in an error template?'
+        answers:
+            - {value: "status_code", correct: true}
+            - {value: "status_text", correct: true}
+            - {value: "error_code", correct: false}
+            - {value: "error_text", correct: false}
+            - {value: "error_message", correct: false}
+            - {value: "http_status_code", correct: false}
+    -
+        question: 'How would you name your template if you would want to add a special exception page for the development environment for the content type "JSON"?'
+        answers:
+            - {value: "exception.json.twig", correct: true}
+            - {value: "error.json.twig", correct: false}
+            - {value: "dev.error.json.twig", correct: false}
+    -
+        question: 'What can you do to preview your customized error pages in development mode?'
+        answers:
+            - {value: "Load some special routes of the TwigBundle in your twig.yaml", correct: true}
+            - {value: "Set display_customized_errors in your framework.yaml to 'true'", correct: false}
+            - {value: "They are displayed automatically also in dev mode", correct: false}
+    -
+        question: 'Which of the following paths would be correct to receive a special error page if you have include the preview routes of your TwigBundle?'
+        answers:
+            - {value: "/_error/{statusCode}.{format}", correct: true}
+            - {value: "/_error/{statusCode}", correct: true}
+            - {value: "/_error/{statusCode}_{format}", correct: false}
+            - {value: "/error/{statusCode}", correct: false}
+            - {value: "/error/{statusCode}_{format}", correct: false}
+            - {value: "/error/{statusCode}", correct: false}
+    -
+        question: 'What would be the right syntax to set up a custom exception controller?'
+        answers:
+            - {value: "twig.exception_controller: App\\Controller\\ExceptionController::showException", correct: true}
+            - {value: "framework.exception_controller: App\\Controller\\ExceptionController::showException", correct: false}
+            - {value: "twig.exception.controller: App\\Controller\\ExceptionController::showException", correct: false}
+            - {value: "twig.exception_controller_action: App\\Controller\\ExceptionController::showException", correct: false}
+    #File upload - http://symfony.com/doc/current/controller/upload_file.html
+    -
+        question: 'True or False ? You should store uploaded files directly in the database as blob or binary'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? You should store only the file name of your uploaded file in the database'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? After the "handleRequest" method is called, you can receive an instance of UploadedFile directly via $yourEntity->getYourFile()'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the recommended way to determine the extension of an uploaded file?'
+        answers:
+            - {value: "$file->guessExtension()", correct: true}
+            - {value: "$file->getExtension()", correct: false}
+            - {value: "$file->guessFileExtension()", correct: false}
+            - {value: "$file->getFileExtension()", correct: false}
+    -
+        question: 'True or False ? File uploads are handled automatically when calling the "handleRequest" method of your form'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? You have to manually call the "$file->move" method to upload the file'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? After calling the "handleRequest" method, the file name of your file is stored in the according property by default'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? After calling the "handleRequest" method, the file contents of your file are stored in the according property by default as an "UploadedFile" object'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? You have to update the property of your entity with the correct file name after you have uploaded the file'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? To avoid too much logic in the controller, it is recommended to create an own service for the uploads'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
