@@ -1,0 +1,634 @@
+category: Standardization (kjueni)
+questions:
+    #Release management and roadmap schedule - http://symfony.com/doc/current/contributing/community/releases.html
+    -
+        question: 'Which is the current long term resource version?'
+        answers:
+            - {value: "3.4.9", correct: true}
+            - {value: "3.4.0", correct: false}
+            - {value: "3.4.1", correct: false}
+    -
+        question: 'Which Symfony branches are currently supported for bug fixes?'
+        answers:
+            - {value: "2.7", correct: true}
+            - {value: "2.8", correct: true}
+            - {value: "3.4", correct: true}
+            - {value: "4.0", correct: true}
+            - {value: "3.5", correct: false}
+            - {value: "4.1", correct: false}
+            - {value: "2.9", correct: false}
+    -
+        question: 'True or False ? With the Symfony version checker you can check how long it will be maintained'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'A new Symfony minor version (e.g. 2.8, 3.2, 4.1) comes out...'
+        answers:
+            - {value: "...every six month", correct: true}
+            - {value: "...one in May and one in November", correct: true}
+            - {value: "...every 3 month", correct: false}
+            - {value: "...in February, May, August, November", correct: false}
+    -
+        question: 'A new Symfony major version (e.g., 3.0, 4.0) comes out every...'
+        answers:
+            - {value: "...two years", correct: true}
+            - {value: "...year", correct: false}
+            - {value: "...three years", correct: false}
+    -
+        question: 'A standard minor version is maintained for bug fixes for ____ months'
+        answers:
+            - {value: "8", correct: true}
+            - {value: "6", correct: false}
+            - {value: "4", correct: false}
+    -
+        question: 'A standard minor version is maintained for security fixes for ____ months'
+        answers:
+            - {value: "14", correct: true}
+            - {value: "8", correct: false}
+            - {value: "4", correct: false}
+    -
+        question: 'Every Long Time Version (LTS) is supported for bug fixes for ____ years'
+        answers:
+            - {value: "3", correct: true}
+            - {value: "2", correct: false}
+            - {value: "4", correct: false}
+    -
+        question: 'Every Long Time Version (LTS) is supported for security fixes for ____ years'
+        answers:
+            - {value: "4", correct: true}
+            - {value: "3", correct: false}
+            - {value: "5", correct: false}
+    #Framework interoperability and PSRs - http://symfony.com/six-good-reasons
+    -
+        question: 'Which of the following reasons are part of the "six good reasons" to choose Symfony?'
+        answers:
+            - {value: "Reputation", correct: true}
+            - {value: "Permanence", correct: true}
+            - {value: "References", correct: true}
+            - {value: "Innovation", correct: true}
+            - {value: "Resources", correct: true}
+            - {value: "Interoperability", correct: true}
+            - {value: "Performance", correct: false}
+            - {value: "Availability", correct: false}
+    -
+        question: 'Which of the following PSR (PHP Standard Recommendation) describes a specification for the "Autoloader"?'
+        answers:
+            - {value: "PSR-4", correct: true}
+            - {value: "PSR-2", correct: false}
+            - {value: "PSR-1", correct: false}
+            - {value: "PSR-0", correct: false}
+            - {value: "PSR-6", correct: false}
+    -
+        question: 'Which of the following PSR (PHP Standard Recommendation) describes a specification for "Basic Coding Standard?'
+        answers:
+            - {value: "PSR-1", correct: true}
+            - {value: "PSR-4", correct: false}
+            - {value: "PSR-2", correct: false}
+            - {value: "PSR-0", correct: false}
+            - {value: "PSR-6", correct: false}
+    -
+        question: 'Which of the following PSR (PHP Standard Recommendation) describes a specification for "Coding Style Guide?'
+        answers:
+            - {value: "PSR-2", correct: true}
+            - {value: "PSR-1", correct: false}
+            - {value: "PSR-4", correct: false}
+            - {value: "PSR-0", correct: false}
+            - {value: "PSR-6", correct: false}
+    -
+        question: 'Which of the following PSR (PHP Standard Recommendation) describes a specification for "Caching Interface?'
+        answers:
+            - {value: "PSR-6", correct: true}
+            - {value: "PSR-1", correct: false}
+            - {value: "PSR-4", correct: false}
+            - {value: "PSR-2", correct: false}
+            - {value: "PSR-0", correct: false}
+    -
+        question: 'What does PSR stand for?'
+        answers:
+            - {value: "PHP Standard Recommendation", correct: true}
+            - {value: "Programming Standard Recommendation", correct: false}
+            - {value: "Personal Strict Reputation", correct: false}
+            - {value: "Partial Standard Recommendation", correct: false}
+    -
+        question: 'Which of the following statements for PSR-4 (Autoloader) are correct?'
+        answers:
+            - {value: "The fully qualified class name MUST have a top-level namespace name, also known as a “vendor namespace”", correct: true}
+            - {value: "The fully qualified class name MAY have one or more sub-namespace names.", correct: true}
+            - {value: "The fully qualified class name MUST have a terminating class name", correct: true}
+            - {value: "All class names MUST be referenced in a case-sensitive fashion", correct: true}
+            - {value: "The terminating class name corresponds to a file name ending in .php. The file name MUST match the case of the terminating class name.", correct: true}
+            - {value: "Underscores MUST have a special meaning in any portion of the fully qualified class name", correct: false}
+            - {value: "Autoloader implementations MUST throw exceptions, MUST raise errors of any level, and MUST return a value", correct: false}
+    -
+        question: 'Which of the following statements for PSR-1 (Basic Coding Standard) are correct?'
+        answers:
+            - {value: "Files MUST use only <?php and <?= tags", correct: true}
+            - {value: "Class constants MUST be declared in all upper case with underscore separators", correct: true}
+            - {value: "Method names MUST be declared in camelCase", correct: true}
+            - {value: "PHP code MUST use only UTF-8 without BOM.", correct: true}
+            - {value: "Class names MUST NOT be declared in StudlyCaps (ClassName)", correct: false}
+            - {value: "PHP code MUST NOT use the long <?php ?> tags or the short-echo <?= ?> tags; it MAY use the other tag variations.", correct: false}
+    -
+        question: 'Which of the following statements for PSR-2 (Coding Style Guide) are correct?'
+        answers:
+            - {value: "Code MUST use 4 spaces for indenting, not tabs", correct: true}
+            - {value: "There MUST be one blank line after the namespace declaration, and there MUST be one blank line after the block of use declarations", correct: true}
+            - {value: "Opening braces for control structures MUST go on the same line, and closing braces MUST go on the next line after the body", correct: true}
+            - {value: "All PHP files MUST use the Unix LF (linefeed) line ending", correct: true}
+            - {value: "All PHP files MUST NOT end with a single blank line", correct: false}
+            - {value: "Opening braces for classes MUST NOT go on the next line, and closing braces MUST NOT go on the next line after the body", correct: false}
+            - {value: "The PHP constants true, false, and null MUST NOT be in lower case", correct: false}
+    -
+        question: 'Which of the following statements for PSR-6 (Caching Interface) are correct?'
+        answers:
+            - {value: "Implementing libraries MUST support all serializable PHP data types", correct: true}
+            - {value: "The Calling Library is the library or code that actually needs the cache services", correct: true}
+            - {value: "The Implementing Library is the library for implementing this standard in order to provide caching services to any Calling Library.", correct: true}
+            - {value: "The Pool represents a collection of items in a caching system", correct: true}
+            - {value: "Caching should be a critical part of application functionality", correct: false}
+    #Naming conventions - http://symfony.com/doc/current/contributing/code/conventions.html#method-names
+    -
+        question: 'Which of the following method names are normalized in the Symfony core concept?'
+        answers:
+            - {value: "get()", correct: true}
+            - {value: "all()", correct: true}
+            - {value: "clear()", correct: true}
+            - {value: "add()", correct: true}
+            - {value: "count()", correct: true}
+            - {value: "keys()", correct: true}
+            - {value: "sum()", correct: false}
+            - {value: "rewind()", correct: false}
+    -
+        question: 'Which of the following method names are normalized in the Symfony core concept?'
+        answers:
+            - {value: "set()", correct: true}
+            - {value: "replace()", correct: true}
+            - {value: "isEmpty()", correct: true}
+            - {value: "register()", correct: true}
+            - {value: "toArray()", correct: false}
+            - {value: "fromArray()", correct: false}
+            - {value: "define()", correct: false}
+            - {value: "delete()", correct: false}
+    -
+        question: 'Which of the following method names are normalized in the Symfony core concept?'
+        answers:
+            - {value: "has()", correct: true}
+            - {value: "remove()", correct: true}
+            - {value: "save()", correct: false}
+            - {value: "collect()", correct: false}
+            - {value: "__invoke()", correct: false}
+            - {value: "reset()", correct: false}
+    -
+        question: 'True or False ? The usage of the normalized methods (get, set, etc.) is only allowed when it is clear that there is a main relation'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The usage of the normalized methods (get, set, etc.) is only allowed when it is clear that there is no main relation'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    #Coding standards - http://symfony.com/doc/current/contributing/code/standards.html
+    -
+        question: 'Symfony Coding Standards are based on which PSR (PHP Standard Recommendation)?'
+        answers:
+            - {value: "PSR-1", correct: true}
+            - {value: "PSR-2", correct: true}
+            - {value: "PSR-4", correct: true}
+            - {value: "PSR-6", correct: false}
+            - {value: "PSR-8", correct: false}
+            - {value: "PSR-3", correct: false}
+    -
+        question: 'True or False ? With the PHP CS Fixer tool you can check if your code follows the coding standards'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? With the PHP CS Fixer tool you can fix your CSS files and repair wrong declarations'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which statements according to the Symfony Coding Standards are correct?'
+        answers:
+            - {value: "Always use identical comparison (e.g. ===) unless you need type juggling", correct: true}
+            - {value: "Add a comma after each array item in a multi-line array, even after the last one", correct: true}
+            - {value: "Use return null; when a function explicitly returns null values and use return; when the function returns void values", correct: true}
+            - {value: "Exception and error message strings must be concatenated using sprintf", correct: true}
+            - {value: "Add a use statement for every class that is not part of the global namespace", correct: true}
+            - {value: "Do not use Yoda conditions when checking a variable against an expression", correct: false}
+            - {value: "Define multiple classes per file if possible (except private helper classes)", correct: false}
+            - {value: "Declare class properties after methods", correct: false}
+    -
+        question: 'Which of the following statements regarding Naming Conventions is correct?'
+        answers:
+            - {value: "Use underscores for configuration options and parameters", correct: true}
+            - {value: "Prefix all abstract classes with Abstract except PHPUnit *TestCase", correct: true}
+            - {value: "Suffix interfaces with Interface", correct: true}
+            - {value: "For type-hinting in PHPDocs and casting, use bool (instead of boolean or Boolean), int (instead of integer), float (instead of double or real)", correct: true}
+            - {value: "Use namespaces for all classes", correct: false}
+            - {value: "Prefix traits with Trait", correct: false}
+            - {value: "Prefix exceptions with Exception", correct: false}
+    -
+        question: 'True or False ? A service name must be the same as the fully qualified class name (FQCN) of its class'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? You should add class aliases for public services'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #Third-party libraries integration - http://symfony.com/doc/current/bundles.html
+    -
+        question: 'How would you make sure a bundle added in bundles.php would only be activated for the dev environment?'
+        answers:
+            - {value: "App\Acme\TestBundle\AcmeTestBundle::class => ['dev' => true],", correct: true}
+            - {value: "App\Acme\TestBundle\AcmeTestBundle::class => ['dev' => true, 'test' => false],", correct: true}
+            - {value: "App\Acme\TestBundle\AcmeTestBundle::class => ['all' => false],", correct: false}
+            - {value: "App\Acme\TestBundle\AcmeTestBundle => ['dev' => true],", correct: false}
+            - {value: "App\Acme\TestBundle\AcmeTestBundle => ['all' => false],", correct: false}
+    -
+        question: 'Which of the following directories exist normally in a Bundle?'
+        answers:
+            - {value: "Controller/", correct: true}
+            - {value: "DependencyInjection/", correct: true}
+            - {value: "Resources/config/", correct: true}
+            - {value: "Resources/views/", correct: true}
+            - {value: "Resources/public/", correct: true}
+            - {value: "Tests/", correct: true}
+            - {value: "Controllers/", correct: false}
+            - {value: "Resources/Config/", correct: false}
+            - {value: "Resources/Views/", correct: false}
+    -
+        question: 'Which of the following namespaces would be correct for the bundle "AcmeBlogBundle"?'
+        answers:
+            - {value: "Acme\Bundle\BlogBundle", correct: true}
+            - {value: "Acme\BlogBundle", correct: true}
+            - {value: "Acme\Bundle\AcmeBlogBundle", correct: false}
+            - {value: "Bundle\AcmeBlogBundle", correct: false}
+            - {value: "AcmeBlogBundle", correct: false}
+    -
+        question: 'True or False ? If you share your bundle publicly, you must use the bundle class name as the name of the repository (AcmeBlogBundle and not BlogBundle for instance)'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which files are mandatory when creating a bundle?'
+        answers:
+            - {value: "YourCoolBundle.php", correct: true}
+            - {value: "README.md", correct: true}
+            - {value: "LICENSE", correct: true}
+            - {value: "Resources/doc/index.rst", correct: true}
+            - {value: "index.php", correct: false}
+            - {value: "README.txt", correct: false}
+    -
+        question: 'True or False ? The depth of subdirectories should be kept to a minimum for the most used classes and files. Two levels is the maximum'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The depth of subdirectories should be kept to a minimum for the most used classes and files. Three levels is the maximum'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Bundles should be used to...'
+        answers:
+            - {value: "...share code between multiple application", correct: true}
+            - {value: "...organize your application code", correct: false}
+    -
+        question: 'In a bundle directory, what should be placed in the "DependencyInjection" directory?'
+        answers:
+            - {value: "Dependency Injection Extension classes (imports for service configuration, register compiler passes etc.)", correct: true}
+            - {value: "The config for the service container", correct: false}
+    -
+        question: 'True or False ? Symfony core Bundles do not prefix the bundle class with Symfony'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Symfony core Bundles do prefix the bundle class with Symfony'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What would be a valid alias for "AcmeBlogBundle"?'
+        answers:
+            - {value: "acme_blog", correct: true}
+            - {value: "acme_blog_bundle", correct: false}
+            - {value: "blog_bundle", correct: false}
+            - {value: "acme|blog", correct: false}
+            - {value: "Acme_Blog", correct: false}
+    -
+        question: 'True or False ? The bundle directory is read-only'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which statements regarding bundle testing are correct?'
+        answers:
+            - {value: "The test suite must be executable with a simple phpunit command run from a sample application", correct: true}
+            - {value: "The functional tests should only be used to test the response output and some profiling information if you have some", correct: true}
+            - {value: "The tests should cover at least 95% of the code base", correct: true}
+            - {value: "A test suite must not contain AllTests.php scripts, but must rely on the existence of a phpunit.xml.dist file", correct: true}
+            - {value: "All test cases must be placed in the host directory of the bundle and not in the bundle itself", correct: false}
+            - {value: "The tests should cover at least 75% of the code base", correct: false}
+            - {value: "The tests should cover at least 100% of the code base", correct: false}
+    -
+        question: 'True or False ? The most popular service for Symfony bundles and Continuous Integration is called Travis CI'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What does rST stand for?'
+        answers:
+            - {value: "reStructuredText", correct: true}
+            - {value: "randomStaticText", correct: false}
+            - {value: "remoteStructuredText", correct: false}
+    -
+        question: 'Which of the following statements are correct regarding bundles?'
+        answers:
+            - {value: "If the bundle provides routes, they must be prefixed with the bundle alias", correct: true}
+            - {value: "If a bundle provides templates, they must use Twig", correct: true}
+            - {value: "If a bundle provides message translations, they must be defined in the XLIFF format", correct: true}
+            - {value: "Bundles should set 'type': 'symfony-bundle' in their composer.json file, so they can be enabled by Symfony Flex automatically", correct: true}
+            - {value: "If the bundle defines services, they must be prefixed with the bundle alias. For example, AcmeBlogBundle services must be prefixed with acme_blog", correct: true}
+            - {value: "Bundles MUST NOT be versioned following the Semantic Versioning Standard", correct: false}
+            - {value: "Bundles should organize your application code", correct: false}
+            - {value: "Bundles should embedd third party libraries directly", correct: false}
+    -
+        question: 'What would be the correct syntax to define a parameter "author email" for the "AcmeBlogBundle"?'
+        answers:
+            - {value: "acme_blog.author.email", correct: true}
+            - {value: "acme.blog.author.email", correct: false}
+            - {value: "acme_blog.author_email", correct: false}
+            - {value: "acme-blog.author.email", correct: false}
+            - {value: "acmeBlog.author.email", correct: false}
+    #Composer packages handling - https://getcomposer.org/doc/01-basic-usage.md
+    -
+        question: 'True or False ? The composer package name consists of a vendor name and the project name (vendor/project)'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Normally, Composer deals with tags and not with branches'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Composer: 1.0.* is the equivalent of...'
+        answers:
+            - {value: ">=1.0 <1.1", correct: true}
+            - {value: ">1.0 <1.1", correct: false}
+            - {value: ">=1.0 <=1.1", correct: false}
+    -
+        question: 'Composer: ~1.2 is the equivalent of...'
+        answers:
+            - {value: ">=1.2 <2.0.0", correct: true}
+            - {value: ">=1.2 <=2.0.0", correct: false}
+            - {value: ">=1.2 <1.3.0", correct: false}
+    -
+        question: 'Composer: ~1.2.3 is the equivalent of...'
+        answers:
+            - {value: ">=1.2.3 <1.3.0", correct: true}
+            - {value: ">=1.2.3 <2.3.0", correct: false}
+    -
+        question: 'Composer: ^1.2.3 is the equivalent of...'
+        answers:
+            - {value: ">=1.2.3 <2.0.0", correct: true}
+            - {value: ">=1.2.3 <1.3.0", correct: false}
+    -
+        question: 'Composer: ^0.3 is the equivalent of...'
+        answers:
+            - {value: ">=0.3.0 <0.4.0", correct: false}
+            - {value: ">=0.3.0 <1.0.0", correct: false}
+    #Development best practices - http://symfony.com/doc/current/best_practices/index.html
+    -
+        question: 'What is the correct way to create a new symfony project?'
+        answers:
+            - {value: "composer create-project symfony/skeleton blog", correct: true}
+            - {value: "composer create symfony/skeleton blog", correct: false}
+            - {value: "composer create_project symfony/skeleton blog", correct: false}
+            - {value: "composer create-project symfony/skeleton blog", correct: false}
+            - {value: "composer create-project symfony blog", correct: false}
+    -
+        question: 'True or False ? Symfony Flex is Composer plugin'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Do not create any bundle to organize your application logic'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Define the infrastructure-related configuration options as environment variables'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which variables are added per default to your .env file?'
+        answers:
+            - {value: "MAILER_URL", correct: true}
+            - {value: "DATABASE_URL", correct: true}
+            - {value: "DOCTRINE_URL", correct: false}
+            - {value: "BASE_URL", correct: false}
+    -
+        question: 'Which of the following statements are correct regarding Symfony Best Practises?'
+        answers:
+            - {value: "Use constants to define configuration options that rarely change", correct: true}
+            - {value: "It is valid to define a config/services_dev.yaml or services_prod.yaml", correct: true}
+            - {value: "Using app. as the prefix of your parameters is a common practice", correct: true}
+            - {value: "Services should be private whenever possible to force you to use dependency injection", correct: true}
+            - {value: "Use App. as the prefix of your parameters is a common practice", correct: false}
+            - {value: "Use parameters to define configuration options that rarely change", correct: false}
+    -
+        question: 'True or False ? In Symfony applications, business logic or domain logic is all the custom code you write for your app that is not specific to the framework'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following types are good example for business or domain logic?'
+        answers:
+            - {value: "Domain classes", correct: true}
+            - {value: "Doctrine entities", correct: true}
+            - {value: "Regular PHP classes used as services", correct: troue}
+            - {value: "Controllers", correct: false}
+            - {value: "Routing", correct: false}
+    -
+        question: 'True or False ? Symfony recommends to use "Annotations" to define the mapping information of the Doctrine Entities'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Symfony recommends to use "YAML" to define the mapping information of the Doctrine Entities'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Data fixtures are meant for loading small sets of test data through your models to populate your database with data to test agains'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the correct syntax to load data fixtures?'
+        answers:
+            - {value: "php bin/console doctrine:fixtures:load", correct: true}
+            - {value: "php bin/app doctrine:fixtures:load", correct: false}
+            - {value: "php bin/app doctrine:fixtures:import", correct: false}
+            - {value: "php bin/console doctrine:fixtures:import", correct: false}
+    -
+        question: 'Which of the following philosophies does Symfony follow?'
+        answers:
+            - {value: "Thin controllers and fat models", correct: true}
+            - {value: "Thin models and fat controllers", correct: false}
+    -
+        question: 'True or False ? Symfony recommends to add the "Action" suffix to your controller actions'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Symfony does not recommend to add the "Action" suffix to your controller actions'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the correct syntax to enable "Annotations" for your routes in config/routes.yaml?'
+        answers:
+            - {value: "controllers.type: annotation", correct: true}
+            - {value: "controllers.type = annotation", correct: false}
+            - {value: "controllers.type.annotation: true", correct: false}
+            - {value: "controllers.type.annotation = true", correct: false}
+    -
+        question: 'True or False ? Symfony recommends to centralize your templates in a single location'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? You should use lowercased snake_case for directory and template names'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? You should use camelCase for directory and template names'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? You should prefix partials with a single underscore'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? You should define your forms in the controller'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? You should always create an own class for a form by extending "AbstractType"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Buttons should be added in the templates, not in the form class itself'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Buttons should be added in the controller, not in the form class itself'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Symfony recommends to use the bcrypt encoder for hashing your passwords'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Symfony recommends to use the SHA-512 encoder for hashing your passwords'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? For protecting broad URL patterns, use access_control'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? For protecting broad URL patterns, use a custom security voter'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Whenever possible, use the @Security annotation for controlling access on a controller-by-controller basis'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the correct annotation to check if the current user has the role "ROLE_ADMIN"?'
+        answers:
+            - {value: "@Security('has_role(``ROLE_ADMIN``)')", correct: true}
+            - {value: "@Security('check_role(``ROLE_ADMIN``)')", `correct: false}
+            - {value: "@Security(check_role(``ROLE_ADMIN``))", correct: false}
+            - {value: "@Security(has_role(``ROLE_ADMIN``))", correct: false}
+    -
+        question: 'What would be the correct syntax to deny access via PHP directly in the controller?'
+        answers:
+            - {value: "$this->denyAccessUnlessGranted('edit', $post);", correct: true}
+            - {value: "$this->deny('edit', $post);", correct: false}
+            - {value: "$this->denyUnlessGranted('edit', $post);", correct: false}
+    -
+        question: 'If you create a custom security voter, how could you use this voter in a "@Security" annotation?'
+        answers:
+            - {value: "@Security('is_granted(``edit``,``post``)')", correct: true}
+            - {value: "@Security('is_allowed(``edit``,``post``)')", correct: false}
+            - {value: "@Security(is_allowed(``edit``,``post``))", correct: false}
+    -
+        question: 'True or False ? Store your assets in the assets/ directoy at the root of your project'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which statements about unit tests are correct?'
+        answers:
+            - {value: "Unit tests are used to test your business logic", correct: true}
+            - {value: "You should place them in classes that are independent from Symfony", correct: true}
+            - {value: "Hardcode the URLs used in your functional tests", correct: true}
+            - {value: "Use the URL generator to generate URLs in your functional tests", correct: false}
+            - {value: "Unit tests should be used to test your application logic", correct: false}
+    #Framework overloading - http://symfony.com/doc/current/bundles/override.html
+    -
+        question: 'True or False ? You can use a CompilerPass to change the service definitions of another service'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Attributes and associations of Doctrine entities can only be overridden if a mapped superclass is provided'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #Semantic versioning - https://semver.org/
+    -
+        question: 'True or False ? Software using Semantic Versioning MUST declare a public API'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Software using Semantic Versioning MUST NOT declare a public API'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following statements are correct regarding Semantic Versioning?'
+        answers:
+            - {value: "A normal version MUST NOT contain leading zeroes", correct: true}
+            - {value: "Once a versioned package has been released, the contents of that version MUST NOT be modified", correct: true}
+            - {value: "Major version zero (0.y.z) is for initial development", correct: true}
+            - {value: "Version 1.0.0 defines the public API", correct: true}
+            - {value: "Patch version Z (x.y.Z | x > 0) MUST be incremented if only backwards compatible bug fixes are introduced", correct: true}
+            - {value: "Minor version Y (x.Y.z | x > 0) MUST be incremented if new, backwards compatible functionality is introduced to the public API", correct: true}
+            - {value: "Major version X (X.y.z | X > 0) MUST be incremented if any backwards incompatible changes are introduced to the public API", correct: true}
+            - {value: "Once a versioned package has been released, the contents of that version MAY still be modified", correct: false}
+            - {value: "Major version zero (0.y.z) defines the public API", correct: false}
