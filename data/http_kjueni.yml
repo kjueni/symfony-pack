@@ -479,6 +479,11 @@ questions:
         answers:
             - {value: "False", correct: true}
             - {value: "True", correct: false}
+    -
+        question: 'True or False ? Servers use the "Vary" header to define, which headers were actually used to generate the response'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
     #HTTP methods - https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
     -
         question: 'True or False ? GET and HEAD methods should NOT take other actions than retrieving and are considered save'
@@ -551,185 +556,132 @@ questions:
         answers:
             - {value: "False", correct: true}
             - {value: "True", correct: false}
+    #Cookies - https://en.wikipedia.org/wiki/HTTP_cookie
     -
-        question: ''
+        question: 'Which of the following Cookie types to exist?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "Session cookie", correct: true}
+            - {value: "Persistent cookie", correct: true}
+            - {value: "Secure cookie", correct: true}
+            - {value: "Http-only cookie", correct: true}
+            - {value: "Third-party cookie", correct: true}
+            - {value: "Zombie cookie", correct: true}
+            - {value: "Provisional cookie", correct: false}
     -
-        question: ''
+        question: 'True or False ? Another name for persistence cookie is tracking cookie'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
     -
-        question: ''
+        question: 'True or False ? Another name for persistence cookie is zombie cookie'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
     -
-        question: ''
+        question: 'True or False ? When setting the "Secure" flag on a cookie, it can only be transmitted via HTTPS'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
     -
-        question: ''
+        question: 'True or False ? When setting the "Secured" flag on a cookie, it can only be transmitted via HTTPS'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
     -
-        question: ''
+        question: 'True or False ? When setting the "HttpOnly" flag on a cookie, it should not be accessible by the client side'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
     -
-        question: ''
+        question: 'True or False ? A Third-party cookie has a different domain than shown in the address bar'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
     -
-        question: ''
+        question: 'True or False ? A Third-party cookie has the same domain as shown in the address bar'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
     -
-        question: ''
+        question: 'What would be the correct syntax to create a new cookie?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "$response->headers->setCookie(new Cookie('foo', 'bar'));", correct: true}
+            - {value: "$response->setCookie(new Cookie('foo', 'bar'));", correct: false}
+            - {value: "$response->getHeaders()->setCookie(new Cookie('foo', 'bar'));", correct: false}
+            - {value: "Cookie::create('foo', 'bar');", correct: false}
     -
-        question: ''
+        question: 'Which method can be used to remove a cookie from the headers?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "clearCookie", correct: true}
+            - {value: "removeCookie", correct: false}
+            - {value: "removeCookies", correct: false}
+            - {value: "cleanCookie", correct: false}
+            - {value: "deleteCookie", correct: false}
+            - {value: "deleteCookies", correct: false}
     -
-        question: ''
+        question: 'What would be the correct syntax to create a cookie from a raw header value?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "Cookie::fromString()", correct: true}
+            - {value: "Cookie::createFromString(", correct: false}
+            - {value: "Cookie::from()", correct: false}
+            - {value: "Cookie:fromString()", correct: false}
+            - {value: "Cookie:createFromString(", correct: false}
+            - {value: "Cookie:from()", correct: false}
+    #Content negotiation - https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation
     -
-        question: ''
+        question: 'Which of the following ways of content negotiation exist?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "Server-driven content negotiation", correct: true}
+            - {value: "Agent-driven negotiation", correct: true}
+            - {value: "Client-driven negotiation", correct: false}
+            - {value: "Host-driven negotiation", correct: false}
     -
-        question: ''
+        question: 'True or False ? Another word for Agent-driven negotiation is "reactive content negotiation"'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
     -
-        question: ''
+        question: 'True or False ? Another word for Agent-driven negotiation is "proactive content negotiation"'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Another word for Server-driven content negotiation is "reactive content negotiation"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Another word for Server-driven content negotiation is "proactive content negotiation"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following headers are used normally in Server-driven content negotiation?'
+        answers:
+            - {value: "Accept", correct: true}
+            - {value: "Accept-Charset", correct: true}
+            - {value: "Accept-Encoding", correct: true}
+            - {value: "Accept-Language", correct: true}
+            - {value: "Vary (in response)", correct: true}
+            - {value: "Accept-Locale", correct: false}
+            - {value: "Accept-Format", correct: false}
+    #Language detection - https://www.w3.org/International/questions/qa-accept-lang-locales
+    -
+        question: 'Which header is used to determine the region or language of a user?'
+        answers:
+            - {value: "Accept-Language", correct: true}
+            - {value: "Content-Language", correct: false}
+            - {value: "Language", correct: false}
+            - {value: "Accept-Locale", correct: false}
+            - {value: "Locale", correct: false}
+    -
+        question: 'True or False ? In the "Accept-Language" header preferred languages can be specified and weighted by a quality value'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following syntaxes for "Accept-Language" are valid?'
+        answers:
+            - {value: "Accept-Language: da, en-gb;q=0.8, en;q=0.7", correct: true}
+            - {value: "Accept-Language: da; en-gb;q=0.8, en;q=0.7", correct: false}
+            - {value: "Accept-Language: da, en-gb:q=0.8, en:q=0.7", correct: false}
