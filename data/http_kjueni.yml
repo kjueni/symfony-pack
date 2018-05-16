@@ -1,0 +1,735 @@
+category: HTTP (kjueni)
+questions:
+    #Client / Server interaction - https://en.wikibooks.org/wiki/Communication_Networks/HTTP_Protocol
+    -
+        question: 'What does HTTP stand for?'
+        answers:
+            - {value: "Hypertext Transport Protocol", correct: true}
+            - {value: "Hyper Transport Protocol", correct: false}
+            - {value: "Hyper Text Protocol", correct: false}
+            - {value: "Hypertext Transport Process", correct: false}
+            - {value: "Hypertext Transfer Protocol", correct: false}
+            - {value: "Hyper Transfer Protocol", correct: false}
+            - {value: "Hypertext Transfer Process", correct: false}
+    -
+        question: 'What is the default port a HTTP server should listen to?'
+        answers:
+            - {value: "80", correct: true}
+            - {value: "800", correct: false}
+            - {value: "88", correct: false}
+            - {value: "080", correct: false}
+    -
+        question: 'Which of the following paradigms do exist?'
+        answers:
+            - {value: "Client Server Paradigm", correct: true}
+            - {value: "Peer to Peer Paradigm", correct: true}
+            - {value: "Server Server Paradigm", correct: false}
+    -
+        question: 'What does "Socket" stand for?'
+        answers:
+            - {value: "A combination of IP address and Port number", correct: true}
+            - {value: "A combination of IP address and Host", correct: false}
+            - {value: "A synonym for a HTTP Host", correct: false}
+    -
+        question: 'Which protocol is used by the HTTP protocol by default to establish a connection between Client and Server?'
+        answers:
+            - {value: "TCP", correct: true}
+            - {value: "HTTP", correct: false}
+            - {value: "SMTP", correct: false}
+            - {value: "SOCKET", correct: false}
+            - {value: "DNS", correct: false}
+    -
+        question: 'True or False ? The HTTP protocol needs an IP to address a request'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The HTTP protocol can also use a DNS entry to address a request'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What does URL stand for?'
+        answers:
+            - {value: "Uniform Resource Locator", correct: true}
+            - {value: "Uniform Resource Loader", correct: false}
+            - {value: "Uniform Record Locator", correct: false}
+            - {value: "Unified Resource Locator", correct: false}
+            - {value: "Unified Record Locator", correct: false}
+    -
+        question: 'Which of the following options are part of a HTTP request?'
+        answers:
+            - {value: "HTTP command/method (e.g. GET)", correct: true}
+            - {value: "URL", correct: true}
+            - {value: "Version", correct: true}
+            - {value: "Status code", correct: false}
+            - {value: "Error code", correct: false}
+            - {value: "Status message", correct: false}
+    -
+        question: 'Which of the following options are part of an HTTP reply?'
+        answers:
+            - {value: "Version", correct: true}
+            - {value: "Status code", correct: true}
+            - {value: "Status message", correct: true}
+            - {value: "URL", correct: false}
+            - {value: "HTTP method", correct: false}
+    -
+        question: 'True or False ? As HTTP is a stateless protocol'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? As HTTP is stateful protocol'
+        answers:
+            - {value: "Fals", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? HTTP/1.1 uses persistent connections'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? HTTP/1.0 uses persistent connections'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? HTTP/1.1 uses non-persistent connections'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? HTTP/1.0 uses non-persistent connections'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Pipelining means that all requests in a persistent connection are sent and received at once'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Pipelining means that all requests in a persistent connection are send and received after one another'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which status code would be correct for the statement "OK"?'
+        answers:
+            - {value: "200", correct: true}
+            - {value: "404", correct: false}
+            - {value: "301", correct: false}
+            - {value: "302", correct: false}
+            - {value: "500", correct: false}
+            - {value: "201", correct: false}
+            - {value: "303", correct: false}
+            - {value: "304", correct: false}
+            - {value: "401", correct: false}
+            - {value: "403", correct: false}
+            - {value: "404", correct: false}
+            - {value: "405", correct: false}
+    -
+        question: 'Which status code would be correct for the statement "Created"?'
+        answers:
+            - {value: "201", correct: true}
+            - {value: "200", correct: false}
+            - {value: "404", correct: false}
+            - {value: "301", correct: false}
+            - {value: "302", correct: false}
+            - {value: "500", correct: false}
+            - {value: "303", correct: false}
+            - {value: "304", correct: false}
+            - {value: "401", correct: false}
+            - {value: "403", correct: false}
+            - {value: "404", correct: false}
+            - {value: "405", correct: false}
+    -
+        question: 'Which status code would be correct for the statement "Not Found"?'
+        answers:
+            - {value: "404", correct: true}
+            - {value: "200", correct: false}
+            - {value: "404", correct: false}
+            - {value: "301", correct: false}
+            - {value: "302", correct: false}
+            - {value: "500", correct: false}
+            - {value: "201", correct: false}
+            - {value: "303", correct: false}
+            - {value: "304", correct: false}
+            - {value: "401", correct: false}
+            - {value: "403", correct: false}
+            - {value: "405", correct: false}
+    -
+        question: 'Which status code would be correct for the statement "Moved Permanently"?'
+        answers:
+            - {value: "301", correct: true}
+            - {value: "200", correct: false}
+            - {value: "404", correct: false}
+            - {value: "302", correct: false}
+            - {value: "500", correct: false}
+            - {value: "201", correct: false}
+            - {value: "303", correct: false}
+            - {value: "304", correct: false}
+            - {value: "401", correct: false}
+            - {value: "403", correct: false}
+            - {value: "404", correct: false}
+            - {value: "405", correct: false}
+    -
+        question: 'Which status code would be correct for the statement "Moved Temporarily"?'
+        answers:
+            - {value: "302", correct: true}
+            - {value: "200", correct: false}
+            - {value: "404", correct: false}
+            - {value: "301", correct: false}
+            - {value: "500", correct: false}
+            - {value: "201", correct: false}
+            - {value: "303", correct: false}
+            - {value: "304", correct: false}
+            - {value: "401", correct: false}
+            - {value: "403", correct: false}
+            - {value: "404", correct: false}
+            - {value: "405", correct: false}
+    -
+        question: 'Which status code would be correct for the statement "Not modified"?'
+        answers:
+            - {value: "304", correct: true}
+            - {value: "200", correct: false}
+            - {value: "404", correct: false}
+            - {value: "301", correct: false}
+            - {value: "302", correct: false}
+            - {value: "500", correct: false}
+            - {value: "201", correct: false}
+            - {value: "303", correct: false}
+            - {value: "401", correct: false}
+            - {value: "403", correct: false}
+            - {value: "404", correct: false}
+            - {value: "405", correct: false}
+    -
+        question: 'Which status code would be correct for the statement "Server Error"?'
+        answers:
+            - {value: "500", correct: true}
+            - {value: "200", correct: false}
+            - {value: "404", correct: false}
+            - {value: "301", correct: false}
+            - {value: "302", correct: false}
+            - {value: "201", correct: false}
+            - {value: "303", correct: false}
+            - {value: "304", correct: false}
+            - {value: "401", correct: false}
+            - {value: "403", correct: false}
+            - {value: "404", correct: false}
+            - {value: "405", correct: false}
+    -
+        question: 'Which status code would be correct for the statement "Unauthorized"?'
+        answers:
+            - {value: "401", correct: true}
+            - {value: "200", correct: false}
+            - {value: "404", correct: false}
+            - {value: "301", correct: false}
+            - {value: "302", correct: false}
+            - {value: "500", correct: false}
+            - {value: "201", correct: false}
+            - {value: "501", correct: false}
+            - {value: "303", correct: false}
+            - {value: "304", correct: false}
+            - {value: "403", correct: false}
+            - {value: "404", correct: false}
+            - {value: "405", correct: false}
+    -
+        question: 'Which status code would be correct for the statement "Forbidden"?'
+        answers:
+            - {value: "403", correct: true}
+            - {value: "200", correct: false}
+            - {value: "404", correct: false}
+            - {value: "301", correct: false}
+            - {value: "302", correct: false}
+            - {value: "500", correct: false}
+            - {value: "201", correct: false}
+            - {value: "303", correct: false}
+            - {value: "304", correct: false}
+            - {value: "501", correct: false}
+            - {value: "401", correct: false}
+            - {value: "404", correct: false}
+            - {value: "405", correct: false}
+    -
+        question: 'Which status code would be correct for the statement "Method Not Allowed"?'
+        answers:
+            - {value: "405", correct: true}
+            - {value: "404", correct: false}
+            - {value: "200", correct: false}
+            - {value: "404", correct: false}
+            - {value: "501", correct: false}
+            - {value: "301", correct: false}
+            - {value: "302", correct: false}
+            - {value: "500", correct: false}
+            - {value: "201", correct: false}
+            - {value: "303", correct: false}
+            - {value: "304", correct: false}
+            - {value: "401", correct: false}
+            - {value: "403", correct: false}
+    -
+        question: 'Which status code would be correct for the statement "Not Implemented"?'
+        answers:
+            - {value: "501", correct: true}
+            - {value: "405", correct: false}
+            - {value: "404", correct: false}
+            - {value: "200", correct: false}
+            - {value: "404", correct: false}
+            - {value: "301", correct: false}
+            - {value: "302", correct: false}
+            - {value: "500", correct: false}
+            - {value: "201", correct: false}
+            - {value: "303", correct: false}
+            - {value: "304", correct: false}
+            - {value: "401", correct: false}
+            - {value: "403", correct: false}
+    -
+        question: 'Which port should be used with HTTPS?'
+        answers:
+            - {value: "443", correct: true}
+            - {value: "80", correct: false}
+            - {value: "8080", correct: false}
+            - {value: "444", correct: false}
+            - {value: "403", correct: false}
+            - {value: "405", correct: false}
+            - {value: "401", correct: false}
+    -
+        question: 'Which steps do exist when establishing a secure HTTP connection (HTTPS)?'
+        answers:
+            - {value: "The client authenticates the server using the server’s digital certificate", correct: true}
+            - {value: "The client and server negotiate with the cipher suite (a set of security protocols) they will use for the connection", correct: true}
+            - {value: "The client and server generate session keys for encrypting and decrypting data", correct: true}
+            - {value: "The client and server establish a secure encrypted connection", correct: true}
+            - {value: "The client requests a security token from the server", correct: false}
+            - {value: "The client receives a security token from the server", correct: false}
+    -
+        question: 'Which of the following header field definitions exist?'
+        answers:
+            - {value: "Accept", correct: true}
+            - {value: "Accept-Charset", correct: true}
+            - {value: "Authorization", correct: true}
+            - {value: "Date", correct: true}
+            - {value: "From", correct: true}
+            - {value: "Host", correct: true}
+            - {value: "If-Modified-Since", correct: true}
+            - {value: "Last-Modified", correct: true}
+            - {value: "Location", correct: true}
+            - {value: "Pragma", correct: true}
+            - {value: "Via", correct: true}
+            - {value: "Last_Modified", correct: false}
+            - {value: "Content_Type", correct: false}
+            - {value: "Content-Server", correct: false}
+            - {value: "Content-Name", correct: false}
+            - {value: "Accept-Referer", correct: false}
+    -
+        question: 'Which of the following header field definitions exist?'
+        answers:
+            - {value: "Accept", correct: true}
+            - {value: "Content-MD5", correct: true}
+            - {value: "Content-Type", correct: true}
+            - {value: "Date", correct: true}
+            - {value: "Expires", correct: true}
+            - {value: "From", correct: true}
+            - {value: "Location", correct: true}
+            - {value: "Pragma", correct: true}
+            - {value: "Vary", correct: true}
+            - {value: "Via", correct: true}
+            - {value: "Content-Server", correct: false}
+            - {value: "Content-Name", correct: false}
+            - {value: "Accept-Referer", correct: false}
+    -
+        question: 'Which of the following header field definitions exist?'
+        answers:
+            - {value: "Accept-Encoding", correct: true}
+            - {value: "Accept-Language", correct: true}
+            - {value: "Authorization", correct: true}
+            - {value: "Content-Location", correct: true}
+            - {value: "Content-MD5", correct: true}
+            - {value: "Host", correct: true}
+            - {value: "If-Modified-Since", correct: true}
+            - {value: "Last-Modified", correct: true}
+            - {value: "Location", correct: true}
+            - {value: "Content_Type", correct: false}
+            - {value: "ContentType", correct: false}
+            - {value: "CacheControl", correct: false}
+            - {value: "Content-Name", correct: false}
+            - {value: "Accept-Locale", correct: false}
+            - {value: "Accept-Referer", correct: false}
+    -
+        question: 'Which of the following header field definitions exist?'
+        answers:
+            - {value: "Accept", correct: true}
+            - {value: "Accept-Charset", correct: true}
+            - {value: "Accept-Encoding", correct: true}
+            - {value: "Content-Encoding", correct: true}
+            - {value: "Content-Language", correct: true}
+            - {value: "Content-Type", correct: true}
+            - {value: "Date", correct: true}
+            - {value: "ETag", correct: true}
+            - {value: "Last-Modified", correct: true}
+            - {value: "Location", correct: true}
+            - {value: "Pragma", correct: true}
+            - {value: "User-Agent", correct: true}
+            - {value: "Vary", correct: true}
+            - {value: "Content-Server", correct: false}
+            - {value: "Content-Name", correct: false}
+            - {value: "Accept-Locale", correct: false}
+            - {value: "Accept-Referer", correct: false}
+    -
+        question: 'Which of the following header field definitions exist?'
+        answers:
+            - {value: "Accept", correct: true}
+            - {value: "Accept-Language", correct: true}
+            - {value: "Cache-Control", correct: true}
+            - {value: "Content-Encoding", correct: true}
+            - {value: "Content-Language", correct: true}
+            - {value: "Content-MD5", correct: true}
+            - {value: "Expires", correct: true}
+            - {value: "From", correct: true}
+            - {value: "Host", correct: true}
+            - {value: "If-Modified-Since", correct: true}
+            - {value: "Last-Modified", correct: true}
+            - {value: "Location", correct: true}
+            - {value: "Content_Type", correct: false}
+            - {value: "ContentType", correct: false}
+            - {value: "CacheControl", correct: false}
+            - {value: "Accept-Locale", correct: false}
+            - {value: "Accept-Referer", correct: false}
+    -
+        question: 'Which of the following header field definitions exist?'
+        answers:
+            - {value: "Accept-Language", correct: true}
+            - {value: "Authorization", correct: true}
+            - {value: "Cache-Control", correct: true}
+            - {value: "Content-Encoding", correct: true}
+            - {value: "Content-Language", correct: true}
+            - {value: "Content-Length", correct: true}
+            - {value: "Content-Location", correct: true}
+            - {value: "CacheControl", correct: false}
+            - {value: "Content-Server", correct: false}
+            - {value: "Accept-Referer", correct: false}
+    #HTTP request - https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html
+    -
+        question: 'True or False - The method in a HTTP request is case-sensitive'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False - The method in a HTTP request is case-insensitive'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? If Request-URI is an absoluteURI, the host is part of the Request-URI. Any Host header field value in the request MUST be ignored'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If Request-URI is an relativeURI, the host is part of the Request-URI. Any Host header field value in the request MUST be ignored'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    #HTTP response - https://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6
+    -
+        question: 'True or False ? The status-line is the first line in every request or response'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The status-line is the second line in every request or response'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The status-line is the last line in every request or response'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? 1xx status codes stand for informational responses'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? 2xx status codes stand for successful responses'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? 3xx status codes stand for redirection responses'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? 4xx status codes stand for client error responses'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? 5xx status codes stand for server errror responses'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? 4xx status codes stand for redirection responses'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? 3xx status codes stand for client error responses'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    #HTTP methods - https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
+    -
+        question: 'True or False ? GET and HEAD methods should NOT take other actions than retrieving and are considered save'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? GET and OPTION methods should NOT take other actions than retrieving and are considered save'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? GET and TRACE methods should NOT take other actions than retrieving and are considered save'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What does "Idempotent" stand for?'
+        answers:
+            - {value: "The actions of a method should not have side effects", correct: true}
+            - {value: "The method is considered save", correct: false}
+    -
+        question: 'Which of the following methods SHOULD or MUST be idempotent?'
+        answers:
+            - {value: "GET", correct: true}
+            - {value: "HEAD", correct: true}
+            - {value: "PUT", correct: true}
+            - {value: "DELETE", correct: true}
+            - {value: "OPTIONS", correct: true}
+            - {value: "TRACE", correct: true}
+            - {value: "CONNECTION", correct: false}
+            - {value: "POST", correct: false}
+    -
+        question: 'True or False ? The OPTIONS method is used to get information about the communication options available'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The HEAD method is used to get information about the communication options available'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The HEAD method is identical to the GET method except that it MUST NOT return a message body'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The HEAD method is identical to the GET method except that it MUST return a message body'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The TRACE method allows the client to see what is being received at the other end of the request chain'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The CONNECT method allows the client to see what is being received at the other end of the request chain'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The CONNECT method is mostly used with proxies that can switch to be a tunnel e.g. SSL-Tunnel'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The TRACE method is mostly used with proxies that can switch to be a tunnel e.g. SSL-Tunnel'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
