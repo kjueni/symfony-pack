@@ -244,11 +244,11 @@ questions:
     -
         question: 'How would you make sure a bundle added in bundles.php would only be activated for the dev environment?'
         answers:
-            - {value: "App\Acme\TestBundle\AcmeTestBundle::class => ['dev' => true],", correct: true}
-            - {value: "App\Acme\TestBundle\AcmeTestBundle::class => ['dev' => true, 'test' => false],", correct: true}
-            - {value: "App\Acme\TestBundle\AcmeTestBundle::class => ['all' => false],", correct: false}
-            - {value: "App\Acme\TestBundle\AcmeTestBundle => ['dev' => true],", correct: false}
-            - {value: "App\Acme\TestBundle\AcmeTestBundle => ['all' => false],", correct: false}
+            - {value: "App\\Acme\\TestBundle\\AcmeTestBundle::class => ['dev' => true],", correct: true}
+            - {value: "App\\Acme\\TestBundle\\AcmeTestBundle::class => ['dev' => true, 'test' => false],", correct: true}
+            - {value: "App\\Acme\\TestBundle\\AcmeTestBundle::class => ['all' => false],", correct: false}
+            - {value: "App\\Acme\\TestBundle\\AcmeTestBundle => ['dev' => true],", correct: false}
+            - {value: "App\\Acme\\TestBundle\\AcmeTestBundle => ['all' => false],", correct: false}
     -
         question: 'Which of the following directories exist normally in a Bundle?'
         answers:
@@ -264,10 +264,10 @@ questions:
     -
         question: 'Which of the following namespaces would be correct for the bundle "AcmeBlogBundle"?'
         answers:
-            - {value: "Acme\Bundle\BlogBundle", correct: true}
-            - {value: "Acme\BlogBundle", correct: true}
-            - {value: "Acme\Bundle\AcmeBlogBundle", correct: false}
-            - {value: "Bundle\AcmeBlogBundle", correct: false}
+            - {value: "Acme\\Bundle\\BlogBundle", correct: true}
+            - {value: "Acme\\BlogBundle", correct: true}
+            - {value: "Acme\\Bundle\\AcmeBlogBundle", correct: false}
+            - {value: "Bundle\\AcmeBlogBundle", correct: false}
             - {value: "AcmeBlogBundle", correct: false}
     -
         question: 'True or False ? If you share your bundle publicly, you must use the bundle class name as the name of the repository (AcmeBlogBundle and not BlogBundle for instance)'
@@ -569,10 +569,10 @@ questions:
     -
         question: 'What would be the correct annotation to check if the current user has the role "ROLE_ADMIN"?'
         answers:
-            - {value: "@Security('has_role(``ROLE_ADMIN``)')", correct: true}
-            - {value: "@Security('check_role(``ROLE_ADMIN``)')", `correct: false}
-            - {value: "@Security(check_role(``ROLE_ADMIN``))", correct: false}
-            - {value: "@Security(has_role(``ROLE_ADMIN``))", correct: false}
+            - {value: "@Security('has_role(`ROLE_ADMIN`)')", correct: true}
+            - {value: "@Security('check_role(`ROLE_ADMIN`)')", correct: false}
+            - {value: "@Security(check_role(`ROLE_ADMIN`))", correct: false}
+            - {value: "@Security(has_role(`ROLE_ADMIN`))", correct: false}
     -
         question: 'What would be the correct syntax to deny access via PHP directly in the controller?'
         answers:
@@ -582,9 +582,9 @@ questions:
     -
         question: 'If you create a custom security voter, how could you use this voter in a "@Security" annotation?'
         answers:
-            - {value: "@Security('is_granted(``edit``,``post``)')", correct: true}
-            - {value: "@Security('is_allowed(``edit``,``post``)')", correct: false}
-            - {value: "@Security(is_allowed(``edit``,``post``))", correct: false}
+            - {value: "@Security('is_granted(`edit`,`post`)')", correct: true}
+            - {value: "@Security('is_allowed(`edit`,`post`)')", correct: false}
+            - {value: "@Security(is_allowed(`edit`,`post`))", correct: false}
     -
         question: 'True or False ? Store your assets in the assets/ directoy at the root of your project'
         answers:
