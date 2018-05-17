@@ -1,0 +1,363 @@
+category: Automated tests (kjueni)
+questions:
+    #Unit tests with PHPUnit - http://symfony.com/doc/current/testing.html#unit-tests
+    -
+        question: 'True or False ? A unit test is a test against a single PHP class, also called a unit'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? A unit test is a test against a single PHP method, also called a unit'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Test should be created in the "tests/" and be suffixed by "Test"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Test should be created in the "tests/Util" and be prefixed by "Test"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? By convention, the tests/ directory should replicate the directory of your e.g. a test for a class in "src/Util/" should be placed in the directory "tests/Util"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What is the the correct statement to execute all tests of your application?'
+        answers:
+            - {value: "./vendor/bin/simple-phpunit", correct: true}
+            - {value: "./vendor/bin/phpunit", correct: false}
+            - {value: "./bin/console phpunit", correct: false}
+            - {value: "/vendor/simple-phpunit", correct: false}
+            - {value: "/vendor/bin/phpunit", correct: false}
+            - {value: "./bin/console simple-phpunit", correct: false}
+    -
+        question: 'What is the the correct statement to execute all tests of your "tests/Util" directory?'
+        answers:
+            - {value: "./vendor/bin/simple-phpunit tests/Util", correct: true}
+            - {value: "./vendor/bin/phpunit tests/Util", correct: false}
+            - {value: "./bin/console phpunit tests/Util", correct: false}
+            - {value: "/vendor/simple-phpunit test util", correct: false}
+            - {value: "/vendor/bin/phpunit tests Util", correct: false}
+            - {value: "./bin/console simple-phpunit tests util", correct: false}
+    -
+        question: 'What is the the correct statement to execute all tests for your "Calculator" class?'
+        answers:
+            - {value: "./vendor/bin/simple-phpunit tests/Util/CalculatorTest.php", correct: true}
+            - {value: "./vendor/bin/phpunit tests/Util/CalculatorTest.php", correct: false}
+            - {value: "./bin/console phpunit tests/Util/CalculatorTest.php", correct: false}
+            - {value: "/vendor/simple-phpunit tests/Util CalculatorTest.php", correct: false}
+            - {value: "/vendor/bin/phpunit tests/Util CalculatorTest.php", correct: false}
+            - {value: "./bin/console simple-phpunit  tests/Util CalculatorTest.php", correct: false}
+    #Functional tests with PHPUnit -
+    -
+        question: 'True or False ? Functional tests check the integration of the different layers of an application (from the routing to the views)'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Functional tests check if a specific class provides all needed functionality'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Make a request; Test the response; Click on a link or submit a form; Test the response; Rinse and repeat. is the specific workflow for a functional test'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Make a request; Test the response; Click on a link or submit a form; Rinse and repeat. is the specific workflow for a functional test'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which component needs to be installed specificly to enable functional testing?'
+        answers:
+            - {value: "symfony/browser-kit", correct: true}
+            - {value: "symfony/browser", correct: false}
+            - {value: "symfony/browser-component", correct: false}
+    -
+        question: 'In which directory functional tests should commonly live? '
+        answers:
+            - {value: "tests/Controller", correct: true}
+            - {value: "tests/Controllers", correct: false}
+    -
+        question: 'Which default class provided by Symfony should be extended by functional tests?'
+        answers:
+            - {value: "WebTestCase", correct: true}
+            - {value: "WebCase", correct: false}
+            - {value: "WebCaseTest", correct: false}
+            - {value: "WebTest", correct: false}
+    -
+        question: 'What has to be defined in the phpunit.xml.dist file to be able to run functional tests?'
+        answers:
+            - {value: "The FQCN of your kernel as ENV-Variable 'KERNEL_CLASS'", correct: true}
+            - {value: "The file-path to your kernel as ENV-Variable 'KERNEL_PATH'", correct: false}
+            - {value: "The FQCN of your application as ENV-Variable 'APPLICATION_CLASS'", correct: false}
+            - {value: "The file-path to your application as ENV-Variable 'APPLICATION_PATH'", correct: false}
+    -
+        question: 'Which method in a WebTestCase returns a new HTTP-Client?'
+        answers:
+            - {value: "createClient", correct: true}
+            - {value: "getClient", correct: false}
+            - {value: "initClient", correct: false}
+            - {value: "initializeClient", correct: false}
+    -
+        question: 'What does the request method of the HTTP-Client return?'
+        answers:
+            - {value: "A 'Crawler' instance", correct: true}
+            - {value: "Another 'Client' instance", correct: false}
+            - {value: "A 'DomDocument' instance", correct: false}
+    -
+        question: 'Which response formats does a "Crawler" support?'
+        answers:
+            - {value: "xml", correct: true}
+            - {value: "html", correct: true}
+            - {value: "json", correct: false}
+            - {value: "php", correct: false}
+            - {value: "rST", correct: false}
+    -
+        question: 'Which component can be used by the "Crawler" to enable css style selection?'
+        answers:
+            - {value: "symfony/css-selector", correct: true}
+            - {value: "css/selector", correct: false}
+            - {value: "symfony/cssselector", correct: false}
+            - {value: "symfony/css-selection", correct: false}
+    -
+        question: 'What would be the correct syntax to find the number of occurences of the phrase "Hello World" on a page?'
+        answers:
+            - {value: "$crawler->filter('html:contains('Hello World`)')->count()", correct: true}
+            - {value: "$crawler->filterCSS('html:contains('Hello World`)')->count()", correct: false}
+            - {value: "$crawler->filter('html_contains('Hello World`)')->count()", correct: false}
+            - {value: "$crawler->filter('html:contains('Hello World`)'):count", correct: false}
+    -
+        question: 'What would be the correct syntax to get a form via its submit button?'
+        answers:
+            - {value: "$form = $crawler->selectButton('submit')->form();", correct: true}
+            - {value: "$form = $crawler->selectButton('submit')->getForm();", correct: false}
+            - {value: "$form = $crawler->button('submit')->form();", correct: false}
+            - {value: "$form = $crawler->getButton('submit')->form();", correct: false}
+            - {value: "$form = $crawler->getButton('submit')->getForm();", correct: false}
+    -
+        question: 'Which would be the correct syntax to submit a form?'
+        answers:
+            - {value: "$crawler = $client->submit($form);", correct: true}
+            - {value: "$crawler = $crawler->submit($form);", correct: false}
+            - {value: "$crawler = $client->submitForm($form);", correct: false}
+            - {value: "$crawler = $crawler->submitForm($form);", correct: false}
+            - {value: "$crawler = $form->submit()", correct: false}
+    -
+        question: 'Which of the following statements would be correct if you would want to assert that there is more than one h1 heading on the page?'
+        answers:
+            - {value: "$this->assertGreaterThan(0, $crawler->filter('h1')->count());", correct: true}
+            - {value: "$this->assertLowerThan(1, $crawler->filter('h1')->count());", correct: false}
+            - {value: "$this->assertGreater(0, $crawler->filter('h1')->count());", correct: false}
+            - {value: "$this->assertEqual(0, $crawler->filter('h1')->count());", correct: false}
+    -
+        question: 'What would be the correct approach to test the content of a page without using the crawler?'
+        answers:
+            - {value: "$this->assertContains('Hello World', $client->getResponse()->getContent());", correct: true}
+            - {value: "$this->assertContains('Hello World', $client->getResponse());", correct: false}
+            - {value: "$this->contains('Hello World', $client->getResponse()->getContent());", correct: false}
+            - {value: "$this->assertContent('Hello World', $client->getResponse()->getContent());", correct: false}
+            - {value: "$this->assert('Hello World', $client->getRequest()->getContent());", correct: false}
+    -
+        question: 'Which of the following assertions do actually exist?'
+        answers:
+            - {value: "assertGreaterThan", correct: true}
+            - {value: "assertCount", correct: true}
+            - {value: "assertTrue", correct: true}
+            - {value: "assertContains", correct: true}
+            - {value: "assertEquals", correct: true}
+            - {value: "assertGreater", correct: false}
+            - {value: "assertBooleanTrue", correct: false}
+            - {value: "assertContain", correct: false}
+    #Client object - http://symfony.com/doc/current/testing.html#working-with-the-test-client
+    -
+        question: 'True or False ? Hardcoding the request URLs is a best practice for functional tests'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the correct syntax to pass parameters to call of the test request?'
+        answers:
+            - {value: "$client->request('GET', 'http://localhost', array('foo' => 'bar'), $files, $server, $content, $changeHistory);", correct: true}
+            - {value: "$client->request('http://localhost', 'GET', array('foo' => 'bar'), $files, $server, $content, $changeHistory);", correct: false}
+            - {value: "$client->request('GET', 'http://localhost', $files, $server, array('foo' => 'bar'), $content, $changeHistory);", correct: false}
+            - {value: "$client->request('GET', 'http://localhost', $files, array('foo' => 'bar'), $server, $content, $changeHistory);", correct: false}
+            - {value: "$client->request('http://localhost', 'GET', $files, array('foo' => 'bar'), $server, $content, $changeHistory);", correct: false}
+            - {value: "$client->request('GET', 'http://localhost', $content, $files, $server, array('foo' => 'bar'), $changeHistory);", correct: false}
+    -
+        question: 'How to get a link on page with a specific text with the "Crawler"?'
+        answers:
+            - {value: "$link = $crawler->selectLink('Go elsewhere...')->link();", correct: true}
+            - {value: "$link = $crawler->selectLink('Go elsewhere...');", correct: false}
+            - {value: "$link = $crawler->link('Go elsewhere...')->selectLing();", correct: false}
+            - {value: "$link = $crawler->link('Go elsewhere...')->link();", correct: false}
+    -
+        question: 'What would be the correct syntax to follow a link selected by the "Crawler"?'
+        answers:
+            - {value: "$crawler = $client->click($link);", correct: true}
+            - {value: "$crawler = $crawler->click($link);", correct: false}
+            - {value: "$crawler = $client->follow($link);", correct: false}
+            - {value: "$crawler = $crawler->follow($link);", correct: false}
+    -
+        question: 'What would be the correct syntax to create a post request with a json body?'
+        answers:
+            - {value: "$client->request('POST', $url, $parameters, $files, $server, '{`name`:`Fabien`}', $changeHistory);", correct: true}
+            - {value: "$client->request('POST', $url, $parameters, $files, $server, $changeHistory, '{`name`:`Fabien`}');", correct: false}
+            - {value: "$client->request('POST', $url, $parameters, $files, '{`name`:`Fabien`}', $server, $changeHistory);", correct: false}
+            - {value: "$client->request('POST', $url, $parameters, '{`name`:`Fabien`}', $files, $server, $changeHistory);", correct: false}
+    -
+        question: 'True or False ? The "$server" in the HTTP-Client request method represents the "$_SERVER" superglobal'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the correct method every request would run in its own PHP process?'
+        answers:
+            - {value: "$client->insulate();", correct: true}
+            - {value: "$client->isolate();", correct: false}
+            - {value: "$client->decapsulate();", correct: false}
+    -
+        question: 'Which of the following Browser functions are provided by the client?'
+        answers:
+            - {value: "back()", correct: true}
+            - {value: "forward()", correct: true}
+            - {value: "reload()", correct: true}
+            - {value: "restart()", correct: true}
+            - {value: "exit()", correct: false}
+            - {value: "f5()", correct: false}
+            - {value: "refresh()", correct: false}
+    -
+        question: 'What would be the correct method name to get the cookies of the client?'
+        answers:
+            - {value: "getCookieJar()", correct: true}
+            - {value: "getCookies()", correct: false}
+            - {value: "getCookie()", correct: false}
+    #Crawler object - http://symfony.com/doc/current/testing.html#the-crawler
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+    -
+        question: ''
+        answers:
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
+            - {value: "", correct: false}
