@@ -1,0 +1,504 @@
+category: Security (kjueni)
+questions:
+    #Authentication - http://symfony.com/doc/current/security.html#initial-security-yml-setup-authentication
+    -
+        question: 'Which firewall types do exist?'
+        answers:
+            - {value: "main", correct: true}
+            - {value: "dev", correct: true}
+            - {value: "prod", correct: false}
+            - {value: "test", correct: false}
+    -
+        question: 'True or False ? The "dev" firewall settings are only important to make sure all Symfony tools can run in development'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the correct syntax to disable the dev firewall in development?'
+        answers:
+            - {value: "security.firewalls.dev.security: false", correct: true}
+            - {value: "security.firewalls: false", correct: false}
+            - {value: "security.firewalls: false", correct: false}
+            - {value: "security: false", correct: false}
+    -
+        question: 'True or False ? "security.firewalls.main.anonymous: ~" means that you are handled as an anonymous user'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The main job of a firewall is to configure HOW your users will authenticate'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The main job of a firewall is to configure WHICH users can authenticate'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What would be the right syntax to enable HTTP Basic authentication in you application?'
+        answers:
+            - {value: "security.firewalls.main.http_basic: ~", correct: true}
+            - {value: "security.access_control.http_basic: ~", correct: false}
+            - {value: "security.firewalls.access_control.http_basic: ~", correct: false}
+    -
+        question: 'What would be the correct syntax in "security.access_control" to enable the firewall?'
+        answers:
+            - {value: "- { path: ^/admin, roles: ROLE_ADMIN }", correct: true}
+            - {value: "- { path: ^/admin, role: ROLE_ADMIN }", correct: false}
+            - {value: "- { path: /admin, roles: ROLE_ADMIN }", correct: false}
+            - {value: "- { url: ^/admin, roles: ROLE_ADMIN }", correct: false}
+            - {value: "- { path: ^/admin, role: ROLE_ADMIN }", correct: false}
+    #Users - http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    -
+        question: 'Which provider would you use in "security.providers" to define a hardcoded list of users directly in the config?'
+        answers:
+            - {value: "in_memory", correct: true}
+            - {value: "memory", correct: false}
+            - {value: "memory_provider", correct: false}
+    -
+        question: 'What would be the correct path in "configs/security.yaml" where you could add differnt users if you use "in_memory" provider?'
+        answers:
+            - {value: "security.providers.in_memory.memory.users", correct: true}
+            - {value: "security.providers.in_memory.users", correct: false}
+            - {value: "security.in_memory.memory.users", correct: false}
+            - {value: "security.users", correct: false}
+    -
+        question: 'Assuming you want to use bcrypt to encode the password for the users in your config, what would be the right syntax?'
+        answers:
+            - {value: "security.encoders.YourUserFQCN.algorithm: bcrypt", correct: true}
+            - {value: "security.encoders.YourUserFQCN: bcrypt", correct: false}
+            - {value: "security.YourUserFQCN.algorithm: bcrypt", correct: false}
+            - {value: "security.YourUserFQCN.crypt: bcrypt", correct: false}
+    -
+        question: 'What would be the right command to encode the plain text passwords in your "configs/security.yaml"?'
+        answers:
+            - {value: "php bin/console security:encode-password", correct: true}
+            - {value: "php bin/console security:encode password", correct: false}
+            - {value: "php bin/console encode-password", correct: false}
+            - {value: "php bin/console security-encode-password", correct: false}
+    #Authorization - http://symfony.com/doc/current/security.html#denying-access-roles-and-other-authorization
+    -
+        question: 'True or False ? The job of authorization is to decide if the user can access some resource'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The job of authorization is to decide if the user credentials are valid'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? All roles you assign to a user must begin with the ROLE_ prefix'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'All roles you assign to a user must end with the _ROLE suffix'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following ways do exist in Symfony to deny access to something?'
+        answers:
+            - {value: "access_control config", correct: true}
+            - {value: "AuthorizationCheckers", correct: true}
+            - {value: "AuthenticationCheckers", correct: false}
+            - {value: "AccessControlChecker", correct: false}
+    -
+        question: 'True or False ? Patterns for path config for access_control in configs/security.yaml are regular expressions'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Patterns for path config for access_control in configs/security.yaml are written in the expression language'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Patterns for allow_if config for access_control in configs/security.yaml are regular expressions'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Patterns for allow_if config for access_control in configs/security.yaml are written in the expression language'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following options exist for the "access_control" config?'
+        answers:
+            - {value: "path", correct: true}
+            - {value: "roles", correct: true}
+            - {value: "ip", correct: true}
+            - {value: "host", correct: true}
+            - {value: "methods", correct: true}
+            - {value: "ips", correct: true}
+            - {value: "role", correct: false}
+            - {value: "hosts", correct: false}
+    -
+        question: 'True or False ? Only the first matched access_control is used'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Only the last matched access_control is used'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'How to make sure a resource can only be accessed via SSL?'
+        answers:
+            - {value: "- { path: ^/cart/checkout, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }", correct: true}
+            - {value: "- { path: ^/cart/checkout, roles: IS_AUTHENTICATED_ANONYMOUSLY, channel: https }", correct: false}
+            - {value: "- { path: ^/cart/checkout, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: SSL }", correct: false}
+            - {value: "- { path: ^/cart/checkout, roles: IS_AUTHENTICATED_ANONYMOUSLY, channel: SSL }", correct: false}
+    -
+        question: 'What would be the correct syntax in twig to check if a user has access?'
+        answers:
+            - {value: "{% if is_granted('ROLE_ADMIN') %}{% endif %}", correct: true}
+            - {value: "{% if is_allowed('ROLE_ADMIN') %}{% endif %}", correct: false}
+            - {value: "{% if access_granted('ROLE_ADMIN') %}{% endif %}", correct: false}
+            - {value: "{% if access_allowe('ROLE_ADMIN') %}{% endif %}", correct: false}
+    -
+        question: 'Which attributes exist to decide if a user is authenticated?'
+        answers:
+            - {value: "IS_AUTHENTICATED_REMEMBERED", correct: true}
+            - {value: "IS_AUTHENTICATED_FULLY", correct: true}
+            - {value: "IS_AUTHENTICATED_ANONYMOUSLY", correct: true}
+            - {value: "IS_AUTHENTICATED_NORMAL", correct: false}
+            - {value: "IS_REMEMBERED_AUTHENTICATED", correct: false}
+            - {value: "IS_FULLY_AUTHENTICATED", correct: false}
+            - {value: "IS_ANONYMOUSLY_AUTHENTICATED", correct: false}
+            - {value: "IS_NORMAL_AUTHENTICATED", correct: false}
+    -
+        question: 'True or False ? Voters are officially recommended by Symfony to create ACL-like security systems'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Access Control Lists (ACLs) are officially recommended by Symfony'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What would be the correct syntax to get the "User" object in the controller?'
+        answers:
+            - {value: "$user = $this->getUser();", correct: true}
+            - {value: "$user = $this->auth()->getUser();", correct: false}
+            - {value: "$user = $this->getAuthenticatedUser();", correct: false}
+            - {value: "$user = $this->auth()->getAuthenticatedUser();", correct: false}
+    -
+        question: 'True or False ? Always check if a user is logged in before requiring the "User" object'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'In "security.firewalls.secured_area.logout" which parameters have to be set to enable logouts?'
+        answers:
+            - {value: "path", correct: true}
+            - {value: "target", correct: true}
+            - {value: "url", correct: false}
+            - {value: "logged_out_path", correct: false}
+            - {value: "target_path", correct: false}
+    -
+        question: 'Under which path can you specify a hierarchy for your roles?'
+        answers:
+            - {value: "security.role_hierarchy", correct: true}
+            - {value: "security.roles.role_hierarchy", correct: false}
+            - {value: "security.roles.hierarchy", correct: false}
+    #Providers - http://symfony.com/doc/current/security/custom_authentication_provider.html
+    -
+        question: 'What does WSSE or WSS stand for ?'
+        answers:
+            - {value: "Web Services Security", correct: true}
+            - {value: "Web Services Security Entity", correct: false}
+            - {value: "Web Server Security", correct: false}
+            - {value: "Web Server Security Entity", correct: false}
+    -
+        question: 'True or False ? To be able to use WSSE (Web Services Security) create a token class extending Symfony`s AbstractToken base class'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? To be able to use WSSE (Web Services Security) create a SecurityVoter class extending Symfony`s WSSEVoter base class'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which parameters usually exist for a WSSE (Web Services Security) token?'
+        answers:
+            - {value: "digest", correct: true}
+            - {value: "nonce", correct: true}
+            - {value: "created", correct: true}
+            - {value: "id", correct: false}
+            - {value: "name", correct: false}
+            - {value: "none", correct: false}
+    -
+        question: 'What would be the job of a custom AuthenticationListener who may be based on Symfony`s "AbstractAuthenticationListener"?'
+        answers:
+            - {value: "Field requests to the firewall", correct: true}
+            - {value: "Call the authentication provider", correct: true}
+            - {value: "Handle the getResponse event", correct: true}
+            - {value: "Store the valid token in the token storage", correct: true}
+            - {value: "Verify the given authentication token", correct: false}
+    -
+        question: 'What would be the job of a custom WSSE (Web Services Security) AuthenticationProvider who implements Symfony`s "AuthenticationProviderInterface"?'
+        answers:
+            - {value: "Verify the 'Created' header of the token is valid within x minutes", correct: true}
+            - {value: "Verify the 'Nonce' header of the token is valid within x minutes", correct: true}
+            - {value: "Verify the 'PasswordDigest' header matches the user password", correct: true}
+            - {value: "Verify the 'None'  header of the token is valid within x minutes", correct: false}
+    -
+        question: 'True or False ? To make a unique AuthenticationProvider available for all firewalls, you have to create a factory implementing Symfony`s "SecurityFactoryInterface"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? To make a unique AuthenticationProvider available for all firewalls, you have to create a factory implementing Symfony`s "ServiceFactoryInterface"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following methods have to be created when implementing Symfony`s "SecurityFactoryInterface"?'
+        answers:
+            - {value: "create", correct: true}
+            - {value: "getPosition", correct: true}
+            - {value: "getKey", correct: true}
+            - {value: "addConfiguration", correct: true}
+            - {value: "getToken", correct: false}
+            - {value: "getProvider", correct: false}
+            - {value: "getListener", correct: false}
+    -
+        question: 'Which different positions exist for a AuthenticationProvider to be called at?'
+        answers:
+            - {value: "pre_auth", correct: true}
+            - {value: "form", correct: true}
+            - {value: "http", correct: true}
+            - {value: "remember_me", correct: true}
+            - {value: "post_auth", correct: false}
+            - {value: "form_bind", correct: false}
+            - {value: "auth", correct: false}
+    -
+        question: 'Where do you have to register your custom SecurityFactory?'
+        answers:
+            - {value: "In the build-method of your kernel.php via $securityExtension->addSecurityListenerFactory(new WsseFactory());", correct: true}
+            - {value: "In the build-method of your kernel.php via $container->addSecurityListenerFactory(new WsseFactory());", correct: false}
+            - {value: "In the build-method of your kernel.php via $securityExtension->addSecurityFactory(new WsseFactory());", correct: false}
+            - {value: "In the build-method of your kernel.php via $container->addSecurityFactory(new WsseFactory());", correct: false}
+    -
+        question: 'Which of the following user providers exist by default in symfony?'
+        answers:
+            - {value: "memory", correct: true}
+            - {value: "entity", correct: true}
+            - {value: "ldap", correct: true}
+            - {value: "chain", correct: true}
+            - {value: "soap", correct: false}
+            - {value: "in_memory", correct: false}
+            - {value: "active_directory", correct: false}
+    -
+        question: 'Which of the following methods have to be implemented if you create your own UserProvider implementing Symfony` "UserProviderInterface"?'
+        answers:
+            - {value: "loadUserByUsername($username)", correct: true}
+            - {value: "refreshUser(UserInterface $user)", correct: true}
+            - {value: "supportsClass($class)", correct: true}
+            - {value: "refresh(UserInterface $user)", correct: false}
+            - {value: "loadUserById($id)", correct: false}
+            - {value: "supportClass($class)", correct: false}
+    -
+        question: 'What would be a valid syntax to register A custom UserProvider (YourFQCN) in your config?'
+        answers:
+            - {value: "security.providers.your_provider_id.id: YourFQCN", correct: true}
+            - {value: "security.your_provider_id.id: YourFQCN", correct: false}
+            - {value: "security.providers.your_provider_id: YourFQCN", correct: false}
+            - {value: "security.your_provider_id: YourFQCN", correct: false}
+    #Passwords encoder - http://symfony.com/doc/current/security/password_encoding.html
+    -
+        question: 'What is the correct method to encode a password with an encode?'
+        answers:
+            - {value: "$encoder->encodePassword($user, $plainPassword)", correct: true}
+            - {value: "$encoder->encode($user, $plainPassword)", correct: false}
+            - {value: "$encoder->encodePassword($plainPassword, $user)", correct: false}
+            - {value: "$encoder->encode($plainPassword, $user)", correct: false}
+    -
+        question: 'True or False ? Symfony uses the term "password encoding" for historical reasons, in fact it should be "password hashing"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #Access Control Rules - https://github.com/symfony/acl-bundle/blob/master/src/Resources/doc/index.rst
+    -
+        question: 'If you want to use Access Control Lists (ACLs) in your application, what needs to be done?'
+        answers:
+            - {value: "Installe the symfony/acl-bundle", correct: true}
+            - {value: "Enable acl in configs/security.yaml", correct: true}
+            - {value: "Enable acl in configs/framework.yaml", correct: false}
+            - {value: "Symfony does not provide a solution for ACLs", correct: false}
+    -
+        question: 'What would be the correct syntax to import the database structure for acl-bundle?'
+        answers:
+            - {value: "php bin/console acl:init", correct: true}
+            - {value: "php bin/console acl:import", correct: false}
+            - {value: "php bin/console acl:bundle:init", correct: false}
+    -
+        question: 'True or False ? Symfony has a built-in component for ACL'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? To solidify the relationship between a user and an entity you have to create an Access Control Entry (ACE)'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? To create an acl object for your object you first have to convert your domain object first to an implementation of "ObjectIdentityInterface"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the correct method to grant access to a certain user via the created acl object?'
+        answers:
+            - {value: "$acl->insertObjectAce(UserSecurityIdentity::fromAccount($user), MaskBuilder::MASK_OWNER);", correct: true}
+            - {value: "$acl->insertObjectAce(UserSecurityIdentity::fromDomainObject($user), MaskBuilder::MASK_OWNER);", correct: false}
+            - {value: "$acl->insertObject(UserSecurityIdentity::fromDomainAccount($user), MaskBuilder::MASK_OWNER);", correct: false}
+            - {value: "$acl->insertAce(UserSecurityIdentity::fromDomainUser($user), MaskBuilder::MASK_OWNER);", correct: false}
+    -
+        question: 'What would be the correct syntax to create an acl instance for a given domain comment?'
+        answers:
+            - {value: "$acl = $aclProvider->createAcl(ObjectIdentity::fromDomainObject($comment));", correct: true}
+            - {value: "$acl = $aclProvider->create(ObjectIdentity::fromDomainObject($comment));", correct: false}
+            - {value: "$acl = $aclProvider->createAcl(ObjectIdentity::fromObject($comment));", correct: false}
+            - {value: "$acl = $aclProvider->create(ObjectIdentity::fromObject($comment));", correct: false}
+    -
+        question: 'True or False ? The MaskBuilder creates bit masks by combining several base permissions'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following statements is correct to add a new valid permission to the MaskBuilder (bit masks builder)?'
+        answers:
+            - {value: "$builder->add('view');", correct: true}
+            - {value: "$builder->add('edit');", correct: true}
+            - {value: "$builder->add('delete');", correct: true}
+            - {value: "$builder->add('undelete');", correct: true}
+            - {value: "$builder->addPermission('view');", correct: false}
+            - {value: "$builder->addPermission('edit');", correct: false}
+            - {value: "$builder->addPermission('delete');", correct: false}
+    #Guard authenticators - https://symfony.com/doc/current/security/guard_authentication.html
+    -
+        question: 'True or False ? To create a custom GuardAuthenticator you have to provide a "UserProvider"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Where would you register your custom Authenticator in your configs?'
+        answers:
+            - {value: "security.firewalls.main.guard.authenticators", correct: true}
+            - {value: "security.firewalls.guards.authenticators", correct: false}
+            - {value: "security.firewalls.guards.authenticator", correct: false}
+            - {value: "security.firewalls.main.guard.authenticator", correct: false}
+    -
+        question: 'If you do not want to store a user in the session, which parameter must be set in configs/security.yaml?'
+        answers:
+            - {value: "stateless: true", correct: true}
+            - {value: "stateful: false", correct: false}
+            - {value: "stateless: ~", correct: false}
+    -
+        question: 'Which of the following methods need to be implemented when creating a custom guard?'
+        answers:
+            - {value: "supports(Request $request)", correct: true}
+            - {value: "getCredentials(Request $request)", correct: true}
+            - {value: "getUser($credentials, UserProviderInterface $userProvider)", correct: true}
+            - {value: "checkCredentials($credentials, UserProviderInterface $userProvider)", correct: true}
+            - {value: "onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)", correct: true}
+            - {value: "onAuthenticationFailure(Request $request, AuthenticationException $exception)", correct: true}
+            - {value: "start(Request $request, AuthenticationException $authException = null)", correct: true}
+            - {value: "supportsRememberMe()", correct: true}
+            - {value: "createAuthenticatedToken(UserInterface $user, string $providerKey)", correct: true}
+            - {value: "checkCredentials($credentials)", correct: false}
+            - {value: "onAuthenticationSuccess(Request $request)", correct: false}
+            - {value: "getUser($credentials)", correct: false}
+            - {value: "grantAccess()", correct: false}
+    #Voters and voting strategies - http://symfony.com/doc/current/security/voters.html
+    -
+        question: 'Which of the following voting strategies exist for a SecurityVoter?'
+        answers:
+            - {value: "affirmative", correct: true}
+            - {value: "consensus", correct: true}
+            - {value: "unanimous", correct: true}
+            - {value: "strict", correct: false}
+            - {value: "consentual", correct: false}
+            - {value: "animous", correct: false}
+    -
+        question: 'What is the correct syntax to check if a user is allowed to edit a post in a controller?'
+        answers:
+            - {value: " $this->denyAccessUnlessGranted('edit', $post);", correct: true}
+            - {value: " $this->isGranted('edit', $post);", correct: true}
+            - {value: " $this->isAllowed('edit', $post);", correct: false}
+            - {value: " $this->userCanEdit($post);", correct: false}
+            - {value: " $this->canUserEdit($post);", correct: false}
+    -
+        question: 'True or False ? If "$voter->supports($attribute, $subject)" return true the "$voter->voteOnAttribute($attribute, $subject, TokenInterface $token)" method is called'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If "$voter->supports($attribute, $subject)" return true the "$voter->voteForAttr($attribute, $subject, TokenInterface $token)" method is called'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? If you return true in the "voteOnAttribute" method in your Voter access is allowed'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If you return true in the "voteOnAttribute" method in your Voter access is denied'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? If you need to check access in any non-voter service, use the security.authorization_checker service'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If you need to check access INSIDE a voter service, use the AccessDecisionManager service and call "decide"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If you need to check access in any non-voter service, use the AccessDecisionManager service and call "decide"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? If you need to check access INSIDE a voter service, use the security.authorization_checker service'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? A Voter is used to check if a specific user has some permission for a specific object'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following statements is correct for the VoterStrategy "affirmative"'
+        answers:
+            - {value: "Grants access as soon as there is one voter granting access", correct: true}
+            - {value: "Grants access if there are more voters granting access than denying", correct: false}
+            - {value: "Only grants access if there is no voter denying access", correct: false}
+    -
+        question: 'Which of the following statements is correct for the VoterStrategy "consensus"'
+        answers:
+            - {value: "Grants access if there are more voters granting access than denying", correct: true}
+            - {value: "Grants access as soon as there is one voter granting access", correct: false}
+            - {value: "Only grants access if there is no voter denying access", correct: false}
+    -
+        question: 'Which of the following statements is correct for the VoterStrategy "unanimous"'
+        answers:
+            - {value: "Only grants access if there is no voter denying access", correct: true}
+            - {value: "If 'allow_if_all_abstain' is true grants access if no voter voted", correct: true}
+            - {value: "If 'allow_if_all_abstain' is false denies access if no voter voted", correct: true}
+            - {value: "If 'allow_if_all_abstain' is false allows access if no voter voted", correct: false}
+            - {value: "Grants access as soon as there is one voter granting access", correct: false}
+            - {value: "Grants access if there are more voters granting access than denying", correct: false}
