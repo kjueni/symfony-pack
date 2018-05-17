@@ -1,0 +1,373 @@
+category: Architecture (kjueni)
+questions:
+  #Symfony Flex - https://symfony.com/doc/current/setup/flex.html#content_wrapper
+    -
+        question: 'True or False ? Symfony Flex improves the Symfony Installer and the Symfony Standard Edition'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Symfony Flex is a Composer plugin that modifies the behavior of the require, update, and remove commands'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What is an advancement of using Symfony Flex instead of just composer?'
+        answers:
+            - {value: "It is possible to use aliases for certain libraries, e.g. 'mailer' for 'SwiftmailerBundle'", correct: true}
+            - {value: "In a recipe it can be specified for which environment the package should be installed", correct: true}
+            - {value: "It is possible to add default ENV variables via the recipe", correct: true}
+            - {value: "You have access to many more packages", correct: false}
+            - {value: "It is possible to use local repositories for composer", correct: false}
+    -
+        question: 'True or False ? Symfony Flex recipes are stored in a manifest.json file'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Symfony Flex recipes are stored in the composer.json file'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What would be the right command to set the right flag to tell Symfony to also install packages from the Contrib repository?'
+        answers:
+            - {value: "composer config extra.symfony.allow-contrib true", correct: true}
+            - {value: "composer require extra.symfony.allow-contrib", correct: false}
+            - {value: "composer set extra.symfony.allow-contrib true", correct: false}
+            - {value: "composer define extra.symfony.allow-contrib true", correct: false}
+    -
+        question: 'True or False ? Symfony Flex can be used for almost all directory structures'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? To use Symfony Flex it is necessary to have the same directory structure as used by default in Symfony 4'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What is the correct syntax to use Symfony Flex?'
+        answers:
+            - {value: "composer require symfony/flex", correct: true}
+            - {value: "php bin/console import flex", correct: false}
+            - {value: "php bin/console add symfony/flex", correct: false}
+            - {value: "php app/console require symfony", correct: false}
+            - {value: "composer add symfony/flex", correct: false}
+            - {value: "composer add flex", correct: false}
+    #License - http://symfony.com/doc/current/contributing/code/license.html
+    -
+        question: 'Under which license is Symfony released?'
+        answers:
+            - {value: "MIT", correct: true}
+            - {value: "ISC", correct: false}
+            - {value: "MPL", correct: false}
+            - {value: "BSD", correct: false}
+    -
+        question: 'True or False ? Is the Symfony license GPL-Compatibel?'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Under which of the following licenses Symfony is licensed?'
+        answers:
+            - {value: "Creative Commons BY-SA 3.0 ", correct: true}
+            - {value: "Creative Commons 3.0 ", correct: false}
+            - {value: "Creative Commons BY 3.0 ", correct: false}
+            - {value: "Creative Commons BY-SA-C 3.0 ", correct: false}
+            - {value: "Creative Commons BY-SA 2.0 ", correct: false}
+            - {value: "Creative Commons BY 2.0 ", correct: false}
+            - {value: "Creative Commons BY-SA-C 2.0 ", correct: false}
+            - {value: "Creative Commons BY 3 ", correct: false}
+            - {value: "Creative Commons BY-SA-E 4.0 ", correct: false}
+    #Bridges - https://stackoverflow.com/questions/11888522/what-are-symfony-bridges-bundles-and-vendor
+    -
+        question: 'True or False ? A bridge extends some components'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? A bridge adds new features to the application'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? A bridge can help you to integrate a third party library into the framework'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #Configuration - https://symfony.com/doc/current/configuration.html
+    -
+        question: 'What is the base directory for packages?'
+        answers:
+            - {value: "config/packages", correct: true}
+            - {value: "config/", correct: false}
+            - {value: "config/dev/packages", correct: false}
+    -
+        question: 'What does the top-level key reference in a config?'
+        answers:
+            - {value: "The configuration for a specific bundle", correct: true}
+            - {value: "The current environment", correct: false}
+            - {value: "An alias for the standard service defined in the config", correct: false}
+    -
+        question: 'How can you check which config options are available for a specific bundle e.g. "framework"?'
+        answers:
+            - {value: "php bin/console config:dump-reference framework", correct: true}
+            - {value: "php bin/console config:dump framework", correct: false}
+            - {value: "php bin/console dump:config framework", correct: false}
+            - {value: "php bin/console dump-config-reference framework", correct: false}
+            - {value: "php bin/console config:reference framework", correct: false}
+    -
+        question: 'What is the easiest way to create a new HttpFoundation\Request?'
+        answers:
+            - {value: "$request = Request::createFromGlobals();", correct: true}
+            - {value: "$request = Request::create()", correct: false}
+            - {value: "$request = Request::fromGlobals()", correct: false}
+    #Event dispatcher and kernel events - https://symfony.com/doc/current/reference/events.html
+    -
+        question: 'What type of request do exist in Symfony?'
+        answers:
+            - {value: "Master requests", correct: true}
+            - {value: "Sub requests", correct: true}
+            - {value: "Final requests", correct: false}
+            - {value: "Partial requests", correct: false}
+            - {value: "Termination requests", correct: false}
+    -
+        question: 'True or False ? Each event dispatched by the HttpKernel component is a subclass of "KernelEvent"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Each event dispatched by the HttpKernel component is a subclass of "HttpKernelEvent"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which methods are available in a KernelEvent to get information about the request?'
+        answers:
+            - {value: "getRequestType()", correct: true}
+            - {value: "getKernel()", correct: true}
+            - {value: "getRequest()", correct: true}
+            - {value: "getPathInfo()", correct: false}
+            - {value: "getKernelInfo()", correct: false}
+            - {value: "getResponse()", correct: false}
+            - {value: "getMasterRequest()", correct: false}
+    -
+        question: 'When is the "kernel.request" event dispatched?'
+        answers:
+            - {value: "BEFORE the controller is determined", correct: true}
+            - {value: "AFTER the controller is determined", correct: false}
+    -
+        question: 'What is the correct command to check which listeners are registered for an event?'
+        answers:
+            - {value: "php bin/console debug:event-dispatcher kernel.request", correct: true}
+            - {value: "php bin/console event-dispatcher kernel.request", correct: false}
+            - {value: "php bin/console debug:events kernel.request", correct: false}
+            - {value: "php bin/console debug:event-listeners kernel.request", correct: false}
+    -
+        question: 'When is the "kernel.controller" event dispatched?'
+        answers:
+            - {value: "AFTER the controller has been resolved", correct: true}
+            - {value: "BEFORE the controller has been resolved", correct: false}
+    -
+        question: 'When is the "kernel.view" event dispatched?'
+        answers:
+            - {value: "AFTER the controller has been executed", correct: true}
+            - {value: "BEFORE the controller has been executed", correct: false}
+    -
+        question: 'If a controller returns a Response...'
+        answers:
+            - {value: "...the 'kernel.view' event is NOT dispatched", correct: true}
+            - {value: "...the 'kernel.response' event is dispatched", correct: true}
+            - {value: "...the 'kernel.response' event is NOT dispatched", correct: false}
+            - {value: "...the 'kernel.controller' event is NOT dispatched", correct: false}
+            - {value: "...the 'kernel.finish' event is dispatched", correct: false}
+    -
+        question: 'When is the "kernel.response" event dispatched?'
+        answers:
+            - {value: "AFTER the controller returns a response", correct: true}
+            - {value: "AFTER a 'kernel.view' listener returns a response", correct: true}
+            - {value: "BEFORE the controller returns a response", correct: false}
+            - {value: "BEFORE a 'kernel.view' listener returns a response", correct: false}
+    -
+        question: 'When is the "kernel.finish" event dispatched?'
+        answers:
+            - {value: "AFTER a sub request has been finished", correct: true}
+            - {value: "AFTER a master request has been finished ", correct: false}
+    -
+        question: 'When is the "kernel.terminate" event dispatched?'
+        answers:
+            - {value: "AFTER the response has been sent", correct: true}
+            - {value: "BEFORE the response has been sent", correct: false}
+    -
+        question: 'Which of the following statements is correct?'
+        answers:
+            - {value: "'kernel.terminate' is a PostResponseEvent", correct: trie}
+            - {value: "'kernel.terminate' is useful to perform slow or complex tasks", correct: true}
+            - {value: "'kernel.view' is fired BEFORE the 'kernel.response' event", correct: true}
+            - {value: "'kernel.finish' is a PostResponseEvent", correct: false}
+            - {value: "'kernel.finish' is useful to perform slow or complex tasks", correct: false}
+            - {value: "'kernel.postresponse' is useful to perform slow or complex tasks", correct: false}
+    -
+        question: 'True or False ? The "kernel.exception" event is useful to recover from errors or modify the exception details'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #Event dispatcher - https://symfony.com/doc/current/components/event_dispatcher.html#content_wrapper
+    -
+        question: 'True or False ? The EventDispatcher component provides tools for communication between your application components'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The EventDispatcher implements the Mediator pattern'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "Fals", correct: false}
+    -
+        question: 'True or False ? The Mediator pattern is a "behavioral pattern"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What does the EventDispatcher stand for regarding the Mediator pattern?'
+        answers:
+            - {value: "Encapsulation of object interactions", correct: true}
+            - {value: "Objects communicate true the EventDispatcher with each other", correct: true}
+            - {value: "Reduction of dependencies", correct: true}
+            - {value: "Objects communicate directly with each other and inform the EventDispatcher afterwards", correct: false}
+    -
+        question: 'According to the naming conventsions: Which of the following characters are allowed?'
+        answers:
+            - {value: "letters", correct: true}
+            - {value: "numbers", correct: true}
+            - {value: "dots", correct: true}
+            - {value: "underscores", correct: true}
+            - {value: "dashes", correct: false}
+            - {value: "question marks", correct: false}
+            - {value: "pipes", correct: false}
+    -
+        question: 'What is the correct syntax to create a new EventListener?'
+        answers:
+            - {value: "$dispatcher->addListener('acme.foo.action', array(new AcmeListener(), 'onFooAction'));", correct: true}
+            - {value: "$dispatcher->addListener(array(new AcmeListener(), 'onFooAction'), 'acme.foo.action');", correct: false}
+            - {value: "$dispatcher->addListener('acme.foo.action', new AcmeListener(), 'onFooAction');", correct: false}
+            - {value: "$dispatcher->addListener(new AcmeListener(), 'acme.foo.action', 'onFooAction');", correct: false}
+    -
+        question: 'True or False ? To be able to register listeners and subscribers you also have to add the "RegisterListenersPass" CompilerPass to the builder'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What is the difference between event subscriber and event listener?'
+        answers:
+            - {value: "The event subscriber knows which events he is attached to", correct: true}
+            - {value: "An event subscriber MUST implement the getSubscribedEvents() method", correct: true}
+            - {value: "An event listener MUST implement the getListenerEvents() method", correct: false}
+            - {value: "The event listener knows which events he is attached to", correct: false}
+    -
+        question: 'Despite the commonly used EventDispatcher, which other event dispatchers are available?'
+        answers:
+            - {value: "Container Aware Event Dispatcher", correct: true}
+            - {value: "Immutable Event Dispatcher", correct: true}
+            - {value: "Traceable Event Dispatcher", correct: true}
+            - {value: "Recursive Event Dispatcher", correct: false}
+            - {value: "Content Aware Event Dispatcher", correct: false}
+            - {value: "Mediator Aware Event Dispatcher", correct: false}
+    #Backward compatibility promise - http://symfony.com/doc/current/contributing/code/bc.html
+    -
+        question: 'True or False ? Symfony promises backward compatibility (BC) for all minor Symfony releases'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Symfony DOES use Semantic Versioning for its release management'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What does Semantic Versioning stand for?'
+        answers:
+            - {value: "Only major releases are allowed to break backward compatibility (BC)", correct: true}
+            - {value: "Minor releases may introduce new features", correct: true}
+            - {value: "Only minor releases are allowed to break backward compatibility (BC)", correct: false}
+            - {value: "Minor releases MUST NOT introduce new features", correct: false}
+    -
+        question: 'True or False ? backward compatibility breaks are tolerated if they are required to fix a security issue'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? backward compatibility breaks are NOT tolerated even if they are required to fix a security issue'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? If a method or interface is tagged with @internal, it should not be implemented or used'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'For which use cases backward compatibility (BC) is guaranteed for using Symfony interfaces?'
+        answers:
+            - {value: "Type hint against the interface", correct: true}
+            - {value: "Call a method", correct: true}
+            - {value: "If you implement the interface and Implement a method", correct: true}
+            - {value: "If you implement the interface add a default value to an argument", correct: true}
+            - {value: "If you implement the interface add an argument to an implemented method", correct: true}
+            - {value: "If you implement the interface and override a method", correct: false}
+    -
+        question: 'For which use cases backward compatibility (BC) is guaranteed for using Symfony classes?'
+        answers:
+            - {value: "Type hint against the class", correct: true}
+            - {value: "Create a new instance", correct: true}
+            - {value: "Extend the class", correct: true}
+            - {value: "Access a public property", correct: true}
+            - {value: "Call a public method", correct: true}
+            - {value: "Call a private method", correct: false}
+            - {value: "Access a private property", correct: false}
+    -
+        question: 'For which use cases backward compatibility (BC) is guaranteed for using Symfony classes if you extend them?'
+        answers:
+            - {value: "Access a protected property", correct: true}
+            - {value: "Call a protected method", correct: true}
+            - {value: "Override a public property", correct: true}
+            - {value: "Override a protected property", correct: true}
+            - {value: "Override a public method", correct: true}
+            - {value: "Override a protected method", correct: true}
+            - {value: "Add an argument to an overridden method", correct: true}
+            - {value: "Add a default value to an argument", correct: true}
+            - {value: "Access a private property", correct: false}
+            - {value: "Call a private method (via Reflection)", correct: false}
+            - {value: "Add a new method", correct: false}
+            - {value: "Add a new property", correct: false}
+    #Deprecations - http://symfony.com/doc/current/contributing/code/conventions.html#deprecations
+    -
+        question: 'True or False ? When a feature implementation cannot be changed because of backward compatibility issues we talk about deprecations'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The deprecation message should indicate the version when the class/method was deprecated'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The deprecation message should indicate the date when the class/method was deprecated'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? Use the @-silencing operator to trigger your deprecation messages via trigger_error'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What is the correct constant for deprecation errors?'
+        answers:
+            - {value: "E_USER_DEPRECATED", correct: true}
+            - {value: "E_USER_DEPRECATE", correct: false}
+            - {value: "E_USER_DEPRECATION", correct: false}
+            - {value: "E_DEPRECATE", correct: false}
+            - {value: "E_DEPRECATION", correct: false}
+            - {value: "E_DEPRECATED", correct: false}
