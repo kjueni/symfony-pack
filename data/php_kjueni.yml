@@ -1,0 +1,232 @@
+category: PHP (kjueni)
+questions:
+    #Object Oriented Programming -
+    -
+        question: 'If you execute the code "return new static;" inside a static method of class, will this line work?'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'If you execute the code "return new static();" inside a static method of class, will this line work?'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? It is possible to have a property and a method with the same name'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If a parent class declares itself final, it cannot be extended anymore'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If a parent class declares a method as final, this method cannot be extended anymore'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? If a parent class declares a method as final, all methods of this class cannot be extended anymore'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? It is possible to override constants in child classes'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? It is NOT possible to override constants in child classes'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? It is recommended to use "spl_autoload_register()" and not "__autoload()"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? It is recommended to use "__autoload()" and not "spl_autoload_register()"'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? In PHP 7 errors must now reported by trowing Error exceptions'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Multiple catch blocks can be used in a try/catch block'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Only one catch blocks can be used in a try/catch block'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? The finally block will always be executed after the try and catch blocks'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'Which of the following exceptions are predefined in PHP?'
+        answers:
+            - {value: "Exception", correct: true}
+            - {value: "ErrorException", correct: true}
+            - {value: "Error", correct: true}
+            - {value: "ArgumentCountError", correct: true}
+            - {value: "ArithmeticError", correct: true}
+            - {value: "AssertionError", correct: true}
+            - {value: "DivisionByZeroError", correct: true}
+            - {value: "ParseError", correct: true}
+            - {value: "TypeError", correct: true}
+            - {value: "ArgumentException", correct: false}
+            - {value: "RuntimeException", correct: false}
+            - {value: "ExceptionException", correct: false}
+    #Interfaces - http://php.net/manual/en/language.oop5.interfaces.php
+    -
+        question: 'Which of the following interfaces are predefined in PHP?'
+        answers:
+            - {value: "Traversable", correct: true}
+            - {value: "Iterator", correct: true}
+            - {value: "IteratorAggregate", correct: true}
+            - {value: "Throwable", correct: true}
+            - {value: "ArrayAccess", correct: true}
+            - {value: "Serializable", correct: true}
+            - {value: "Closure", correct: true}
+            - {value: "Generator", correct: true}
+            - {value: "Aggregate", correct: false}
+            - {value: "Error", correct: false}
+    -
+        question: 'Which statements regarding interfaces are correct?'
+        answers:
+            - {value: "All methods declared in an interface must be public", correct: true}
+            - {value: "It is possible to declare a constructor in an interface", correct: true}
+            - {value: "If not all declared methods of an interface are implemented a fatal error occurs", correct: true}
+            - {value: "An interface can have constants", correct: true}
+            - {value: "Constants of interfaces can be overriden", correct: false}
+            - {value: "Interfaces can NOT be extended", correct: false}
+            - {value: "All methods declared in an interface must be protected or public", correct: false}
+    -
+        question: 'True or False ? "instanceof" also works if the variable to check is a string with the class name e.g. "MyClass" and the instance is an instance of "MyClass"'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Testing constants with "instanceof" will result in a fatal error'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Type declarations were also known as type hints in PHP 5'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? By default, PHP will coerce values of the wrong type into the expected scalar type if possible'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? By default, PHP will NOT coerce values of the wrong type into the expected scalar type'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'What would be the correct syntax for a function to declare it accepts variable arguments?'
+        answers:
+            - {value: "function sum(...$numbers);", correct: true}
+            - {value: "function sum($_args);", correct: false}
+            - {value: "function sum('func_get_args');", correct: false}
+            - {value: "function sum(func_get_args());", correct: false}
+    -
+        question: 'Which of the following types can be casted?'
+        answers:
+            - {value: "self", correct: false}
+            - {value: "array", correct: false}
+            - {value: "callable", correct: false}
+            - {value: "bool", correct: false}
+            - {value: "float", correct: false}
+            - {value: "int", correct: false}
+            - {value: "string", correct: false}
+            - {value: "iterable", correct: false}
+            - {value: "countable", correct: false}
+            - {value: "closure", correct: false}
+            - {value: "class", correct: false}
+    #Anonymous functions and closures - http://php.net/manual/en/functions.anonymous.php
+    -
+        question: 'Which statements regarding closures are correct?'
+        answers:
+            - {value: "Variables from the parent scope must be passed to the use language construct", correct: true}
+            - {value: "From PHP 7.1 superglobals and $this cannot be passed to the use construct", correct: true}
+            - {value: "If a variable is passed to the use construct, it will simply be copied from the original value", correct: true}
+            - {value: "In PHP, a closure is a callable class, to which you've bound your parameters manually", correct: true}
+            - {value: "A closure encapsulates its scope", correct: true}
+            - {value: "A closure does not encapsulates its scope", correct: false}
+            - {value: "If a variable passed to the use construct as a reference '&$variable' its value will not be changed outside of the function scope", correct: false}
+    -
+        question: 'Which method(s) can be used to apply a callback function to each element of an array?'
+        answers:
+            - {value: "array_walk()", correct: true}
+            - {value: "array_walk_recursive()", correct: true}
+            - {value: "array_map()", correct: true}
+            - {value: "array_callback()", correct: false}
+            - {value: "array_apply()", correct: false}
+    #Abstract classes - http://php.net/manual/en/language.oop5.abstract.php
+    -
+        question: 'Which statements regarding abstract classes is correct?'
+        answers:
+            - {value: "Classes defined as abstract cannot be instantiated", correct: true}
+            - {value: "Any class that contains at least one abstract method must also be abstract", correct: true}
+            - {value: "If an abstract method is defined as protected, the function implementation must be defined as either protected or public", correct: true}
+            - {value: "The type hints and the number of required arguments in abstract class and its implementation must be the same", correct: true}
+            - {value: "An Abstract Class is like a partially built class", correct: true}
+            - {value: "Static methods of an abstract class can NOT be called", correct: false}
+            - {value: "Abstract classes cannot be extended", correct: false}
+            - {value: "If an abstract method is defined as protected, the function implementation must be defined as protected as well", correct: false}
+    #Traits - http://php.net/manual/en/language.oop5.traits.php
+    -
+        question: 'Which of the following statements regarding traits is correct?'
+        answers:
+            - {value: "Traits are an addition to traditional inheritance", correct: true}
+            - {value: "Methods from the current class override Trait methods", correct: true}
+            - {value: "If conflicting methods exist, via 'insteadof' can be decided which of the methods should be imported", correct: true}
+            - {value: "Traits can define properties", correct: true}
+            - {value: "Traits do NOT support the use of abstract methods", correct: false}
+            - {value: "Traits can NOT have static methods", correct: false}
+            - {value: "A trait can NOT use other traits", correct: false}
+    -
+        question: 'Which of the following statements regarding traits is correct?'
+        answers:
+            - {value: "It is not possible to instantiate a Trait on its own", correct: true}
+            - {value: "Methods from the current class override Trait methods", correct: true}
+            - {value: "If two Traits insert a method with the same name, a fatal error is produced", correct: true}
+            - {value: "Traits can define properties", correct: true}
+            - {value: "Traits do NOT support the use of abstract methods", correct: false}
+            - {value: "Traits can NOT have static methods", correct: false}
+            - {value: "Methods from a inherited class override Trait methods", correct: false}
+            - {value: "Traits can be extended with the 'extend' keyword", correct: false}
+    -
+        question: 'Which of the following syntaxes regarding traits is correct?'
+        answers:
+            - {value: "use Hello { sayHello as private privateHello; }", correct: true}
+            - {value: "use Hello { sayHello as privateHello; }", correct: true}
+            - {value: "use Hello { sayHello as private; }", correct: true}
+            - {value: "use Hello { sayHello as sayHello private; }", correct: false}
+            - {value: "use Hello sayHello as private privateHello; ", correct: false}
+    #Web security (XSS, CSRF, etc.) - http://www.phptherightway.com/#security
+    -
+        question: 'Which method can be used in PHP to hash passwords?'
+        answers:
+            - {value: "password_hash()", correct: true}
+            - {value: "hash_password()", correct: false}
+            - {value: "hash_pwd()", correct: false}
+            - {value: "Hash::password()", correct: false}
+    -
+        question: 'True or False ? Sanitize all user-generated data before outputting it to your page to prevent Cross-Site Scripting (XSS)'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
