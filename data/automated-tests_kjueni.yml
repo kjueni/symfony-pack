@@ -241,123 +241,235 @@ questions:
             - {value: "getCookie()", correct: false}
     #Crawler object - http://symfony.com/doc/current/testing.html#the-crawler
     -
-        question: ''
+        question: 'What would be the correct filter to get all inputs with the crawler?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "$newCrawler = $crawler->filter('input[type=submit]');", correct: true}
+            - {value: "$newCrawler = $crawler->filter('input[submit]');", correct: false}
+            - {value: "$newCrawler = $crawler->filter('input(type=submit)');", correct: false}
+            - {value: "$newCrawler = $crawler->filter('input[`type=submit`]');", correct: false}
     -
-        question: ''
+        question: 'Which of the following methods to exist for the crawler?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "filterXpath", correct: true}
+            - {value: "eq", correct: true}
+            - {value: "first", correct: true}
+            - {value: "parents", correct: true}
+            - {value: "children", correct: true}
+            - {value: "reduce($pattern)", correct: false}
+            - {value: "next", correct: false}
+            - {value: "previous", correct: false}
+            - {value: "all", correct: false}
     -
-        question: ''
+        question: 'Which of the following methods to exist for the crawler?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "filter", correct: true}
+            - {value: "first", correct: true}
+            - {value: "last", correct: true}
+            - {value: "siblings", correct: true}
+            - {value: "nextAll", correct: true}
+            - {value: "previousAll", correct: true}
+            - {value: "parents", correct: true}
+            - {value: "children", correct: true}
+            - {value: "reduce(function(){})", correct: true}
+            - {value: "next", correct: false}
+            - {value: "previous", correct: false}
+            - {value: "all", correct: false}
     -
-        question: ''
+        question: 'Which of the following methods to exist for the crawler?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "filter", correct: true}
+            - {value: "filterXpath", correct: true}
+            - {value: "first", correct: true}
+            - {value: "last", correct: true}
+            - {value: "previousAll", correct: true}
+            - {value: "parents", correct: true}
+            - {value: "reduce(function(){})", correct: true}
+            - {value: "resolve", correct: false}
+            - {value: "reduce($pattern)", correct: false}
+            - {value: "next", correct: false}
+            - {value: "previous", correct: false}
+            - {value: "all", correct: false}
     -
-        question: ''
+        question: 'True or False ? Use the count($crawler) function to get the number of nodes stored in a Crawler'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
     -
-        question: ''
+        question: 'What would be the right syntax to get an attribute of a node with the Crawler?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "$crawler->attr('class');", correct: true}
+            - {value: "$crawler->attribute('class');", correct: false}
+            - {value: "$crawler->getAttribute('class');", correct: false}
     -
-        question: ''
+        question: 'What would be the right syntax to get an array with node-value and href?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "$info = $crawler->extract(array('_text', 'href'));", correct: true}
+            - {value: "$info = $crawler->extract(array('text', 'href'));", correct: false}
+            - {value: "$info = $crawler->extract(array('value', 'href'));", correct: false}
+            - {value: "$info = $crawler->extract('_text', 'href');", correct: false}
+            - {value: "$info = $crawler->extract('text', 'href');", correct: false}
+            - {value: "$info = $crawler->extract('value', 'href');", correct: false}
     -
-        question: ''
+        question: 'What would be the right syntax to directly submit a form with an array of overrides?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "$client->submit($form, array('name' => 'Fabien'));", correct: true}
+            - {value: "$client->submit(array('name' => 'Fabien'), $form);", correct: false}
+            - {value: "$client->submitForm($form, array('name' => 'Fabien'));", correct: false}
+            - {value: "$client->submitForm(array('name' => 'Fabien'), $form);", correct: false}
+            - {value: "$crawler->submit($form, array('name' => 'Fabien'));", correct: false}
     -
-        question: ''
+        question: 'What would be the correct method to tick a checkbox?'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "$form['my_checkbox']->tick();", correct: true}
+            - {value: "$form['my_checkbox']->setChecked();", correct: false}
+            - {value: "$form['my_checkbox']->setChecked(true);", correct: false}
+            - {value: "$form['my_checkbox']->setTicked();", correct: false}
+            - {value: "$form['my_checkbox']->checks();", correct: false}
     -
-        question: ''
+        question: 'True or False ? If you use a Collection of Forms, you can`t add fields to an existing form'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #Profile object - http://symfony.com/doc/current/testing/profiling.html
     -
-        question: ''
+        question: 'True or False ? To be able to use the profiler in tests, you need to enable it for the whole application in the configs/framework.yaml:framework.profiler section'
         answers:
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
-            - {value: "", correct: false}
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'True or False ? You can enable the profiler in each test manually with $client->enableProfiler()'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'How to get the Profiler instance via the HTTP-Client?'
+        answers:
+            - {value: "$client->getProfile()", correct: true}
+            - {value: "$client->getProfiler()", correct: false}
+            - {value: "$client->initProfiler()", correct: false}
+            - {value: "$client->enableProfiler()", correct: false}
+    -
+        question: 'What would be the correct syntax to get the query count for the current request?'
+        answers:
+            - {value: "$profile->getCollector('db')->getQueryCount();", correct: true}
+            - {value: "$client->getProfile()->getCollector('db')->getQueryCount()", correct: true}
+            - {value: "$profile->getCollection('db')->getCount();", correct: false}
+            - {value: "$profile->getCollector('doctrine')->getCount();", correct: false}
+            - {value: "$profile->getCollection('db')->getQueryCount();", correct: false}
+    #Framework objects access - http://symfony.com/doc/current/testing.html#accessing-the-container
+    -
+        question: 'What would be the correct syntax to get the Dependency Injection Container in your test?'
+        answers:
+            - {value: "$container = $client->getContainer();", correct: true}
+            - {value: "$container = $this->getContainer();", correct: false}
+            - {value: "$container = $client->getDependencyInjectionContainer();", correct: false}
+            - {value: "$container = $this->getDependencyInjectionContainer();", correct: false}
+    -
+        question: 'True or False ? It`s highly recommended that a functional test only tests the response'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    #Client configuration - http://symfony.com/doc/current/testing.html#testing-configuration
+    -
+        question: 'True or False ? You can tweak your application settings for test by putting specific configuration files to config/packages/test/*.yaml'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'What would be the right syntax to override config settings directly in your test?'
+        answers:
+            - {value: "$client = static::createClient(array('environment' => 'my_test_env', 'debug'=> false,));", correct: true}
+            - {value: "$client = new TestClient(array('environment' => 'my_test_env', 'debug'=> false,));", correct: false}
+            - {value: "$client = this->createClient(array('environment' => 'my_test_env', 'debug'=> false,));", correct: false}
+    -
+        question: 'What can you pass as second argument to the "static::createClient()" method in your test?'
+        answers:
+            - {value: "HTTP headers", correct: true}
+            - {value: "Config overrides", correct: false}
+    -
+        question: 'What can you pass as first argument to the "static::createClient()" method in your test?'
+        answers:
+            - {value: "Config overrides", correct: true}
+            - {value: "HTTP headers", correct: false}
+    -
+        question: 'Under which node would you list your directories to exclude in your phpunit.xml'
+        answers:
+            - {value: "phpunit/filter/whitelist/exclude", correct: true}
+            - {value: "phpunit/whitelist/exclude", correct: false}
+            - {value: "phpunit/whitelist/filter//exclude", correct: false}
+            - {value: "phpunit/blacklist/exclude", correct: false}
+    -
+        question: 'Under which node would you list your test-suites nodes in your phpunit.xml'
+        answers:
+            - {value: "phpunit/testsuites", correct: true}
+            - {value: "testsuites", correct: false}
+            - {value: "phpunit/tests/testsuites", correct: false}
+    -
+        question: 'True or False ? Store the phpunit.xml.dist file in your code repository and ignore the phpunit.xml file'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? Store the phpunit.xml file in your code repository and ignore the phpunit.xml.dist file'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    #Request and response objects introspection - http://symfony.com/doc/current/testing.html#accessing-internal-objects
+    -
+        question: 'What would be the correct syntax to get the BrowserKit request instance in your test?'
+        answers:
+            - {value: "$request = $client->getInternalRequest();", correct: true}
+            - {value: "$request = $client->getRequest();", correct: false}
+            - {value: "$request = $client->getTestRequest();", correct: false}
+            - {value: "$request = $client->getBrowserKitRequest();", correct: false}
+    -
+        question: 'What would be the correct syntax to get the BrowserKit response instance in your test?'
+        answers:
+            - {value: "$response = $client->getInternalResponse();", correct: true}
+            - {value: "$response = $client->getResponse();", correct: false}
+            - {value: "$response = $client->getTestResponse();", correct: false}
+            - {value: "$response = $client->getBrowserKitResponse();", correct: false}
+    #PHPUnit bridge - https://symfony.com/doc/current/components/phpunit_bridge.html
+    -
+        question: 'True or False ? The PHPUnit Bridge provides utilities to report legacy tests and usage of deprecated code and a helper for time-sensitive tests'
+        answers:
+            - {value: "True", correct: true}
+            - {value: "False", correct: false}
+    -
+        question: 'True or False ? The PHPUnit Bridge provides a standard bridge to PHPUnit via Symfony'
+        answers:
+            - {value: "False", correct: true}
+            - {value: "True", correct: false}
+    -
+        question: 'Which of the following features does the PHPUnit Bridget provide?'
+        answers:
+            - {value: "Forces the tests to use a consistent locale (C)", correct: true}
+            - {value: "Auto-register class_exists to load Doctrine annotations (when used)", correct: true}
+            - {value: "It displays the whole list of deprecated features used in the application", correct: true}
+            - {value: "Displays the stack trace of a deprecation on-demand", correct: true}
+            - {value: "Provides a ClockMock and DnsMock helper classes for time or network-sensitive tests", correct: true}
+            - {value: "Provides a modified version of PHPUnit to prevent conflicts with dependencies", correct: true}
+            - {value: "It displays the whole list of missing features used in the application", correct: false}
+            - {value: "Displays the stack trace of a exception on-demand", correct: false}
+            - {value: "Provides a unmodified version of PHPUnit to prevent conflicts with dependencies", correct: false}
+    -
+        question: 'How can a deprecation notice be triggered?'
+        answers:
+            - {value: "@trigger_error('Your deprecation message', E_USER_DEPRECATED);", correct: true}
+            - {value: "@trigger_error(E_USER_DEPRECATED, 'Your deprecation message');", correct: false}
+            - {value: "@trigger(E_USER_DEPRECATED, 'Your deprecation message');", correct: false}
+            - {value: "@trigger(E_USER_DEPRECATED, 'Your deprecation message');", correct: false}
+    -
+        question: 'Which of the followings statements are valid to mark a test as legacy?'
+        answers:
+            - {value: "Add @group legacy annotation to its class or method", correct: true}
+            - {value: "Make its class name start with the Legacy prefix", correct: true}
+            - {value: "Make its method name start with testLegacy*() instead of test*()", correct: true}
+            - {value: "Make its class name end with the Legacy suffix", correct: false}
+            - {value: "Make its method name end with *testLegacy() instead of *test()", correct: false}
+    -
+        question: 'If you need to inspect the strack trace of a particular deprecation you can...'
+        answers:
+            - {value: "Set the SYMFONY_DEPRECATIONS_HELPER environment variable to a regular expression that matches this deprecation's message, enclosed by /message/", correct: true}
+            - {value: "Set the SYMFONY_DEPRECATION_HELPER environment variable to a regular expression that matches this deprecation's message, enclosed by /message/", correct: false}
+            - {value: "Set the DEPRECATIONS_HELPER environment variable to a regular expression that matches this deprecation's message, enclosed by /message/", correct: false}
